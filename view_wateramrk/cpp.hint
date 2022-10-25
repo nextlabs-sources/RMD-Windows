@@ -1,0 +1,2 @@
+#define VIEWWATERAMRK_API __declspec(dllexport)
+#define VIEWWATERAMRK_API __declspec(dllimport)

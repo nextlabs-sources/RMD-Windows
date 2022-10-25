@@ -1,0 +1,51 @@
+﻿<Page x:Class="Viewer.upgrade.ui.common.imagePage.view.ImagePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      Loaded="Page_Loaded"
+      >
+
+    <Grid Name="Host" 
+          VerticalAlignment="Stretch"
+          HorizontalAlignment="Stretch"
+          Background="WhiteSmoke"
+          MouseWheel="Host_MouseWheel">
+
+        <Border x:Name="Border" ClipToBounds="True">
+            <Image x:Name="Image" Stretch="Uniform" 
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+              
+               MouseLeftButtonDown="Image_MouseLeftButtonDown"
+               MouseMove="Image_MouseMove"
+               MouseLeftButtonUp="Image_MouseLeftButtonUp"
+               >
+
+                <Image.RenderTransform>
+                    <TransformGroup >
+                        <TranslateTransform/>
+                        <ScaleTransform />
+                        <RotateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            
+                <Image.RenderTransformOrigin>
+                    <Point X="0.5" Y="0.5" ></Point>
+                </Image.RenderTransformOrigin>
+
+                <Image.LayoutTransform>
+                    <TransformGroup>
+                        <TranslateTransform/>
+                        <ScaleTransform/>
+                        <RotateTransform/>
+                    </TransformGroup>
+                </Image.LayoutTransform>
+
+        </Image>
+        </Border>
+
+    </Grid>
+    
+</Page>

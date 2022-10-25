@@ -1,0 +1,46 @@
+Show CreateFile UI to convert a plain file to nxl file format:
+- Protect
+	-To central or local
+- share 
+	- only for myvault
+	- support inside/outside
+
+- 2 type localion
+	- to rms
+		- no system-default-project
+		- user can seleclt MyVault and other projects
+	- to local 
+		- if rms has system-default-project, must and only can use it.
+		- if not, user can select other projects.
+
+- 2 type rights
+	- Adhoc
+		- myVault and myProject, systemProject have this
+		- isEnalbedAdhoc by ProjectInfo
+	- CentralPolicy
+		- myProject and systemProject have this
+		
+- UI pages internal components
+	- File Location
+		-Centrol Localtion
+		- Local Drive
+	- File Rights
+		- Adhoc righst selection
+		- Centrol policy selection
+
+---------------------------------
+Behaviors:
+- From MainWin
+	- defualt Path: determined by cur-selctect repo 
+
+- From Plug-in
+	- default path: restor history in MainWin seled-repo .
+
+- Rights selection Restore
+	- TBD （to be determined） 
+
+- nxl file token is managed by different project
+	- user need to select which proejct he wants
+	- if RMS got system proejct, code must choose it as default one, and denied user to select other projects than system-defualt-project
+
+

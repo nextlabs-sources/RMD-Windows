@@ -1,0 +1,6 @@
+//
+// Second Release:
+//
+
+- each time register/unregister the nxrmshell.dll Windows desktop may has a short time falshing.
+	this is because it internally called ::SHChangeNotify(SHCNE_ASSOCCHANGED, SHCNF_IDLIST, NULL, NULL);

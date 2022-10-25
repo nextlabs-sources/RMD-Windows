@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?><toc xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:toc="http://www.oxygenxml.com/ns/webhelp/toc" xmlns="http://www.oxygenxml.com/ns/webhelp/toc">
+   <title><span xmlns="http://www.w3.org/1999/xhtml" class="booktitle">  <span class="ph mainbooktitle">SkyDRM Desktop for Windows</span>  <span class="ph booktitlealt">Quick Start Guide</span>  </span></title>
+   <topic href="oxy_ex-3/10_9/DITA/SkyDRM-C/what_is_skydrm_.html" data-id="what_is_skydrm_" wh-toc-id="what_is_skydrm_-d66e21">
+      <title>What is SkyDRM?</title>
+      <shortdesc>
+         <p xmlns="http://www.w3.org/1999/xhtml" class="shortdesc">SkyDRM is a cloud-based service that prevents unauthorized access to         files.</p>
+      </shortdesc>
+      <topicmeta>
+         <resourceid class="- topic/resourceid " oxy-source="topic" appid="what_is_skydrm_"></resourceid>
+         <navtitle class="- topic/navtitle ">What is SkyDRM?</navtitle><?ditaot gentext?>
+         <linktext class="- map/linktext ">What is SkyDRM?</linktext><?ditaot genshortdesc?>
+         <shortdesc class="- map/shortdesc ">SkyDRM is a cloud-based service that prevents unauthorized access to         files.</shortdesc>
+      </topicmeta>
+      <topic href="oxy_ex-3/10_9/DITA/reuse/supported_file_formats.html" data-id="reference_ttt_hnb_p2b" wh-toc-id="reference_ttt_hnb_p2b-d66e32">
+         <title>Supported file formats</title>
+         <shortdesc>
+            <p xmlns="http://www.w3.org/1999/xhtml" class="shortdesc"></p>
+         </shortdesc>
+         <topicmeta>
+            <resourceid class="- topic/resourceid " oxy-source="topic" appid="reference_ttt_hnb_p2b"></resourceid>
+            <navtitle class="- topic/navtitle ">Supported file formats</navtitle><?ditaot gentext?>
+            <linktext class="- map/linktext ">Supported file formats</linktext><?ditaot genshortdesc?>
+            <shortdesc class="- map/shortdesc "></shortdesc>
+         </topicmeta>
+      </topic>
+      <topic href="reqs_prod_comp.html" data-id="reference_fry_hmt_xfb" wh-toc-id="reference_fry_hmt_xfb-d66e42">
+         <title>Requirements and product compatibility</title>
+         <topicmeta>
+            <resourceid class="- topic/resourceid " oxy-source="topic" appid="reference_fry_hmt_xfb"></resourceid>
+            <navtitle class="- topic/navtitle ">Requirements and product compatibility</navtitle><?ditaot gentext?>
+            <linktext class="- map/linktext ">Requirements and product compatibility</linktext>
+         </topicmeta>
+      </topic>
+      <topic href="oxy_ex-3/10_9/DITA/reuse/skydrm_concepts.html" data-id="skydrm_concepts" wh-toc-id="skydrm_concepts-d66e50">
+         <title>SkyDRM concepts</title>
+         <shortdesc>
+            <p xmlns="http://www.w3.org/1999/xhtml" class="shortdesc">This section describes the SkyDRM-specific terminology and components, and the         relationships between the components
+               of SkyDRM.
+            </p>
+         </shortdesc>
+         <topicmeta>
+            <resourceid class="- topic/resourceid " oxy-source="topic" appid="skydrm_concepts"></resourceid>
+            <navtitle class="- topic/navtitle ">SkyDRM concepts</navtitle><?ditaot gentext?>
+            <linktext class="- map/linktext ">SkyDRM concepts</linktext><?ditaot genshortdesc?>
+            <shortdesc class="- map/shortdesc ">This section describes the SkyDRM-specific terminology and components, and the         relationships between the components
+               of SkyDRM.
+            </shortdesc>
+         </topicmeta>
+      </topic>
+   </topic>
+   <topic href="oxy_ex-3/10_9/DITA/SkyDRM-C/using_skydrm.html" data-id="using_skydrm" wh-toc-id="using_skydrm-d66e62">
+      <title>Using SkyDRM</title>
+      <shortdesc>
+         <p xmlns="http://www.w3.org/1999/xhtml" class="shortdesc">With SkyDRM, you can apply rights protection to a file, and share the         rights-protected file. </p>
+      </shortdesc>
+      <topicmeta>
+         <resourceid class="- topic/resourceid " oxy-source="topic" appid="using_skydrm"></resourceid>
+         <navtitle class="- topic/navtitle ">Using SkyDRM</navtitle><?ditaot gentext?>
+         <linktext class="- map/linktext ">Using SkyDRM</linktext><?ditaot genshortdesc?>
+         <shortdesc class="- map/shortdesc ">With SkyDRM, you can apply rights protection to a file, and share the         rights-protected file. </shortdesc>
+      </topicmeta>
+      <topic href="oxy_ex-3/10_9/DITA/SkyDRM-C/creating_skydrm_account_mobile.html" data-id="untitled5" wh-toc-id="untitled5-d66e73">
+         <title>Creating a SkyDRM account</title>
+         <shortdesc>
+            <p xmlns="http://www.w3.org/1999/xhtml" class="shortdesc">You can create a SkyDRM account on the SkyDRM app provided by your organization. You         should only create an account
+               if your enterprise instructs you to. 
+            </p>
+         </shortdesc>
+         <topicmeta>
+            <resourceid class="- topic/resourceid " oxy-source="topic" appid="untitled5"></resourceid>
+            <navtitle class="- topic/navtitle ">Creating a SkyDRM account</navtitle><?ditaot gentext?>
+            <linktext class="- map/linktext ">Creating a SkyDRM account</linktext><?ditaot genshortdesc?>
+            <shortdesc class="- map/shortdesc ">You can create a SkyDRM account on the SkyDRM app provided by your organization. You         should only create an account
+               if your enterprise instructs you to. 
+            </shortdesc>
+         </topicmeta>
+      </topic>
+      <topic href="oxy_ex-3/10_9/DITA/SkyDRM-C/logging_in_to_skydrm.html" data-id="untitled7" wh-toc-id="untitled7-d66e84">
+         <title>Logging in to SkyDRM</title>
+         <shortdesc>
+            <p xmlns="http://www.w3.org/1999/xhtml" class="shortdesc">You can log in to SkyDRM using your NextLabs SkyDRM, enterprise credentials, or         social account credentials.</p>
+         </shortdesc>
+         <topicmeta>
+            <resourceid class="- topic/resourceid " oxy-source="topic" appid="untitled7"></resourceid>
+            <navtitle class="- topic/navtitle ">Logging in to SkyDRM</navtitle><?ditaot gentext?>
+            <linktext class="- map/linktext ">Logging in to SkyDRM</linktext><?ditaot genshortdesc?>
+            <shortdesc class="- map/shortdesc ">You can log in to SkyDRM using your NextLabs SkyDRM, enterprise credentials, or         social account credentials.</shortdesc>
+         </topicmeta>
+      </topic>
+      <topic href="oxy_ex-3/10_9/DITA/SkyDRM-C/configuring_rights_preferences.html" data-id="untitled8" wh-toc-id="untitled8-d66e95">
+         <title>Configuring digital rights preferences</title>
+         <shortdesc>
+            <p xmlns="http://www.w3.org/1999/xhtml" class="shortdesc">You can configure digital rights preferences settings to prevent recipients from         misusing your sensitive files. </p>
+         </shortdesc>
+         <topicmeta>
+            <resourceid class="- topic/resourceid " oxy-source="topic" appid="untitled8"></resourceid>
+            <navtitle class="- topic/navtitle ">Configuring digital rights preferences</navtitle><?ditaot gentext?>
+            <linktext class="- map/linktext ">Configuring digital rights preferences</linktext><?ditaot genshortdesc?>
+            <shortdesc class="- map/shortdesc ">You can configure digital rights preferences settings to prevent recipients from         misusing your sensitive files. </shortdesc>
+         </topicmeta>
+      </topic>
+      <topic href="oxy_ex-3/10_9/DITA/SkyDRM-C/applying_rights_protection_to_a_file.html" data-id="applying_rights_protection_to_a_file" wh-toc-id="applying_rights_protection_to_a_file-d66e106">
+         <title>Applying rights protection to a file</title>
+         <shortdesc>
+            <p xmlns="http://www.w3.org/1999/xhtml" class="shortdesc">You can apply rights protection to files on your local or         network drive. You can also protect files in external repositories,
+               Workspace, and project,         which by default remain in their original locations after applying rights protection. 
+            </p>
+         </shortdesc>
+         <topicmeta>
+            <resourceid class="- topic/resourceid " oxy-source="topic" appid="applying_rights_protection_to_a_file"></resourceid>
+            <navtitle class="- topic/navtitle ">Applying rights protection to a file</navtitle><?ditaot gentext?>
+            <linktext class="- map/linktext ">Applying rights protection to a file</linktext><?ditaot genshortdesc?>
+            <shortdesc class="- map/shortdesc ">You can apply rights protection to files on your local or         network drive. You can also protect files in external repositories,
+               Workspace, and project,         which by default remain in their original locations after applying rights protection. 
+            </shortdesc>
+         </topicmeta>
+      </topic>
+      <topic href="oxy_ex-3/10_9/DITA/SkyDRM-C/applying_rights_protection_to_a_file_in_local.html" data-id="task_krg_c2x_pgb" wh-toc-id="task_krg_c2x_pgb-d66e117">
+         <title>Applying rights protection to a file in your local drive</title>
+         <topicmeta>
+            <resourceid class="- topic/resourceid " oxy-source="topic" appid="task_krg_c2x_pgb"></resourceid>
+            <navtitle class="- topic/navtitle ">Applying rights protection to a file in your local drive</navtitle><?ditaot gentext?>
+            <linktext class="- map/linktext ">Applying rights protection to a file in your local drive</linktext>
+         </topicmeta>
+      </topic>
+      <topic href="oxy_ex-3/10_9/DITA/SkyDRM-C/applying_company-defined_rights_win.html" data-id="task_w4l_sfy_s2b" wh-toc-id="task_w4l_sfy_s2b-d66e125">
+         <title>Applying company-defined rights protection</title>
+         <shortdesc>
+            <p xmlns="http://www.w3.org/1999/xhtml" class="shortdesc">In a SkyDRM project, you can either apply your own customized rights protection, also         known as ad-hoc rights, or company-defined
+               rights. 
+            </p>
+         </shortdesc>
+         <topicmeta>
+            <resourceid class="- topic/resourceid " oxy-source="topic" appid="task_w4l_sfy_s2b"></resourceid>
+            <navtitle class="- topic/navtitle ">Applying company-defined rights protection</navtitle><?ditaot gentext?>
+            <linktext class="- map/linktext ">Applying company-defined rights protection</linktext><?ditaot genshortdesc?>
+            <shortdesc class="- map/shortdesc ">In a SkyDRM project, you can either apply your own customized rights protection, also         known as ad-hoc rights, or company-defined
+               rights. 
+            </shortdesc>
+         </topicmeta>
+      </topic>
+      <topic href="oxy_ex-3/10_9/DITA/SkyDRM-C/sharing_a_rights_protected_file_web_win.html" data-id="sharing_a_rights_protected_file" wh-toc-id="sharing_a_rights_protected_file-d66e136">
+         <title>Protecting and sharing a file</title>
+         <shortdesc>
+            <p xmlns="http://www.w3.org/1999/xhtml" class="shortdesc">You can share a rights-protected file from your local or         network drive to         MyVault.</p>
+         </shortdesc>
+         <topicmeta>
+            <resourceid class="- topic/resourceid " oxy-source="topic" appid="sharing_a_rights_protected_file"></resourceid>
+            <navtitle class="- topic/navtitle ">Protecting and sharing a file</navtitle><?ditaot gentext?>
+            <linktext class="- map/linktext ">Protecting and sharing a file</linktext><?ditaot genshortdesc?>
+            <shortdesc class="- map/shortdesc ">You can share a rights-protected file from your local or         network drive to         MyVault.</shortdesc>
+         </topicmeta>
+      </topic>
+      <topic href="oxy_ex-3/10_9/DITA/SkyDRM-C/making_file_offline.html" data-id="task_xpk_kk4_4fb" wh-toc-id="task_xpk_kk4_4fb-d66e147">
+         <title>Making a file available for offline viewing</title>
+         <topicmeta>
+            <resourceid class="- topic/resourceid " oxy-source="topic" appid="task_xpk_kk4_4fb"></resourceid>
+            <navtitle class="- topic/navtitle ">Making a file available for offline viewing</navtitle><?ditaot gentext?>
+            <linktext class="- map/linktext ">Making a file available for offline viewing</linktext>
+         </topicmeta>
+         <topic href="oxy_ex-3/10_9/DITA/SkyDRM-C/viewing_offline.html" data-id="task_ujh_mk4_4fb" wh-toc-id="task_ujh_mk4_4fb-d66e155">
+            <title>Viewing a file when offline</title>
+            <topicmeta>
+               <resourceid class="- topic/resourceid " oxy-source="topic" appid="task_ujh_mk4_4fb"></resourceid>
+               <navtitle class="- topic/navtitle ">Viewing a file when offline</navtitle><?ditaot gentext?>
+               <linktext class="- map/linktext ">Viewing a file when offline</linktext>
+            </topicmeta>
+         </topic>
+         <topic href="oxy_ex-3/10_9/DITA/SkyDRM-C/making_offline_online.html" data-id="task_nx3_r51_pfb" wh-toc-id="task_nx3_r51_pfb-d66e163">
+            <title>Making a file unavailable offline</title>
+            <topicmeta>
+               <resourceid class="- topic/resourceid " oxy-source="topic" appid="task_nx3_r51_pfb"></resourceid>
+               <navtitle class="- topic/navtitle ">Making a file unavailable offline</navtitle><?ditaot gentext?>
+               <linktext class="- map/linktext ">Making a file unavailable offline</linktext>
+            </topicmeta>
+         </topic>
+         <topic href="oxy_ex-3/10_2/DITA/SkyDRM-C/editing_offline_file.html" data-id="task_j2q_ytx_3hb" wh-toc-id="task_j2q_ytx_3hb-d66e171">
+            <title>Editing an offline file</title>
+            <topicmeta>
+               <resourceid class="- topic/resourceid " oxy-source="topic" appid="task_j2q_ytx_3hb"></resourceid>
+               <navtitle class="- topic/navtitle ">Editing an offline file</navtitle><?ditaot gentext?>
+               <linktext class="- map/linktext ">Editing an offline file</linktext>
+            </topicmeta>
+         </topic>
+      </topic>
+      <topic href="oxy_ex-3/10_2/DITA/SkyDRM-C/extracting_file_content.html" data-id="task_my4_qwx_3hb" wh-toc-id="task_my4_qwx_3hb-d66e179">
+         <title>Extracting file content</title>
+         <topicmeta>
+            <resourceid class="- topic/resourceid " oxy-source="topic" appid="task_my4_qwx_3hb"></resourceid>
+            <navtitle class="- topic/navtitle ">Extracting file content</navtitle><?ditaot gentext?>
+            <linktext class="- map/linktext ">Extracting file content</linktext>
+         </topicmeta>
+      </topic>
+      <topic href="oxy_ex-3/10_9/DITA/SkyDRM-C/saving_file_to_local_drive.html" data-id="task_y3c_3m4_tgb" wh-toc-id="task_y3c_3m4_tgb-d66e187">
+         <title>Saving a rights-protected file to your local drive </title>
+         <topicmeta>
+            <resourceid class="- topic/resourceid " oxy-source="topic" appid="task_y3c_3m4_tgb"></resourceid>
+            <navtitle class="- topic/navtitle ">Saving a rights-protected file to your local drive </navtitle><?ditaot gentext?>
+            <linktext class="- map/linktext ">Saving a rights-protected file to your local drive</linktext>
+         </topicmeta>
+      </topic>
+      <topic href="oxy_ex-3/10_9/DITA/SkyDRM-C/applying_rights_protection_while_saving_a_file.html" data-id="applying_rights_protection_while_saving_a_file" wh-toc-id="applying_rights_protection_while_saving_a_file-d66e196">
+         <title>Applying rights protection while saving a Microsoft Office file</title>
+         <topicmeta>
+            <resourceid class="- topic/resourceid " oxy-source="topic" appid="applying_rights_protection_while_saving_a_file"></resourceid>
+            <navtitle class="- topic/navtitle ">Applying rights protection while saving a Microsoft Office file</navtitle><?ditaot gentext?>
+            <linktext class="- map/linktext ">Applying rights protection while saving a Microsoft Office file</linktext>
+         </topicmeta>
+      </topic>
+      <topic href="adding_nxl_file_to_project.html" data-id="task_qk4_v4z_3hb" wh-toc-id="task_qk4_v4z_3hb-d66e204">
+         <title>Adding a protected file to a project or WorkSpace</title>
+         <topicmeta>
+            <resourceid class="- topic/resourceid " oxy-source="topic" appid="task_qk4_v4z_3hb"></resourceid>
+            <navtitle class="- topic/navtitle ">Adding a protected file to a project or WorkSpace</navtitle><?ditaot gentext?>
+            <linktext class="- map/linktext ">Adding a protected file to a project or WorkSpace</linktext>
+         </topicmeta>
+      </topic>
+      <topic href="oxy_ex-3/10_9/DITA/SkyDRM-C/viewers.html" data-id="concept_gnx_yyb_p2b" wh-toc-id="concept_gnx_yyb_p2b-d66e212">
+         <title>Viewers</title>
+         <shortdesc>
+            <p xmlns="http://www.w3.org/1999/xhtml" class="shortdesc">Multiple file formats open in different viewers. This section describes the viewers,         common tools, and tools that
+               are specific to each viewer.
+            </p>
+         </shortdesc>
+         <topicmeta>
+            <resourceid class="- topic/resourceid " oxy-source="topic" appid="concept_gnx_yyb_p2b"></resourceid>
+            <navtitle class="- topic/navtitle ">Viewers</navtitle><?ditaot gentext?>
+            <linktext class="- map/linktext ">Viewers</linktext><?ditaot genshortdesc?>
+            <shortdesc class="- map/shortdesc ">Multiple file formats open in different viewers. This section describes the viewers,         common tools, and tools that
+               are specific to each viewer.
+            </shortdesc>
+         </topicmeta>
+         <topic href="oxy_ex-3/10_9/DITA/SkyDRM-C/viewing_file.html" data-id="task_qjr_bxn_tgb" wh-toc-id="task_qjr_bxn_tgb-d66e223">
+            <title>Viewing a file</title>
+            <topicmeta>
+               <resourceid class="- topic/resourceid " oxy-source="topic" appid="task_qjr_bxn_tgb"></resourceid>
+               <navtitle class="- topic/navtitle ">Viewing a file</navtitle><?ditaot gentext?>
+               <linktext class="- map/linktext ">Viewing a file</linktext>
+            </topicmeta>
+         </topic>
+         <topic href="oxy_ex-3/10_9/DITA/SkyDRM-C/common_viewer_tools.html" data-id="task_ak5_vyb_p2b" wh-toc-id="task_ak5_vyb_p2b-d66e231">
+            <title>Common tools</title>
+            <shortdesc>
+               <p xmlns="http://www.w3.org/1999/xhtml" class="shortdesc">This section describes the tools common to all 2D viewers. </p>
+            </shortdesc>
+            <topicmeta>
+               <resourceid class="- topic/resourceid " oxy-source="topic" appid="task_ak5_vyb_p2b"></resourceid>
+               <navtitle class="- topic/navtitle ">Common tools</navtitle><?ditaot gentext?>
+               <linktext class="- map/linktext ">Common tools</linktext><?ditaot genshortdesc?>
+               <shortdesc class="- map/shortdesc ">This section describes the tools common to all 2D viewers. </shortdesc>
+            </topicmeta>
+         </topic>
+         <topic href="oxy_ex-3/10_9/DITA/SkyDRM-C/cad_viewer_tools.html" data-id="reference_ybx_ljc_p2b" wh-toc-id="reference_ybx_ljc_p2b-d66e242">
+            <title>CAD viewer tools</title>
+            <shortdesc>
+               <p xmlns="http://www.w3.org/1999/xhtml" class="shortdesc">This section describes the tools specific to the CAD viewer.</p>
+            </shortdesc>
+            <topicmeta>
+               <resourceid class="- topic/resourceid " oxy-source="topic" appid="reference_ybx_ljc_p2b"></resourceid>
+               <navtitle class="- topic/navtitle ">CAD viewer tools</navtitle><?ditaot gentext?>
+               <linktext class="- map/linktext ">CAD viewer tools</linktext><?ditaot genshortdesc?>
+               <shortdesc class="- map/shortdesc ">This section describes the tools specific to the CAD viewer.</shortdesc>
+            </topicmeta>
+         </topic>
+         <topic href="oxy_ex-3/10_9/DITA/SkyDRM-C/sap_viewer_tools.html" data-id="reference_ybx_ljc_p2b" wh-toc-id="reference_ybx_ljc_p2b-d66e253">
+            <title>SAP viewer tools</title>
+            <shortdesc>
+               <p xmlns="http://www.w3.org/1999/xhtml" class="shortdesc">This section describes the tools specific to the SAP viewer.</p>
+            </shortdesc>
+            <topicmeta>
+               <resourceid class="- topic/resourceid " oxy-source="topic" appid="reference_ybx_ljc_p2b"></resourceid>
+               <navtitle class="- topic/navtitle ">SAP viewer tools</navtitle><?ditaot gentext?>
+               <linktext class="- map/linktext ">SAP viewer tools</linktext><?ditaot genshortdesc?>
+               <shortdesc class="- map/shortdesc ">This section describes the tools specific to the SAP viewer.</shortdesc>
+            </topicmeta>
+         </topic>
+      </topic>
+   </topic>
+   <topic href="oxy_ex-3/10_9/DITA/SkyDRM-C/rights_protection_management_in_windows_applications.html" data-id="rights_protection_management_in_windows_applications" wh-toc-id="rights_protection_management_in_windows_applications-d66e265">
+      <title>Rights protection management in Windows applications</title>
+      <shortdesc>
+         <p xmlns="http://www.w3.org/1999/xhtml" class="shortdesc">You can view rights-protected from within any Windows application with Rights         Management for Windows OS, hereafter
+            RM for Windows OS.
+         </p>
+      </shortdesc>
+      <topicmeta>
+         <resourceid class="- topic/resourceid " oxy-source="topic" appid="rights_protection_management_in_windows_applications"></resourceid>
+         <navtitle class="- topic/navtitle ">Rights protection management in Windows applications</navtitle><?ditaot gentext?>
+         <linktext class="- map/linktext ">Rights protection management in Windows applications</linktext><?ditaot genshortdesc?>
+         <shortdesc class="- map/shortdesc ">You can view rights-protected from within any Windows application with Rights         Management for Windows OS, hereafter
+            RM for Windows OS.
+         </shortdesc>
+      </topicmeta>
+      <topic href="oxy_ex-3/10_9/DITA/SkyDRM-C/sample_action__editing_and_saving_a_file.html" data-id="sample_action__editing_and_saving_a_file" wh-toc-id="sample_action__editing_and_saving_a_file-d66e276">
+         <title>Sample action: Editing and saving a file</title>
+         <topicmeta>
+            <resourceid class="- topic/resourceid " oxy-source="topic" appid="sample_action__editing_and_saving_a_file"></resourceid>
+            <navtitle class="- topic/navtitle ">Sample action: Editing and saving a file</navtitle><?ditaot gentext?>
+            <linktext class="- map/linktext ">Sample action: Editing and saving a file</linktext>
+         </topicmeta>
+      </topic>
+      <topic href="oxy_ex-3/10_9/DITA/SkyDRM-C/sample_action__capturing_the_screen.html" data-id="sample_action__capturing_the_screen" wh-toc-id="sample_action__capturing_the_screen-d66e284">
+         <title>Sample action: Capturing the screen</title>
+         <topicmeta>
+            <resourceid class="- topic/resourceid " oxy-source="topic" appid="sample_action__capturing_the_screen"></resourceid>
+            <navtitle class="- topic/navtitle ">Sample action: Capturing the screen</navtitle><?ditaot gentext?>
+            <linktext class="- map/linktext ">Sample action: Capturing the screen</linktext>
+         </topicmeta>
+      </topic>
+   </topic>
+   <topic href="oxy_ex-3/10_9/DITA/SkyDRM-C/using_a_skydrm_project.html" data-id="using_a_skydrm_project" wh-toc-id="using_a_skydrm_project-d66e294">
+      <title>Using a SkyDRM project</title>
+      <shortdesc>
+         <p xmlns="http://www.w3.org/1999/xhtml" class="shortdesc">A SkyDRM project enables you to collaborate with a group of users, on one or more         rights-protected documents.</p>
+      </shortdesc>
+      <topicmeta>
+         <resourceid class="- topic/resourceid " oxy-source="topic" appid="using_a_skydrm_project"></resourceid>
+         <navtitle class="- topic/navtitle ">Using a SkyDRM project</navtitle><?ditaot gentext?>
+         <linktext class="- map/linktext ">Using a SkyDRM project</linktext><?ditaot genshortdesc?>
+         <shortdesc class="- map/shortdesc ">A SkyDRM project enables you to collaborate with a group of users, on one or more         rights-protected documents.</shortdesc>
+      </topicmeta>
+      <topic href="oxy_ex-3/10_9/DITA/SkyDRM-C/adding_files_to_a_project.html" data-id="adding_files_to_a_project" wh-toc-id="adding_files_to_a_project-d66e305">
+         <title>Adding a file to a project</title>
+         <topicmeta>
+            <resourceid class="- topic/resourceid " oxy-source="topic" appid="adding_files_to_a_project"></resourceid>
+            <navtitle class="- topic/navtitle ">Adding a file to a project</navtitle><?ditaot gentext?>
+            <linktext class="- map/linktext ">Adding a file to a project</linktext>
+         </topicmeta>
+      </topic>
+      <topic href="oxy_ex-3/10_9/DITA/SkyDRM-C/reclassifying_file_client.html" data-id="task_mxz_knx_3hb" wh-toc-id="task_mxz_knx_3hb-d66e313">
+         <title>Reclassifying a file</title>
+         <topicmeta>
+            <resourceid class="- topic/resourceid " oxy-source="topic" appid="task_mxz_knx_3hb"></resourceid>
+            <navtitle class="- topic/navtitle ">Reclassifying a file</navtitle><?ditaot gentext?>
+            <linktext class="- map/linktext ">Reclassifying a file</linktext>
+         </topicmeta>
+      </topic>
+      <topic href="adding_a_protected_file_to_a_project.html" data-id="adding_a_protected_file_to_a_project" wh-toc-id="adding_a_protected_file_to_a_project-d66e321">
+         <title>Adding a protected file to a project</title>
+         <topicmeta>
+            <resourceid class="- topic/resourceid " oxy-source="topic" appid="adding_a_protected_file_to_a_project"></resourceid>
+            <navtitle class="- topic/navtitle ">Adding a protected file to a project</navtitle><?ditaot gentext?>
+            <linktext class="- map/linktext ">Adding a protected file to a project</linktext>
+         </topicmeta>
+      </topic>
+      <topic href="oxy_ex-3/10_9/DITA/SkyDRM-C/applying_company-defined_rights.html" data-id="task_w4l_sfy_s2b" wh-toc-id="task_w4l_sfy_s2b-d66e329">
+         <title>Applying company-defined rights protection</title>
+         <shortdesc>
+            <p xmlns="http://www.w3.org/1999/xhtml" class="shortdesc">In a SkyDRM project, you can either apply your own customized rights protection, also         known as ad-hoc rights, or company-defined
+               rights. 
+            </p>
+         </shortdesc>
+         <topicmeta>
+            <resourceid class="- topic/resourceid " oxy-source="topic" appid="task_w4l_sfy_s2b"></resourceid>
+            <navtitle class="- topic/navtitle ">Applying company-defined rights protection</navtitle><?ditaot gentext?>
+            <linktext class="- map/linktext ">Applying company-defined rights protection</linktext><?ditaot genshortdesc?>
+            <shortdesc class="- map/shortdesc ">In a SkyDRM project, you can either apply your own customized rights protection, also         known as ad-hoc rights, or company-defined
+               rights. 
+            </shortdesc>
+         </topicmeta>
+      </topic>
+   </topic>
+   <topic href="oxy_ex-3/10_9/DITA/SkyDRM-C/managing_preferences.html" data-id="managing_preferences" wh-toc-id="managing_preferences-d66e341">
+      <title>Managing preferences</title>
+      <shortdesc>
+         <p xmlns="http://www.w3.org/1999/xhtml" class="shortdesc">This section describes the user preferences you can set for SkyDRM Desktop for         Windows. </p>
+      </shortdesc>
+      <topicmeta>
+         <resourceid class="- topic/resourceid " oxy-source="topic" appid="managing_preferences"></resourceid>
+         <navtitle class="- topic/navtitle ">Managing preferences</navtitle><?ditaot gentext?>
+         <linktext class="- map/linktext ">Managing preferences</linktext><?ditaot genshortdesc?>
+         <shortdesc class="- map/shortdesc ">This section describes the user preferences you can set for SkyDRM Desktop for         Windows. </shortdesc>
+      </topicmeta>
+      <topic href="oxy_ex-3/10_9/DITA/SkyDRM-C/managing_system_preferences.html" data-id="managing_system_preferences" wh-toc-id="managing_system_preferences-d66e352">
+         <title>Managing system preferences</title>
+         <topicmeta>
+            <resourceid class="- topic/resourceid " oxy-source="topic" appid="managing_system_preferences"></resourceid>
+            <navtitle class="- topic/navtitle ">Managing system preferences</navtitle><?ditaot gentext?>
+            <linktext class="- map/linktext ">Managing system preferences</linktext>
+         </topicmeta>
+      </topic>
+      <topic href="oxy_ex-3/10_9/DITA/SkyDRM-C/managing_document_preferences.html" data-id="managing_document_preferences" wh-toc-id="managing_document_preferences-d66e360">
+         <title>Managing document preferences</title>
+         <topicmeta>
+            <resourceid class="- topic/resourceid " oxy-source="topic" appid="managing_document_preferences"></resourceid>
+            <navtitle class="- topic/navtitle ">Managing document preferences</navtitle><?ditaot gentext?>
+            <linktext class="- map/linktext ">Managing document preferences</linktext>
+         </topicmeta>
+      </topic>
+      <topic href="oxy_ex-3/10_9/DITA/SkyDRM-C/managing_folder_preferences.html" data-id="managing_folder_preferences" wh-toc-id="managing_folder_preferences-d66e368">
+         <title>Managing folder preferences</title>
+         <topicmeta>
+            <resourceid class="- topic/resourceid " oxy-source="topic" appid="managing_folder_preferences"></resourceid>
+            <navtitle class="- topic/navtitle ">Managing folder preferences</navtitle><?ditaot gentext?>
+            <linktext class="- map/linktext ">Managing folder preferences</linktext>
+         </topicmeta>
+      </topic>
+   </topic>
+</toc>

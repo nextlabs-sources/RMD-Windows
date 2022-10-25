@@ -1,0 +1,35 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:SkydrmLocal">
+
+    <ResourceDictionary.MergedDictionaries>
+
+        <!--ListView sort decorator style-->
+        <ResourceDictionary Source="/rmc/resources/style/listSortDecoratorStyle.xaml"/>
+
+        <!--Unified button style-->
+        <ResourceDictionary Source="/rmc/resources/style/UnifiedButtonStyle.xaml"/>
+
+        <!--Local main window style-->
+        <ResourceDictionary Source="/rmc/resources/style/MainLocalWinStyle.xaml"/>
+
+        <!--The common button style when mouse over it--> 
+        <ResourceDictionary Source="/rmc/resources/style/MouseOverButtonStyle.xaml"/>
+
+        <!--The TabItem style-->
+        <ResourceDictionary Source="/rmc/resources/style/TabItemStyle.xaml"/>
+
+        <!--The CheckBox style-->
+        <ResourceDictionary Source="/rmc/resources/style/UnifiedCheckBoxStyle.xaml"/>
+
+        <!--The ScrollViewer style-->
+        <ResourceDictionary Source="/rmc/resources/style/ScrollViewerStyle.xaml"/>
+
+        <!--Application Langues Resource-->
+        <ResourceDictionary Source="/Resources/languages/StringResource.xaml"/>
+
+    </ResourceDictionary.MergedDictionaries>
+
+
+</ResourceDictionary>

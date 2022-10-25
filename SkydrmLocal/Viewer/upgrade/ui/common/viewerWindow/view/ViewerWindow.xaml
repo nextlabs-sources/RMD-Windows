@@ -1,0 +1,42 @@
+﻿<Window x:Class="Viewer.upgrade.ui.common.viewerWindow.view.ViewerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Viewer.upgrade.ui.common.viewerWindow.view"
+        mc:Ignorable="d"
+        Title="SkyDRM Viewer"   
+        xmlns:p="clr-namespace:Viewer.Properties"
+        WindowStartupLocation="CenterScreen"         
+        BorderBrush="White"   
+        Height="{Binding Source={x:Static p:Settings.Default}, Path=Height, Mode=OneTime}"
+        Width="{Binding Source={x:Static p:Settings.Default}, Path=Width, Mode=OneTime}"
+        Left="{Binding Source={x:Static p:Settings.Default}, Path=Left, Mode=OneTime}"
+        Top="{Binding Source={x:Static p:Settings.Default}, Path=Top, Mode=OneTime}"
+        Closed="Window_Closed"
+        Loaded="Window_Loaded"
+        ContentRendered="Window_ContentRendered"
+        >
+
+
+    <Grid Background="#faf9f9">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--Tool bar-->
+        <Frame Grid.Row="0"
+                NavigationUIVisibility ="Hidden"
+                Navigating="Frame_Toolbar_Navigating"
+                Content="{Binding Path = Toolbar}"/>
+
+        <!--Viewer-->
+        <Frame Grid.Row="1"
+               NavigationUIVisibility ="Hidden"
+               Navigating="Frame_Viewer_Navigating"
+               Content="{Binding Path = Viewer}"
+              />
+    </Grid>
+</Window>

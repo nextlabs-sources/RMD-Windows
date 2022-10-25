@@ -1,0 +1,169 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
+
+using System.Windows.Media;
+using System.Windows.Controls.Primitives;
+using MouseKeyboardActivityMonitor;
+using MouseKeyboardActivityMonitor.WinApi;
+using PdfRender.model;
+
+namespace PdfRender
+{
+    internal class PdfPanelInputHandler
+    {
+        private MouseHookListener mouseHookListener;
+        private PdfPanel source;
+        private System.Windows.Point? lastMouseDownLocation;
+        private double lastMouseDownVerticalOffset;
+        private double lastMouseDownHorizontalOffset;
+
+        public PdfPanelInputHandler(PdfPanel source)
+        {
+            this.source = source;
+
+            this.source.PreviewKeyDown += source_PreviewKeyDown;
+            this.source.PreviewMouseWheel += source_PreviewMouseWheel;
+            this.source.PreviewMouseLeftButtonDown += source_PreviewMouseLeftButtonDown;
+
+            this.mouseHookListener = new MouseHookListener(new GlobalHooker());
+            this.mouseHookListener.Enabled = false;
+            this.mouseHookListener.MouseMove += mouseHookListener_MouseMove;
+            this.mouseHookListener.MouseUp += mouseHookListener_MouseUp;
+        }
+
+        void source_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            /* maybe for future use
+			if (e.OriginalSource is Image)
+			{
+				var pos = e.GetPosition((Image)e.OriginalSource);
+				MessageBox.Show(pos.X + " x " + pos.Y);
+			}
+			*/
+
+            if (IsScrollBarChild(e.OriginalSource as DependencyObject)) // if the mouse click comes from the scrollbar, then we do not scroll
+                lastMouseDownLocation = null;
+            else
+            {
+                if (this.source.ScrollViewer != null)
+                {
+                    this.mouseHookListener.Enabled = true;
+
+                    lastMouseDownVerticalOffset = this.source.ScrollViewer.VerticalOffset;
+                    lastMouseDownHorizontalOffset = this.source.ScrollViewer.HorizontalOffset;
+                    lastMouseDownLocation = this.source.PointToScreen(e.GetPosition(this.source));
+                }
+            }
+        }
+
+        private static bool IsScrollBarChild(DependencyObject o)
+        {
+            DependencyObject parent = o;
+
+            while (parent != null)
+            {
+                if (parent is ScrollBar)
+                    return true;
+
+                parent = VisualTreeHelper.GetParent(parent);
+            }
+
+            return false;
+        }
+
+        void source_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            var ctrlDown = System.Windows.Input.Keyboard.IsKeyDown(Key.LeftCtrl) || System.Windows.Input.Keyboard.IsKeyDown(Key.RightCtrl);
+
+            if (ctrlDown || e.RightButton == MouseButtonState.Pressed)
+            {
+                if (e.Delta > 0)
+                    this.source.ZoomIn();
+                else
+                    this.source.ZoomOut();
+
+                e.Handled = true;
+            }
+            else if (!ctrlDown && (this.source.ScrollViewer == null || this.source.ScrollViewer.ComputedVerticalScrollBarVisibility != Visibility.Visible) && this.source.PageRowDisplay == PageRowDisplayType.SinglePageRow)
+            {
+                if (e.Delta > 0)
+                    this.source.GotoPreviousPage();
+                else
+                    this.source.GotoNextPage();
+
+                e.Handled = true;
+            }
+            else if (this.source.ScrollViewer != null && (System.Windows.Input.Keyboard.IsKeyDown(Key.LeftShift) || System.Windows.Input.Keyboard.IsKeyDown(Key.RightShift)))
+            {
+                if (e.Delta > 0)
+                    this.source.ScrollViewer.LineLeft();
+                else
+                    this.source.ScrollViewer.LineRight();
+
+                e.Handled = true;
+            }
+        }
+
+        void source_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Home)
+                this.source.GotoPage(1);
+            else if (e.Key == Key.End)
+                this.source.GotoLastPage();
+            else if (e.Key == Key.Add || e.Key == Key.OemPlus)
+                this.source.ZoomIn();
+            else if (e.Key == Key.Subtract || e.Key == Key.OemMinus)
+                this.source.ZoomOut();
+
+            if (this.source.ScrollViewer != null && this.source.ScrollViewer.ComputedHorizontalScrollBarVisibility == System.Windows.Visibility.Visible)
+                return;
+
+            if (e.Key == Key.Left)
+                this.source.GotoPreviousPage();
+            else if (e.Key == Key.Right)
+                this.source.GotoNextPage();
+        }
+
+        void mouseHookListener_MouseUp(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            this.mouseHookListener.Enabled = false;
+            this.lastMouseDownLocation = null;
+        }
+
+        void mouseHookListener_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            if (lastMouseDownLocation != null)
+            {
+                var currentPos = e.Location;
+                var proposedYOffset = lastMouseDownVerticalOffset + lastMouseDownLocation.Value.Y - currentPos.Y;
+                var proposedXOffset = lastMouseDownHorizontalOffset + lastMouseDownLocation.Value.X - currentPos.X;
+
+                if (proposedYOffset <= 0 || proposedYOffset > this.source.ScrollViewer.ScrollableHeight)
+                {
+                    lastMouseDownVerticalOffset = proposedYOffset <= 0 ? 0 : this.source.ScrollViewer.ScrollableHeight;
+                    lastMouseDownLocation = new System.Windows.Point(lastMouseDownLocation.Value.X, e.Y);
+
+                    proposedYOffset = lastMouseDownVerticalOffset + lastMouseDownLocation.Value.Y - currentPos.Y;
+                }
+
+                this.source.ScrollViewer.ScrollToVerticalOffset(proposedYOffset);
+
+
+                if (proposedXOffset <= 0 || proposedXOffset > this.source.ScrollViewer.ScrollableWidth)
+                {
+                    lastMouseDownHorizontalOffset = proposedXOffset <= 0 ? 0 : this.source.ScrollViewer.ScrollableWidth;
+                    lastMouseDownLocation = new System.Windows.Point(e.X, lastMouseDownLocation.Value.Y);
+                    proposedXOffset = lastMouseDownHorizontalOffset + lastMouseDownLocation.Value.X - currentPos.X;
+                }
+
+                this.source.ScrollViewer.ScrollToHorizontalOffset(proposedXOffset);
+            }
+        }
+    }
+}

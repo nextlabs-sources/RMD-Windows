@@ -1,0 +1,67 @@
+﻿using CustomControls.windows.fileInfo.view;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using LoginWPFControl;
+
+
+namespace Test_WPF_Controls
+{
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
+    {
+        public MainWindow()
+        {
+            InitializeComponent();           
+
+            sel.Viewmodel = new ServerSelectViewModel()
+            {
+                ServerType = URLType.Personal,
+                UrlPersonal = "https://www.google.com",
+                UrlCompanies = new List<string>()
+                {
+                    "www.12333.com","www.nextlabs.com","www.abc.com","www.789.com","www.1231.com"
+                }
+            };
+
+            sel.Viewmodel.OnURlSelected += (url)=>
+            {
+                if (sel.Viewmodel.IsCompany)
+                {
+                    MessageBox.Show("for company:" + url);
+                }
+                else if (sel.Viewmodel.IsPersonal)
+                {
+                    MessageBox.Show("for personal:" + url);
+                }
+            };
+
+
+            web.Show(@"https://rms-centos7513.qapf1.qalab01.nextlabs.com:8444/rms/login");
+
+        }
+<<<<<<< HEAD
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            FileInfoWindow fileInfoWindow = new FileInfoWindow();
+            fileInfoWindow.Show();
+        }
+=======
+       
+>>>>>>> dbb71530d55450d1e6a3da2dcaf603ad210042f8
+    }
+}

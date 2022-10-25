@@ -1,0 +1,181 @@
+This documentation teach you how perform version-detecting and db-immigrating of Sqlite3 database used by SkydrmLocalApp. Most of ideas and the codes were referred by the build-in DB-helper classes used in Android system.
+
+If you have any problems, contact:  henry.hu@nextlabs.com
+
+
+Here is minor version-control strategy we currently impled.
+
+**1. Version dectect.**
+
+**2. Database Upgrade.**
+
+**3. Examples how to use it.**
+
+---------------------------------------------------------------------------------------
+
+## #1. Version dectect.
+We have a DbVersionControl class which is responsible for 
+1. dectect version changed; 
+2. dispatch the detected one to Listener that you must implement.
+
+The detection code will be runned just after database instance newed during initializing app-level components of App::Startup.
+
+**1. We call DbVersionControl's DetectVersion method, in this method we will call OnCreateDatabase.**
+
+##### DbVersionControl's DetectVersion
+```
+public void DetectVersion(string DataBaseConnectionString)
+```
+
+In OnCreateDatabase(string s) method we will execute Create table SQL. Here is a point we can take the updateted field into create SQL. Next time execute create SQL all field was taken into consideration.
+
+##### DbVersionControl's OnCreateDatabase
+```
+public void OnCreateDatabase(string DataBaseConnectionString)
+```
+
+**2. We will get the current user_version which set by us if not default value is zero to indicate which version we are undergoing.**
+
+we can use this SQL to get current db user version.
+```
+PRAGMA user_version
+```
+
+**3. Make comparison between old_version[retrieve from db using #step2's SQL] and new_version[hard code in our App]**
+```
+class DbVersionControl
+{
+    private static readonly int db_version = 1;
+}
+
+int old_version = SqliteOpenHelper.GetVersion(DataBaseConnectionString);
+nt new_version = db_version;
+```
+
+**4. if version was changed, it will step into following flow:**
+```
+if (version == 0)
+{
+    //If detect current db user_version is 0 there are two conditons:
+    //Condition1:Intialize,in this condtion our OnCreateDataBase invoked doen not contain updated column.
+    //Condition2:Database file recover create,in this case OnCreateDataBase contains updated column. 
+
+    //Compatiable for condition one.
+    if (newVersion == 1)
+    {
+        using (SQLiteConnection connection = new SQLiteConnection(DataBaseConnectionString))
+        {
+            connection.Open();
+            using (SQLiteCommand command = new SQLiteCommand(connection))
+            {
+                OnUpgrade(command, 0, 1);
+            }
+        }
+    }
+    //Avoid upgrad one by one version. We make every version change contains into create table sql(not alter sql).
+    version = newVersion;
+}
+```
+
+---------------------------------------------------------------------------------------
+## #2.Database Upgrade. 
+
+DbVersionControl's OnUpgrade
+```
+protected void OnUpgrade(SQLiteCommand command, int oldVersion, int newVersion)
+{
+    UpgradeManager.HandleUpgrade(command, oldVersion, newVersion);
+}
+```
+
+In OnUpgrade we transer detail work to UpgradeManager.
+```
+public void HandleUpgrade(SQLiteCommand command, int oldVersion, int newVersion)
+{
+    for (int i = oldVersion; i < newVersion; i++)
+    {
+        switch (i)
+        {
+            case 0:
+				UpgradeToVersion1(command);
+				break;
+        }
+    }
+}
+```
+
+---------------------------------------------------------------------------------------
+## #3.Demo how to use it.[Upgrade support only]
+
+Here are the exact steps:
+
+**1. Any changes has been made should make the create table SQL update first.**
+
+For example, add a new field in Project table. first step is to make the new field name such as rms_is_enable_adhoc
+contains into the create table SQL:SQL_Create_Table_Project.
+
+Here are reasons:
+
+- We use the following SQL as the create SQL.
+```
+CREATE TABLE IF NOT EXISTS
+```
+When execute this sql if table existed the SQL was invalid. else it will create a new table using following SQL.
+
+- We want any changes will be applyed when Create table SQL invoked successfully. It make us avoid make immigration version by version.
+
+Every time on create a new table if there are any changes will be updated. Update to lastest change at one time.
+```
+public static readonly string SQL_Create_Table_Project = @"
+                CREATE TABLE IF NOT EXISTS Project (
+                   id                   integer      NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE ,
+                   user_table_pk        integer      NOT NULL , 
+                   rms_project_id       varchar(255) NOT NULL ,
+                   rms_name             varchar(255) DEFAULT '', 
+                   rms_display_name     varchar(255) DEFAULT '', 
+                   rms_description      varchar(255) DEFAULT '', 
+                   rms_is_owner         integer      DEFAULT 0 , 
+                   rms_pending_setting  varchar(255) DEFAULT '', 
+                   rms_owner_raw_json   varchar(255) DEFAULT '', 
+                   user_membership_id   varchar(255) DEFAULT '', 
+                   rms_tenant_name      varchar(255) DEFAULT '', 
+                   rms_tenant_id        varchar(255) DEFAULT '',
+                   rms_classifcation_json   varchar(255)  DEFAULT '{}',
+                   --version1 update--
+                   rms_is_enable_adhoc  integer      DEFAULT 1,
+                    
+                   --talbe restrictions--
+                   unique(user_table_pk,rms_project_id), 
+                   foreign key(user_table_pk) references User(id) on delete cascade);    
+        ";
+```
+
+**2. In case of failed when executing Create_TABLE_SQL, use Update policy**
+```
+public static readonly string SQL_Alter_Table_Project_V1 = @"
+                ALTER TABLE Project ADD COLUMN
+                    rms_is_enable_adhoc   integer     DEFAULT 1;
+        ";
+```
+
+The demo code for OnUpgrade was invoked:
+```
+private void UpgradeToVersion1(SQLiteCommand command)
+{
+    try
+    {
+        bool hascol = false;
+        hascol = SqliteOpenHelper.CheckCloumnExist(command, "Project", "rms_is_enable_adhoc");
+        if (!hascol)
+        {
+            command.CommandText = Config.SQL_Alter_Table_Project_V1;
+            command.ExecuteNonQuery();
+        }
+		
+    }
+    catch (Exception e)
+    {
+        SkydrmLocalApp.Singleton.Log.Info(e);
+    }
+}
+``` 

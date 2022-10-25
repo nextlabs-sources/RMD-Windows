@@ -1,0 +1,231 @@
+﻿<Window x:Class="Viewer.ViewerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Viewer" 
+        xmlns:utils="clr-namespace:Viewer.utils"
+        xmlns:loadingBar="clr-namespace:Viewer.utils.components"
+        mc:Ignorable="d"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:behaviors="clr-namespace:Viewer.render.preview"
+        xmlns:p="clr-namespace:Viewer.Properties"
+        Title="SkyDRM Viewer"   
+        WindowStartupLocation="CenterScreen"         
+        BorderBrush="White"   
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        ContentRendered="Window_ContentRendered"
+        Unloaded="Window_Unloaded"
+        KeyUp="Window_KeyUp"
+        Height="{Binding Source={x:Static p:Settings.Default}, Path=Height, Mode=TwoWay}"
+        Width="{Binding Source={x:Static p:Settings.Default}, Path=Width, Mode=TwoWay}"
+        Left="{Binding Source={x:Static p:Settings.Default}, Path=Left, Mode=TwoWay}"
+        Top="{Binding Source={x:Static p:Settings.Default}, Path=Top, Mode=TwoWay}" 
+        Focusable="True"
+        >
+
+    
+    <Grid x:Name="Topmost_Container">
+        <Grid.RowDefinitions>
+            <!--Tool bar-->
+            <RowDefinition Height="50" />
+
+            <!--Viewer Content-->
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--Tool bar-->
+        <Grid Grid.Row="0" Background="#FAF9F9">
+            <Grid.ColumnDefinitions>
+                <!--File name-->
+                <ColumnDefinition Width="450"/>
+                
+                <ColumnDefinition Width="*"/>
+                <!--Rotate-->
+                <ColumnDefinition Width="Auto"/>
+                <!--Base operate-->
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!--File name-->
+            <TextBlock x:Name="fileName" Grid.Column="0" Text="" FontWeight="Bold" TextTrimming="CharacterEllipsis" 
+                       VerticalAlignment="Center" Margin="10,0,0,0" MaxWidth="450" />
+        
+            <!--Rotate-->
+            <StackPanel x:Name="RotateStackPanel" Visibility="Hidden" Grid.Column="2" Orientation="Horizontal" >
+                <!--Anti-ClockWise rotate-->
+                <Button Height="40" Margin="15,0,0,0"
+                            Content="/resources/icons/RotateAntiClockwise.png"
+                            Click="RotateAntiBtn_Click"
+                            ToolTip="Rotate AntiClockwise"
+                            Style="{StaticResource ResourceKey=MouseOverBtnStyleWithScale_dot8}"/>
+
+                <!--ClockWise rotate-->
+                <Button Height="40" Margin="15,0,15,0"
+                            Content="/resources/icons/RotateClockwise.png"
+                            ToolTip="Rotate Clockwise"
+                            Click="RotateBtn_Click"
+                            Style="{StaticResource ResourceKey=MouseOverBtnStyleWithScale_dot8}"/>
+
+            </StackPanel>
+
+            <!--vertical separator line-->
+            <Rectangle x:Name="VerticalSeperateLine" Visibility="Hidden" Grid.Column="3" Width="0.8" Height="50" Stroke="LightGray" HorizontalAlignment="Left"/>
+
+            <!--Base operate-->
+            <StackPanel Grid.Column="3" Orientation="Horizontal">
+                <!--Content Extract-->
+                <Button  Margin="15,0,10,0" Height="40"                                                  
+                            Content="/resources/icons/Icon_menu_extract2.ico"
+                            ToolTip="Extract Content"
+                            x:Name="Btn_Extract_Content"
+                            Click="Extract_Content_Btn_Click"
+                            Visibility="Collapsed"
+                            Style="{StaticResource ResourceKey=MouseOverBtnStyleWithScale_dot8}">
+                </Button>
+
+                <!--Save As-->
+                <Button  Margin="15,0,10,0" Height="40"                                                  
+                            Content="/resources/icons/Icon_SaveAs.png"
+                            ToolTip="Save As"
+                            x:Name="Btn_Export"
+                            Click="ExportBtn_Click"
+                            Visibility="Collapsed"
+                            Style="{StaticResource ResourceKey=MouseOverBtnStyleWithScale_dot8}">
+                  </Button>
+
+                <!--Edit-->
+                <Button  Margin="15,0,10,0" Height="40" 
+                            Content="/resources/icons/Icon_Edit.png"
+                            ToolTip="Edit"
+                            x:Name="Btn_Edit"
+                            Click="EditBtn_Click"
+                            Visibility="Collapsed"
+                            Style="{StaticResource ResourceKey=MouseOverBtnStyle}"/>
+
+                <!--Print-->
+                <Button  Margin="5,0,10,0" Height="40" 
+                            Content="/resources/icons/Icon_Print.png"
+                            ToolTip="Print"
+                            x:Name="Btn_Print"
+                            Click="PrintBtn_Click"
+                            Visibility="Collapsed"
+                            Style="{StaticResource ResourceKey=MouseOverBtnStyleWithScale_dot8}"/>
+
+                <!--File info-->
+                <Button  Margin="5,0,10,0" Height="40"
+                            Content="/resources/icons/Icon_ViewerInfo.png"
+                            ToolTip="View File Info"
+                            x:Name="Btn_FileInfo"
+                            Click="FileInfoBtn_Click"
+                            Visibility="Collapsed"
+                            Style="{StaticResource ResourceKey=MouseOverBtnStyleWithScale_dot8}"/>
+
+                <!--Protect: Now hide it.-->
+                <Button  Margin="5,0,10,0" Height="40"  
+                            Content="/resources/icons/Icon_Protect.png"
+                            ToolTip="Protect File" 
+                            x:Name="Btn_ProtectFile"
+                            Visibility="Collapsed"
+                            Style="{StaticResource ResourceKey=MouseOverBtnStyleWithScale_dot8}"/>
+
+                <!--Share-->
+                <Button  Margin="5,0,15,0" Height="40"
+                            Content="/resources/icons/Icon_Share.png"
+                            ToolTip="Share File"
+                            x:Name="Btn_ShareFile"
+                            Click="ShareBtn_Click" 
+                            Visibility="Collapsed"
+                            Style="{StaticResource ResourceKey=MouseOverBtnStyleWithScale_dot8}"/>
+
+            </StackPanel>
+
+        </Grid>
+
+        <!--Horizontal separator line-->
+        <Separator Grid.Row="0" Margin="0,49,0,0" Background="LightGray"/>
+
+        <!--Viewer Content-->
+        <Grid Grid.Row="1" Name="Grid" Background="#faf9f9">
+            <Frame Name="Viewer_Content"
+                   VerticalAlignment="Stretch"
+                   HorizontalAlignment="Stretch"
+                   VerticalContentAlignment="Stretch"
+                   HorizontalContentAlignment="Stretch"/>
+        </Grid>
+
+        <!--For decrypt & load file progress ui display -->
+        <Grid x:Name="LoadingBar"
+              Grid.RowSpan="2"
+              Background="LightGray"
+              Opacity="0.5" 
+              Visibility="Visible"
+              VerticalAlignment="Stretch"
+              HorizontalAlignment="Stretch"
+              >
+
+            <!--For loading progress background-->
+            <loadingBar:ProBarComponent />
+
+        </Grid>
+
+        <!--Used to display prompt info. -->
+        <Grid              
+                 Name="PromptInfo_Containe"
+                 Grid.RowSpan="2" 
+                 Visibility="Collapsed"
+                 VerticalAlignment="Stretch"
+                 HorizontalAlignment="Stretch"
+                >
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid 
+                Grid.Row="0"                                  
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"  
+                  SnapsToDevicePixels="True"
+                >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Image Width="70"
+                              Grid.Row="0"
+                               Grid.Column="0"
+                                 UseLayoutRounding="True"
+                              SnapsToDevicePixels="True"
+                              RenderOptions.BitmapScalingMode="HighQuality"
+                       Height="70"
+                       Source="/resources/icons/Icon_access_denied.png">
+                </Image>
+
+
+                <TextBlock Margin="10,0,10,0" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" FontSize="32" Foreground="Black" FontWeight="DemiBold">Access Denied</TextBlock>
+                <TextBlock Margin="10,0,10,0" Grid.Row="1" Grid.Column="2" TextWrapping="Wrap" Name="TB_PromptInfo" FontSize="15"></TextBlock>
+
+            </Grid>
+
+            <Button     
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"    
+                    Grid.Row="1"
+                    Style="{StaticResource ResourceKey=UnifiedBtnStyle_Positive}"
+                    Click="Close_Button_Click"
+                    FontSize="16"
+                    >Close</Button>
+        </Grid>
+
+    </Grid>
+
+
+</Window>

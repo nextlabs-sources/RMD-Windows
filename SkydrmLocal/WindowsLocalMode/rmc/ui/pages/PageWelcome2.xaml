@@ -1,0 +1,26 @@
+﻿<Page x:Class="SkydrmLocal.Pages.PageWelcome2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SkydrmLocal.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="234" d:DesignWidth="693"
+      Title="PageWelcome2">
+
+    <StackPanel Orientation="Horizontal">
+        <Image Width="234" Height="234" Source="/rmc/resources/icons/icon_protect_documents.png"/>
+
+        <StackPanel Margin="56,32,0,0" Orientation="Vertical">
+            <TextBlock HorizontalAlignment="Left" FontFamily="Segoe UI" FontSize="24">Protect documents 
+                <LineBreak/><Italic Foreground="#AED6A2">accross multiple</Italic>
+                <LineBreak/>cloud repositories!
+            </TextBlock>
+
+            <TextBlock HorizontalAlignment="Left" Margin="0,31,0,0" Foreground="#828282" FontSize="16">
+                Unified document security service to protect and
+                <LineBreak/>manage documents stored in the cloud.
+            </TextBlock>
+        </StackPanel>
+    </StackPanel>
+</Page>

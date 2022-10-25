@@ -1,0 +1,12 @@
+; oeinstca.def
+
+
+LIBRARY    "oeinstca"
+
+EXPORTS
+
+RefreshEnv
+InstallRPM
+InstallRMD
+UnInstallRPM
+UnInstallRMD

@@ -1,0 +1,45 @@
+﻿<Window x:Class="SkydrmLocal.rmc.ui.windows.nxlConvert.NxlFileToConvertWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:UserControl="clr-namespace:SkydrmLocal.rmc.ui.components"
+        xmlns:local="clr-namespace:SkydrmLocal.rmc.ui.windows.nxlConvert"
+        xmlns:Local_sub="clr-namespace:SkydrmLocal.rmc.ui.windows.nxlConvert.subs"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        Closing="Window_Closing"
+        Title="{DynamicResource Windows_Defult_Title}" Height="600" Width="1000" WindowStartupLocation="CenterScreen" SizeToContent="Height">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" ></RowDefinition>
+            <RowDefinition Height="3*" ></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!--header-->
+        <StackPanel x:Name="sp_Header" Grid.Row="0" Orientation="Vertical" Background="#FFFFFF"  >
+            <!--Caption Section-->
+            <Local_sub:FileCapDesc x:Name="Header" Margin="0,20,0,0"></Local_sub:FileCapDesc>
+            <!--Error_msg desc-->
+            <TextBlock x:Name="ProtectFailedText" Visibility="Collapsed" Margin="230,4,240,0" MaxHeight="40" TextWrapping="Wrap" FontFamily="Roboto" FontSize="11" Foreground="Red"/>
+        </StackPanel>
+
+        <!--body-->
+        <StackPanel Grid.Row="1" Margin="100,0,100,20">
+            <Frame Name="fm_Body" NavigationUIVisibility="Hidden"  Visibility="Collapsed"  
+                   VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+            <Frame Name="fm_Body2" NavigationUIVisibility="Hidden"  Visibility="Collapsed"  
+                   VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+            <!--<Local_sub:FileLocaltionDest></Local_sub:FileLocaltionDest>-->
+        </StackPanel>
+
+        <!--For  protect progress ui display -->
+        <Grid x:Name="GridProBar" Grid.RowSpan="2" MinHeight="420" Background="LightGray" Opacity="0.5" Visibility="Collapsed">
+
+            <!--For loading progress background-->
+            <UserControl:ProBarComponent />
+
+        </Grid>
+        
+    </Grid>
+</Window>

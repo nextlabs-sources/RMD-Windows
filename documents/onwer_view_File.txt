@@ -1,0 +1,8 @@
+Feaure:
+	ower create a nxl file and then to view it
+
+///
+In viewer:
+	- display all function-button, include: edit(ifhas), exprot, print, fileinfo
+	- owner can view the expired file.
+	- watermark will displayed if has.

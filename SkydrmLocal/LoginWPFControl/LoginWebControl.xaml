@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="LoginWPFControl.LoginWebControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LoginWPFControl"
+             mc:Ignorable="d"
+             Height="800" Width="1000"
+             >
+    <Grid>
+        <!--For  protect progress ui display -->
+        <Grid x:Name="LoadingBar" Background="LightGray" Opacity="0.5" Visibility="Collapsed">
+            <!--For loading progress background-->
+            <local:LoadingWidget />
+        </Grid>
+        <ScrollViewer>
+            <WebBrowser Name="LoginWeb"/>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

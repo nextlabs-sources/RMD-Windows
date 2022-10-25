@@ -1,0 +1,66 @@
+﻿<Page x:Class="SkydrmLocal.PageSplash"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SkydrmLocal"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Title="PageSplash">
+
+    <Grid Background="#FFFFFF">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="0,0,0,30" VerticalAlignment="Center" HorizontalAlignment="Stretch">
+            <Image HorizontalAlignment="Center" Source="/rmc/resources/icons/skydrm_desktop_logo.png" Width="189" Height="51" Margin="0,30,0,0"/>
+
+            <TextBlock HorizontalAlignment="Center"  Margin="0,10,0,0" FontSize="24" FontFamily="Roboto">
+                <Italic Foreground="#8BC37A" FontFamily="Segoe UI">Protect, monitor,</Italic> and 
+                <Italic Foreground="#8BC37A" FontFamily="Segoe UI">share</Italic>
+                <Italic Foreground="#8BC37A" FontFamily="Segoe UI"></Italic> your documents securely anywhere.
+            </TextBlock>
+
+            <Button Click="Register" HorizontalAlignment="Center" Margin="0,32,0,0"  FontSize="18"  Style="{StaticResource UnifiedBtnStyle_Positive}" Content="{DynamicResource SplashWin_Btn_Log_in}"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0" >
+                
+            <TextBlock HorizontalAlignment="Center" Margin="2" FontFamily="Segoe UI" Foreground="Gray">
+                Don't have an account?
+            </TextBlock>
+
+                <Button Click="Sign_Up" Foreground="#8BC37A" Margin="2" VerticalAlignment="Center" VerticalContentAlignment="Top" Cursor="Hand">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Grid >
+                                <Border Name="Border" BorderBrush="Gray" BorderThickness="1" Visibility="Hidden">
+                                   
+                                </Border>
+
+                                <TextBlock>Sign up</TextBlock>
+
+                            </Grid>
+                            <ControlTemplate.Triggers>
+
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter  TargetName="Border" Property="Visibility" Value="visible"/>
+                                </Trigger>
+                         
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+
+                </Button>
+
+            </StackPanel>
+
+            <Line HorizontalAlignment="Center" Margin="0,25,0,0" X1="0" Y1="0" X2="300" Y2="0" Stroke="#BDBDBD" StrokeThickness="1"/>
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+            <local:ViewPager Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+        </Grid>
+    </Grid>
+</Page>

@@ -1,0 +1,31 @@
+﻿<Page x:Class="Viewer.render.RichMedia.RichTextBoxViewer"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Viewer.render.RichMedia"
+      xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+      xmlns:wfi ="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
+      mc:Ignorable="d" Loaded="Page_Loaded" SizeChanged="Page_SizeChanged"
+      Title="RichTextBoxViewer">
+
+    <Grid Name="Host_Grid" >
+        <ScrollViewer x:Name="Scroll" VerticalScrollBarVisibility="Auto">
+            <Grid>
+        <!--Only implement "Print Overlay" using winform RichTextBox-->
+        <wfi:WindowsFormsHost Name="WfHost" Visibility="Hidden">
+            <local:RichTextBoxPrintCtrl x:Name="RtbPrint"/>
+        </wfi:WindowsFormsHost>
+        
+        <!--Using wpf RichTextBox to display content(can implement "View Overlay" conveniently) -->
+                <RichTextBox x:Name="Rtb" IsReadOnly="True">
+                    <RichTextBox.CommandBindings>
+                        <CommandBinding Command="ApplicationCommands.Paste" CanExecute="CommandBinding_CanExecute"></CommandBinding>
+                        <CommandBinding Command="ApplicationCommands.Cut" CanExecute="CommandBinding_CanExecute"></CommandBinding>
+                        <CommandBinding Command="ApplicationCommands.Copy" CanExecute="CommandBinding_CanExecute"></CommandBinding>
+                    </RichTextBox.CommandBindings>
+                </RichTextBox>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Page>

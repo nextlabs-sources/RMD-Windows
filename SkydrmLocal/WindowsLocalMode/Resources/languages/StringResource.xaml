@@ -1,0 +1,634 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:SkydrmLocal.Resources.languages"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+ 
+    <!--Note-->
+    <!--if need white space,should use  &#160; or &#x0020;  .If have multi-white space, add reference xml:space="preserve" -->
+    <!--if need newline, should use  &#13; or &#x000A;  .And must add reference xml:space="preserve"-->
+    <!--&#13; is \r-->
+    <!--&#x000A; is \n-->
+    
+    
+<!--****************************All strings in background code***********************-->
+<!--****************************All strings in .cs***********************-->
+
+    <!--**************************************************Notice*******************************************************-->
+    <!--* First step, Define string in this area.(Communal strings in begins, the other strings are sorted separately) *-->           
+    <!--* Second step, Define static string and use static void 'CommonUtils.ApplicationFindResource("Key")' -     *-->
+    <!--*   -in CultureStringInfo.cs .And It is best to keep the variable names in the same order as this area.           *-->
+    <!--* Third step, Use CultureStringInfo field get string in your .cs file                                                                   *-->
+    <!--****************************************************************************************************************-->
+    
+
+    <!--CommunalString-->
+    <sys:String x:Key="Common_File_Not_Exist">The file path is invalid.</sys:String>
+    <!-- File upload failed i.e: invalid name, invalid expiration, invalid token and so on-->
+    <sys:String x:Key="Common_Upload_File_Failed">Because the file is corrupted and can't be uploaded, it will be removed.</sys:String>
+   
+    <sys:String x:Key="Common_Initialize_failed">System initialization failed, please contact your system administrator for further help.</sys:String>
+   
+    <sys:String x:Key="Common_DenyOp_InRMP">You can't protect the file from rights protection folder.</sys:String>
+
+    <sys:String x:Key="Common_System_Internal_Error">System internal error, please try again later.</sys:String>
+
+    <sys:String x:Key="Common_Not_Authorized">You are not authorized to perform the operation.</sys:String>
+
+    <sys:String x:Key="Common_Mandatory_Require">For the mandatory category, select at least one classification label.</sys:String>
+
+    <sys:String x:Key="Common_CentralPolicyFile_Not_Share">You are not authorized to re-share the file to person.</sys:String>
+
+    <sys:String x:Key="Common_AdhocFile_Not_AddToProject">You are not authorized to add this file to the project.</sys:String>
+
+    <sys:String x:Key="Common_Wait_Downloading">Please wait ... download is still underway.</sys:String>
+    <sys:String x:Key="Common_ForbidLogoutExit_WhenEditing">You can't exit or logout while editing the file. Kindly finish editing to proceed for logout/exit.</sys:String>
+    <sys:String x:Key="Common_NxLFile_Rights_Cannot_Modified">The file rights can't be modified since the network is unavailable.</sys:String>
+
+
+    <sys:String x:Key="Common_Upload_Not_Found_DestFolder">Failed to upload the file '{0}', the destination folder is not found.</sys:String>
+    
+    <!--Sync modified file failed after check version-->
+    <sys:String x:Key="Sync_ModifiedFile_download_Failed">Failed to update the file '{0}'.</sys:String>
+
+    <!--Outlook error message-->
+    <sys:String x:Key="Outlook_Install">You must install Outlook.</sys:String>
+    <sys:String x:Key="Outlook_LogIn">You must log in to Outlook.</sys:String>
+    <sys:String x:Key="Outlook_Open">Try again later, or open Outlook and log in.</sys:String>
+
+    <sys:String x:Key="Outlook_Dialog_Caption">SkyDRM DESKTOP</sys:String>
+    
+    <!---->
+    <!-- Edit offline file Message-->
+    <!---->
+    <sys:String x:Key="EditOfflineFile_Redownload_Succeed">The file has been updated successfully.</sys:String>
+    <sys:String x:Key="EditOfflineFile_Redownload_Failed">Failed to update the file.</sys:String>
+    <sys:String x:Key="EditOfflineFile_Overwrite_Succeed">The file has been updated successfully.</sys:String>
+    <sys:String x:Key="EditOfflineFile_Discard_Overwrite">File does not exist on the remote server.</sys:String>
+
+    <!---->
+    <!--Exception Message-->
+    <!---->
+    <sys:String x:Key="Exception_ExportFeature_Failed">The file can't be saved to your local.</sys:String>
+    <sys:String x:Key="Exception_ExportFeature_Succeeded">The file has been saved to &#160;</sys:String>
+    
+    
+    <sys:String x:Key="Exception_Sdk_General">There is an internal system error, contact your system administrator.</sys:String>
+    <sys:String x:Key="Exception_Sdk_Insufficient_Rights">You have no permission to access the file.</sys:String>
+    <sys:String x:Key="Exception_Sdk_Network_IO">Can't connect to the network.</sys:String>
+    
+    <sys:String x:Key="Exception_Sdk_Rest_General">There is an internal system error, contact your system administrator.</sys:String>
+    <sys:String x:Key="Exception_Sdk_Rest_400_InvalidParam">Invalid request, contact your system administrator.</sys:String>
+    <sys:String x:Key="Exception_Sdk_Rest_401_Authentication_Failed">Your session has expired or become invalid, please login again.</sys:String>
+    <sys:String x:Key="Exception_Sdk_Rest_403_AccessForbidden">You are not authorized to perform the operation.</sys:String>
+    <sys:String x:Key="Exception_Sdk_Rest_404_NotFound">Unable to perform your request, resource not found.</sys:String>
+    <sys:String x:Key="Exception_Sdk_Rest_500_ServerInternal">There is an internal system error, contact your system administrator.</sys:String>
+    <sys:String x:Key="Exception_Sdk_Rest_6001_StorageExceeded">Your have exceeded the maximum storage limit.</sys:String>
+    
+    <sys:String x:Key="Exception_Sdk_Rest_MyVault_304_RevokedFile">Permission to access the file has been revoked.</sys:String>
+    <sys:String x:Key="Exception_Sdk_Rest_MyVault_4003_ExpiredFile">Permission to access the file has expired.</sys:String>
+    <sys:String x:Key="Exception_Sdk_Rest_MyVault_5001_InvalidNxl">Invalid NXL file.</sys:String>
+    <sys:String x:Key="Exception_Sdk_Rest_MyVault_5002_InvalidRepoMetadata">Invalid metadata.</sys:String>
+    <sys:String x:Key="Exception_Sdk_Rest_MyVault_5003_InvalidFileName">Invalid file name.</sys:String>
+    <sys:String x:Key="Exception_Sdk_Rest_MyVault_5004_InvalidFileExtension">Invalid file extension.</sys:String>
+    <sys:String x:Key="Exception_Sdk_Rest_MyVault_5005_InvalidFileExtension">Invalid file.</sys:String>
+    
+    <sys:String x:Key="Exception_Sdk_Rest_SharedWithMe_403_ForbiddenShare">You have no permission to share the file.</sys:String>
+    <sys:String x:Key="Exception_Sdk_Rest_SharedWithMe_403_ForbiddenDownload">You have no permission to download the file.</sys:String>
+    <sys:String x:Key="Exception_Sdk_Rest_SharedWithMe_4001_Revoked"> Permission to access the file has been revoked.</sys:String>
+    
+    <sys:String x:Key="Exception_Sdk_Rest_Project_4001_ProjNameTooLong">Invalid operation, project name is too long.</sys:String>
+    <sys:String x:Key="Exception_Sdk_Rest_Project_4002_ProjDescTooLong">Invalid operation, project description is too long.</sys:String>
+    <sys:String x:Key="Exception_Sdk_Rest_Project_4003_ProjNameIllegal">Invalid operation, project name contains invalid characters.</sys:String> 
+    <sys:String x:Key="Exception_Sdk_Rest_Project_5005_ProjNameExists">Invalid operation, project name already exists.</sys:String>
+    
+    <sys:String x:Key="Exception_Sdk_Rest_Project_4001_FolderNameInvalid">Invalid folder name.</sys:String>
+    <sys:String x:Key="Exception_Sdk_Rest_Project_4001_FolderExist">Folder already exists.</sys:String>
+    <sys:String x:Key="Exception_Sdk_Rest_Project_4003_FolderIllegal">Invalid operation, folder name must not be more than 127 characters.</sys:String>
+    
+    <sys:String x:Key="Exception_Sdk_Rest_Project_4001_InviteExpired">The invitation has expired.</sys:String>
+    <sys:String x:Key="Exception_Sdk_Rest_Project_4002_InviteDeclined">The invitation has been declined.</sys:String>
+    <sys:String x:Key="Exception_Sdk_Rest_Project_4003_MismtachEmail">Your email does not match the invitee’s email.</sys:String>
+    <sys:String x:Key="Exception_Sdk_Rest_Project_4005_InviteAccepted">The invitation has been accepted.</sys:String>
+    <sys:String x:Key="Exception_Sdk_Rest_Project_4006_InviteRevoked">The invitation has been revoked.</sys:String>
+    <sys:String x:Key="Exception_Sdk_Rest_Project_4006_DeclReasnLong">Invalid operation, description is too long. </sys:String>
+    
+    <sys:String x:Key="Exception_Sdk_Rest_Project_5001_ProMemberNotOwnerRemove">Only project owner can remove member from project.</sys:String>
+    <sys:String x:Key="Exception_Sdk_Rest_Project_5002_ProMemberDenyRemoveOwner">Project owner cannot be removed.</sys:String>
+    
+    
+    <sys:String x:Key="Exception_Sdk_Rest_Sharing_304_RevokingAPI_AlreadyRevoked">Permission to access file has been revoked.</sys:String>
+    <sys:String x:Key="Exception_Sdk_Rest_Sharing_4001_UpdateEmail_FileRevoked"> Permission to access file has been revoked.</sys:String>
+    <sys:String x:Key="Exception_Sdk_Rest_Sharing_4007_CommentsTooLong"> Invalid operation, description is too long.</sys:String>
+   
+    
+    <!---->
+    <!--EndException Message-->
+    <!---->
+
+    <!--ServiceManager MenuItem for background-->
+    <sys:String x:Key="ServiceManageWin_MenuItem_About">About</sys:String>
+    <sys:String x:Key="ServiceManageWin_MenuItem_Logout">Log out</sys:String>
+    <sys:String x:Key="ServiceManageWin_MenuItem_Exit">Exit</sys:String>
+    <!--ServiceManager Converters.cs-->
+    <sys:String x:Key="ServiceManageWin_One_Month">One month ago</sys:String>
+    <sys:String x:Key="ServiceManageWin_One_Week">One week ago</sys:String>
+    <sys:String x:Key="ServiceManageWin_Two_Weeks">Two weeks ago</sys:String>
+    <sys:String x:Key="ServiceManageWin_Day_Ago">day ago</sys:String>
+    <sys:String x:Key="ServiceManageWin_Days_Ago">days ago</sys:String>
+    <sys:String x:Key="ServiceManageWin_Hour_Ago">hour ago</sys:String>
+    <sys:String x:Key="ServiceManageWin_Hours_Ago">hours ago</sys:String>
+    <sys:String x:Key="ServiceManageWin_Minute_Ago">minute ago</sys:String>
+    <sys:String x:Key="ServiceManageWin_Minutes_Ago">minutes ago</sys:String>
+    <sys:String x:Key="ServiceManageWin_Uploaded_Just">Uploaded just now</sys:String>
+    <sys:String x:Key="ServiceManageWin_Uploaded">Uploaded</sys:String>
+    <sys:String x:Key="ServiceManageWin_Updating">Updating...</sys:String>
+    <sys:String x:Key="ServiceManageWin_Resume_Updating">Resume updating...</sys:String>
+    <sys:String x:Key="ServiceManageWin_Uploading">Uploading...</sys:String>
+    <sys:String x:Key="ServiceManageWin_Waiting_Upload">Waiting for upload...</sys:String>
+    <sys:String x:Key="ServiceManageWin_Removed_Local">Removed</sys:String>
+    <sys:String x:Key="ServiceManageWin_Downloaded_Failed">Download failed</sys:String>
+    <sys:String x:Key="ServiceManageWin_Downloaded_Succeed">Download succeeded</sys:String>
+    <sys:String x:Key="ServiceManageWin_Downloading">Downloading...</sys:String>
+    <sys:String x:Key="ServiceManageWin_File_Missing_In_Local">Invalid file</sys:String>
+    <sys:String x:Key="ServiceManageWin_UnknownError">UnknownError</sys:String>
+    <sys:String x:Key="ServiceManageWin_AvailableOffline">Available Offline</sys:String>
+    <sys:String x:Key="ServiceManageWin_Online">Updated successfully</sys:String>
+    <sys:String x:Key="ServiceManageWin_CachedFile">Uploaded successfully</sys:String>
+    <sys:String x:Key="ServiceManageWin_ProtectSucceeded">Protect Succeeded</sys:String>
+    <sys:String x:Key="ServiceManageWin_ProtectFailed">Protect Failed</sys:String>
+    <sys:String x:Key="ServiceManageWin_Edit_In_Local">Edited in local</sys:String>
+
+    <sys:String x:Key="MainWin__TreeView_MyVault">MyVault</sys:String>
+    <sys:String x:Key="MainWin__TreeView_ShareWithMe">Shared with me</sys:String>
+    <sys:String x:Key="MainWin__TreeView_Project">Project</sys:String>
+    
+    <sys:String x:Key="MainWin__Start_Upload">Start upload</sys:String>
+    <sys:String x:Key="MainWin__Stop_Upload">Stop upload</sys:String>
+    
+    <sys:String x:Key="MainWin_List_item">item</sys:String>
+    <sys:String x:Key="MainWin_List_items">items</sys:String>
+
+    <sys:String x:Key="MainWin_List_Updating">Updating...</sys:String>
+    <sys:String x:Key="MainWin_List_UploadFailed">Upload failed</sys:String>
+    <sys:String x:Key="MainWin_List_Edited_In_Local">Edited in Local</sys:String>
+
+    <sys:String x:Key="MainWin__FileListView_Date_modified">Date modified</sys:String>
+    <sys:String x:Key="MainWin__FileListView_Shared_with">Shared with</sys:String>
+    <sys:String x:Key="MainWin__FileListView_Shared_date">Date shared</sys:String>
+    <sys:String x:Key="MainWin__FileListView_Shared_by">Shared by</sys:String>
+
+    <sys:String x:Key="MainWin__ProjectListView_GroupByMe">Projects created by&#160;</sys:String>
+    <sys:String x:Key="MainWin__ProjectListView_GroupByMe2">me</sys:String>
+    <sys:String x:Key="MainWin__ProjectListView_GroupByOther">Projects invited by&#160;</sys:String>
+    <sys:String x:Key="MainWin__ProjectListView_GroupByOther2">others</sys:String>
+
+    <sys:String x:Key="MainWin_NETWORK_CONNECTED">Connected</sys:String>
+    <sys:String x:Key="MainWin_NETWORK_ERROR">Network Error</sys:String>
+    
+    <sys:String x:Key="MainWin_STATUS_ON_LINE">ONLINE</sys:String>
+    <sys:String x:Key="MainWin_STATUS_OFF_LINE">OFFLINE</sys:String>
+
+    <sys:String x:Key="MainWin_FILTER_VIEW_ALL">View All</sys:String>
+    <sys:String x:Key="MainWin_FILTER_WAITINIG_UPLOAD">Waiting for Upload</sys:String>
+    <sys:String x:Key="MainWin_FILTER_ALL_LOCAL_FILES">All Local Files</sys:String>
+
+    <sys:String x:Key="MainWin_Common_Remove_File_Failed">Failed to remove the file.</sys:String>
+
+    <sys:String x:Key="MainWin_SavePath_BalloonTip">Please select a valid folder for the project.</sys:String>
+
+    <sys:String x:Key="MainWin_PromptText_Empty">The folder is empty.</sys:String>
+    <sys:String x:Key="MainWin_PromptText_Loading">Loading...</sys:String>
+    <sys:String x:Key="MainWin_PromptText_Select">Please select a valid folder for the project.</sys:String>
+
+    <sys:String x:Key="MainWin_DoShare">You are not authorized to share the file.</sys:String>
+
+    <sys:String x:Key="MainWin_ContextMenu_Share">Share</sys:String>
+    <sys:String x:Key="MainWin_ContextMenu_View">View file</sys:String>
+    <sys:String x:Key="MainWin_ContextMenu_ViewFileInfo">View file info</sys:String>
+    <sys:String x:Key="MainWin_ContextMenu_Remove">Delete</sys:String>
+    <sys:String x:Key="MainWin_ContextMenu_OpenWeb">Open SkyDRM Web</sys:String>
+    <sys:String x:Key="MainWin_ContextMenu_Mark">Make available offline</sys:String>
+    <sys:String x:Key="MainWin_ContextMenu_UnMark">Make unavailable offline</sys:String>
+    <sys:String x:Key="MainWin_ContextMenu_SaveAs">Save As</sys:String>
+    <sys:String x:Key="MainWin_ContextMenu_AddFile">Add to project</sys:String>
+    <sys:String x:Key="MainWin_ContextMenu_Edit">Edit File</sys:String>
+    <sys:String x:Key="MainWin_ContextMenu_ExtractContent">Extract</sys:String>
+    <sys:String x:Key="MainWin_ContextMenu_ModifyRights">Modify rights</sys:String>
+    <sys:String x:Key="MainWin_ContextMenu_Upload">Retry upload</sys:String>
+
+
+    <sys:String x:Key="ChooseServerWin_CheckUrl_Notify_UrlEmpty">Please input correct server address!</sys:String>
+    <sys:String x:Key="ChooseServerWin_CheckUrl_Notify_NetDisconnect">Network is disconnected!</sys:String>
+    <sys:String x:Key="ChooseServerWin_CheckUrl_Notify_UrlError">Please input correct server address!</sys:String>
+    <sys:String x:Key="ChooseServerWin_CheckUrl_Notify_NetworkOrUrlError">Please input correct server address!</sys:String>
+
+    <sys:String x:Key="CreateFileWin_Notify_File_Not_Created">Empty files are not allowed to be uploaded. Please select a different file.</sys:String>
+    <sys:String x:Key="CreateFileWin_Notify_NxlFile_Not_Protect">The NXL file can't be re-protected.</sys:String>
+    <sys:String x:Key="CreateFileWin_Notify_File_Protect_Failed">The file can't be protected. E.g., no permission on the new protected file, no protection key, invalid source file, protected file existed in destination folder, and so on.</sys:String>
+    <sys:String x:Key="CreateFileWin_Notify_Wait_Protect">Please wait while file is being protected.</sys:String>
+
+    <sys:String x:Key="CreateFileWin__Operation_Title_MProtect">Create protected files</sys:String>
+    <sys:String x:Key="CreateFileWin_Operation_Title_MShare">Share protected files</sys:String>
+    <sys:String x:Key="CreateFileWin__Operation_Title_Protect">Create a protected file</sys:String>
+    <sys:String x:Key="CreateFileWin_Operation_Title_Share">Share a protected file</sys:String>
+    <sys:String x:Key="CreateFileWin_Operation_Info_ADhoc">Apply appropriate permissions to protect the file</sys:String>
+    <sys:String x:Key="CreateFileWin_Operation_Info_Central">Apply appropriate permissions to protect the file</sys:String>
+    <sys:String x:Key="CreateFileWin_Btn_Protect">Create a protected file</sys:String>
+    <sys:String x:Key="CreateFileWin_Btn_Share">Share a protected file</sys:String>
+
+    <sys:String x:Key="CreateFileWin_Btn_Change">Change</sys:String>
+    <sys:String x:Key="CreateFileWin_Btn_Edit">Edit</sys:String>
+    
+    <!--NxlFileToConvetWindow-->
+    <sys:String x:Key="NxlFileToCvetWin_Header_Title">Add to project</sys:String>
+    <sys:String x:Key="NxlFileToCvetWin_Header_Descriptio">Choose a project to add protected file</sys:String>
+    <sys:String x:Key="NxlFileToCvetWin_Btn_Proceed">Proceed</sys:String>
+    <sys:String x:Key="NxlFileToCvetWin_Btn_AddFile">Add file</sys:String>
+    <sys:String x:Key="NxlFileToCvetWin_Btn_Share">Share a protected file</sys:String>
+    <sys:String x:Key="NxlFileToCvetWin_Btn_Next">Next</sys:String>
+    <sys:String x:Key="NxlFileToCvetWin_Btn_Modify">Modify rights</sys:String>
+    <sys:String x:Key="NxlFileToCvetWin_Header_Title_ModifyRights">Modify rights</sys:String>
+    <sys:String x:Key="NxlFileToCvetWin_FileLocation_Title_Addfile">Selected project to add file</sys:String>
+
+    <sys:String x:Key="NxlFileToCvetWin_Error_Message">The local drive path does not exist</sys:String>
+    
+    <!--FileRightsDisplay.xaml.cs-->
+    <!--For systemBucket file-->
+    <sys:String x:Key="FileTagRightDisplay_SysBucktTitle">Permissions granted for this file</sys:String>
+    
+    <sys:String x:Key="ProtectSuccessPage_Modify_Title">Modified the protected file!</sys:String>
+    <sys:String x:Key="ProtectSuccessPage_PathtextHas">has been</sys:String>
+    <sys:String x:Key="ProtectSuccessPage_PathtextHave">have been</sys:String>
+    <sys:String x:Key="ProtectSuccessPage_RightsTypeTB">Company-defined rights</sys:String>
+    <sys:String x:Key="ProtectSuccessPage_RightsDescriptionTB">Company-defined rights are permissions determined by centralized policies</sys:String>
+    
+    <!--SelectRights-->
+    <sys:String x:Key="SelectRights_View">View</sys:String>
+    <sys:String x:Key="SelectRights_Edit">Edit</sys:String>
+    <sys:String x:Key="SelectRights_Print">Print</sys:String>
+    <sys:String x:Key="SelectRights_Share">Re-share</sys:String>
+    <sys:String x:Key="SelectRights_SaveAs">Save As</sys:String>
+    <sys:String x:Key="SelectRights_Download">Download</sys:String>
+    <sys:String x:Key="SelectRights_Extract">Extract</sys:String>
+    <sys:String x:Key="SelectRights_Watermark">Watermark</sys:String>
+    <sys:String x:Key="SelectRights_Validity">Validity</sys:String>
+
+    <!--EditWatermark-->
+    <sys:String x:Key="EditWatermarkCom_Tb_PromptInfo_Text1">Watermark cannot be empty.</sys:String>
+    <sys:String x:Key="EditWatermarkCom_Tb_PromptInfo_Text2">Watermark string exceeds 50 characters.</sys:String>
+
+    <sys:String x:Key="ValidityWin_Never_Description2">Never expire</sys:String>
+    
+    <!--ClassfifiedRights.xaml-->
+    <sys:String x:Key="ClassifiedRight_No_Permission">You do not have any right on this file.</sys:String>
+    
+    <!--ShareWindow-->
+    <sys:String x:Key="ShareFileWin_Notify_File_Share_Failed">Sharing of file failed.</sys:String>
+    <sys:String x:Key="ShareFileWin_Notify_File_Share_Failed_Because_revoked">The file can't be shared since it has been revoked.</sys:String>
+    <sys:String x:Key="ShareFileWin_Notify_File_Share_Failed_No_network">The file can't be shared since the network is unavailable.</sys:String>
+    <sys:String x:Key="ShareFileWin_Protect_MyVault">Above protected file will get uploaded and shared from MyVault.</sys:String>
+    <sys:String x:Key="ShareFileWin_Rights_Revoked">Rights to this file have been revoked for all users.</sys:String>
+    <sys:String x:Key="ShareFileWin_Has_SharedWith">File has been shared with:</sys:String>
+
+    <sys:String x:Key="ShareFileWin_Protect_Successful">Successfully shared</sys:String>
+
+    <sys:String x:Key="ProtectOrShareSuccessPage_Protect_Failed">Failed to protect following file(s):</sys:String>
+
+    <!--FileInfoWindow-->
+    <sys:String x:Key="FileInfoWin_Shared_With">Shared with</sys:String>
+    <sys:String x:Key="FileInfoWin_Shared_By">Shared by</sys:String>
+    <sys:String x:Key="FileInfoWin_Members">members</sys:String>
+    <sys:String x:Key="FileInfoWin_Member">member</sys:String>
+    
+    <!--Logout prompt-->
+    <sys:String x:Key="Uploading_Logout_Prompt">Please wait while there is a file being uploaded.</sys:String>
+
+    <!--For message dialog box info.-->
+    <sys:String x:Key="DlgBox_Title">SkyDRM DESKTOP</sys:String>
+    <sys:String x:Key="DlgBox_Subject">Warning</sys:String>
+        <!--remove file box-->
+    <sys:String x:Key="RemoveFile_DlgBox_Subject">Are you sure you want to remove this file?</sys:String>
+
+    <!--update file box, Like: "The file" + Name + this Key -->
+    <sys:String x:Key="UpdateFile_DlgBox_Subject">The file,'{0}', is modified in remote. Do you want to update it?</sys:String>
+
+    <!--overwrite file box, Like: "The file" + Name + this Key-->
+    <sys:String x:Key="OverwriteFile_DlgBox_Subject">Do you want edited file,{0}, to be overwritten?</sys:String>
+
+    <sys:String x:Key="EnforceUpdate_DlgBox_Subject">The file,'{0}', rights is modified in remote. You must update it from remote.</sys:String>
+
+    <!--replace file box-->
+    <sys:String x:Key="ReplaceFile_DlgBox_Subject">Are you sure you want to replace this file in the destination folder?</sys:String>
+        <!--Internet connection-->
+    <sys:String x:Key="CheckConnection_DlgBox_Subject">Check your connection !!!</sys:String>
+    <sys:String x:Key="CheckConnection_DlgBox_Details" xml:space="preserve">You don't seem to have an active internet connection.  &#13;Please check your connection and try again.</sys:String>
+        <!--Edit watermark -->
+    <sys:String x:Key="EditWatermark_DlgBox_Details">The watermark can't be empty.</sys:String>
+        <!--share email-->
+    <sys:String x:Key="Share_Email_Details" xml:space="preserve">The specified email address already exists. Try another email address.</sys:String>
+        <!--expiration time-->
+    <sys:String x:Key="Validity_DlgBox_Details">The input validity time is invalid. Please choose a validity time again.</sys:String>
+    <sys:String x:Key="Validity_ShareFile_Expired">The file you are sharing is already expired.</sys:String>
+
+    <!--Session expiration-->
+    <sys:String x:Key="SessionInvalid_DlgBox_Details">The session has expired. Please login again.</sys:String>
+
+    <!--CustomMessage.xaml.cs  Button-->
+    <sys:String x:Key="DlgBox_BTN_OK">OK</sys:String>
+    <sys:String x:Key="DlgBox_BTN_YES">Yes</sys:String>
+    <sys:String x:Key="DlgBox_BTN_NO">No</sys:String>
+    <sys:String x:Key="DlgBox_BTN_DELETE">Delete</sys:String>
+    <sys:String x:Key="DlgBox_BTN_CANCEL">Cancel</sys:String>
+    <sys:String x:Key="DlgBox_BTN_CLOSE">Close</sys:String>
+
+    <sys:String x:Key="DlgBox_BTN_OVERWRITE">Overwrite</sys:String>
+    <sys:String x:Key="DlgBox_BTN_DISCARD">Discard</sys:String>
+
+    <!--Hint Message Begin-->
+    <sys:String x:Key="Hint_CommandParse_Path_Empty">System error, the file path is invalid.</sys:String>
+    <sys:String x:Key="Hint_CommandParse_File_Not_Found">Sorry, file could not be found. it might be moved, renamed or deleted?</sys:String>
+    <sys:String x:Key="Hint_CommandParse_File_Size_Zero">Empty file can not be protected.</sys:String>
+    <!--Hint Message End-->
+
+    <!--***********************************All strings in UI code*****************************-->
+<!--***********************************All strings in .xaml*****************************-->
+    
+    <!--*****************************************Notice*****************************************************************-->
+    <!--* First step, Define string in this area.(Communal strings in begins, the other strings are sorted separately) *-->
+    <!--* Second step, Use {DynamicResource Key} in your .xaml file                                                                           *-->
+    <!--*****************************************************************************************************************-->
+    
+    <!--CommunalString-->
+    <!--Window-->
+    <sys:String x:Key="Windows_Defult_Title">SkyDRM DESKTOP</sys:String>
+    <sys:String x:Key="Windows_Btn_Save">Save</sys:String>
+    <sys:String x:Key="Windows_Btn_Cancel">Cancel</sys:String>
+    <sys:String x:Key="Windows_Btn_Share">Share</sys:String>
+    <sys:String x:Key="Windows_Btn_Close">Close</sys:String>
+    <sys:String x:Key="Windows_Btn_Back">Back</sys:String>
+    <sys:String x:Key="Windows_Btn_Finish">Finish</sys:String>
+    
+    <sys:String x:Key="Rights_User_Defined">User-defined Rights</sys:String>
+    <sys:String x:Key="Rights_Apply_Text">Permissions applied to the file</sys:String>
+    <sys:String x:Key="Rights_As_Owner">As the document steward, you have all permissions. Here are the permissions granted to other users:</sys:String>
+    <sys:String x:Key="Rights_WaterMark">Watermark:</sys:String>
+    <sys:String x:Key="Rights_Validity">Validity:</sys:String>
+    <sys:String x:Key="Rights_Company_Defined">Company-defined rights</sys:String>
+    <sys:String x:Key="Rights_Company_Text">Company-defined rights are permissions determined by centralized policies</sys:String>
+
+    <sys:String x:Key="Rights_File_Permissions">File permissions</sys:String>
+
+    <sys:String x:Key="Page_Share_ShareWith">Share with</sys:String>
+    <sys:String x:Key="Page_Share_EnterText">Add email address</sys:String>
+    <sys:String x:Key="Page_Share_Comment">Message</sys:String>
+    <sys:String x:Key="Page_Share_Optional">(Optional)</sys:String>
+    <sys:String x:Key="Page_Share_Comment_Text">Add a message to be included in the notification email</sys:String>
+    <sys:String x:Key="Page_Share_Btn_Share">Share a protected file</sys:String>
+
+    <sys:String x:Key="Open_Skydrm_Web">Open SkyDRM Web</sys:String>
+
+    <!--ServiceManageWindow.xaml-->
+    <sys:String x:Key="ServiceManageWin_Defult_Title">Protect and Share your files</sys:String>
+    <sys:String x:Key="ServiceManageWin_Defult_Prompt">Protect files in your computer and share them with your friends in SkyDRM</sys:String>
+    <sys:String x:Key="ServiceManageWin_Btn_Open_SkyDRM">Open SkyDRM DESKTOP</sys:String>
+    <sys:String x:Key="ServiceManageWin_contextMenu_Header_About">About</sys:String>
+    <sys:String x:Key="ServiceManageWin_contextMenu_Header_Help">Help</sys:String>
+    <sys:String x:Key="ServiceManageWin_contextMenu_Header_Feedback">Feedback</sys:String>
+    <sys:String x:Key="ServiceManageWin_contextMenu_Header_Preferences">Preferences</sys:String>
+    <sys:String x:Key="ServiceManageWin_contextMenu_Header_Log_out">Log out</sys:String>
+        
+    <!--SplashWindow.xaml-->
+      <!--PageSplash-->
+    <sys:String x:Key="SplashWin_Defult_Title">Protect, monitor, and share your documents securely anywhere.</sys:String>
+    <sys:String x:Key="SplashWin_Btn_Log_in">Log in</sys:String>
+    <sys:String x:Key="SplashWin_Btn_Sign_up">Sign up</sys:String>
+    <sys:String x:Key="SplashWin_Defult_Prompt">Don't have an account?</sys:String>
+      <!--PageWelcome1-->
+    <sys:String x:Key="SplashWin_PageWelcome1_Title">Use digital rights to securely share files with anyone anywhere!</sys:String>
+    <sys:String x:Key="SplashWin_PageWelcome1_Prompt">Persistent protection for your files regardless of where they go or who has them.</sys:String>
+      <!--PageWelcome2-->
+    <sys:String x:Key="SplashWin_PageWelcome2_Title">Protect documents across multiple cloud repositories!</sys:String>
+    <sys:String x:Key="SplashWin_PageWelcome2_Prompt">Unified document security service to protect and manage documents stored in the cloud.</sys:String>
+      <!--PageWelcome3-->
+    <sys:String x:Key="SplashWin_PageWelcome3_Title">Access files managed in a document vault from any device!</sys:String>
+    <sys:String x:Key="SplashWin_PageWelcome3_Prompt">Centrally manage and track the critical documents and sensitive files you've shared.</sys:String>
+      <!--PageWelcome4-->
+    <sys:String x:Key="SplashWin_PageWelcome4_Title">Revoke,track and monitor usage of your documents!</sys:String>
+    <sys:String x:Key="SplashWin_PageWelcome4_Prompt">Safeguard documents by tracking where they go, who is using them, and how they're being used.</sys:String>
+    
+    <!--ChooseServerWindow.xaml-->
+    <sys:String x:Key="-ChooseServerWin_Text_Sign_in">Sign in to your account</sys:String>
+    <sys:String x:Key="-ChooseServerWin_RadioBtn_Personal">Personal account</sys:String>
+    <sys:String x:Key="-ChooseServerWin_RadioBtn_Company">Company account</sys:String>
+    <sys:String x:Key="-ChooseServerWin_Text_Change_Url">You can change the URL</sys:String>
+    <sys:String x:Key="-ChooseServerWin_CheckBox_Remember_Url">Remember URL</sys:String>
+    <sys:String x:Key="-ChooseServerWin_Btn_Next">Next</sys:String>
+    
+    <!--LoginWindow.xaml-->
+
+    
+    <!--MainWindow.xaml-->
+    <sys:String x:Key="MainWin__windowMenu_Header_File">&#160; File &#160;</sys:String>
+        <sys:String x:Key="MainWin__windowMenu_Header_Open_File">Open file</sys:String>
+        <sys:String x:Key="MainWin__windowMenu_Header_Protect_File">Protect file</sys:String>
+        <sys:String x:Key="MainWin__windowMenu_Header_Share_File">Share file</sys:String>
+        <sys:String x:Key="MainWin__windowMenu_Header_Remove_File">Remove file</sys:String>
+        <sys:String x:Key="MainWin__windowMenu_Header_Stop_Upload">Stop upload</sys:String>
+        <sys:String x:Key="MainWin__windowMenu_Header_Start_Upload">Start upload</sys:String>
+        <sys:String x:Key="MainWin__windowMenu_Header_View_File_Info">View file info</sys:String>
+        <sys:String x:Key="MainWin__windowMenu_Header_Activity_Log">Activity log</sys:String>
+        <sys:String x:Key="MainWin__windowMenu_Header_Log_out">Log out</sys:String>
+        <sys:String x:Key="MainWin__windowMenu_Header_Exit">Exit</sys:String>
+
+    <sys:String x:Key="MainWin__windowMenu_Header_View">&#160; View &#160;</sys:String>
+        <sys:String x:Key="MainWin__windowMenu_Header_Previous">Previous</sys:String>
+        <sys:String x:Key="MainWin__windowMenu_Header_Next">Next</sys:String>
+        <sys:String x:Key="MainWin__windowMenu_Header_Refresh_Screen">Refresh screen</sys:String>
+        <sys:String x:Key="MainWin__windowMenu_Header_Sort_By">Sort by</sys:String>
+            <sys:String x:Key="MainWin__windowMenu_Header_File_Name">File name</sys:String>
+            <sys:String x:Key="MainWin__windowMenu_Header_Last_Modified">Last modified</sys:String>
+            <sys:String x:Key="MainWin__windowMenu_Header_File_Size">File size</sys:String>
+
+    <sys:String x:Key="MainWin__windowMenu_Header_Preferences">Preferences</sys:String>
+
+    <sys:String x:Key="MainWin__windowMenu_Header_Help">&#160; Help &#160;</sys:String>
+        <sys:String x:Key="MainWin__windowMenu_Header_Getting_Started">Getting Started</sys:String>
+        <sys:String x:Key="MainWin__windowMenu_Header_Help2">Help</sys:String>
+        <sys:String x:Key="MainWin__windowMenu_Header_Check_for_Updates">Check for Updates</sys:String>
+        <sys:String x:Key="MainWin__windowMenu_Header_Report_an_issue">Report an issue</sys:String>
+        <sys:String x:Key="MainWin__windowMenu_Header_About_Skydrm_Desktop">About SkyDRM DESKTOP</sys:String>
+
+    <sys:String x:Key="MainWin__Btn_Protect">Protect a file</sys:String>
+    <!-- &amp;  is  &  in WPF -->
+    <sys:String x:Key="MainWin__Btn_Share">Protect &amp; share</sys:String>
+
+    <sys:String x:Key="MainWin__Combox_View_All">View All</sys:String>
+    <sys:String x:Key="MainWin__Combox_Waiting_for_Upload">Waiting for Upload</sys:String>
+    <sys:String x:Key="MainWin__Combox_All_Local_Files">All Local Files</sys:String>
+
+    <sys:String x:Key="MainWin__Btn_OpenWeb">Visit SkyDRM.com</sys:String>
+    <sys:String x:Key="MainWin__Btn_Preference">Preferences</sys:String>
+
+    <sys:String x:Key="MainWin__Btn_AllOfflineFile">All offline files</sys:String>
+    <sys:String x:Key="MainWin__Btn_OutBox">Outbox</sys:String>
+    
+    <sys:String x:Key="MainWin__ListView_Name">Name</sys:String>
+    <sys:String x:Key="MainWin__ListView_Location">File location</sys:String>
+    <sys:String x:Key="MainWin__ListView_Date_modified">Date modified</sys:String>
+    <sys:String x:Key="MainWin__ListView_Size">Size</sys:String>
+    <sys:String x:Key="MainWin__ListView_Shared_with">Shared with</sys:String>
+
+    <sys:String x:Key="MainWin__ProjectListView_Description">Project description</sys:String>
+    <sys:String x:Key="MainWin__ProjectListView_FileNumber">File number</sys:String>
+
+    <sys:String x:Key="MainWin_LoadingPage_Text">Initializing for the first time usage, please wait...</sys:String>
+    <sys:String x:Key="MainWin__Search_Text">No items match your search.</sys:String>
+
+    <sys:String x:Key="MainWin__Text_Title_Protect">Protect files</sys:String>
+    <!--Protect files on your local or network drive, MyDrive, or an external repository. You can access protected files from MyVault.-->
+    <!--&#160; is white space, &#x000A; is ‘\n’-->
+    <sys:String x:Key="MainWin__Text_Prompt_Protect">Protect files on your local or network drive, MyDrive, or an external repository. You can access protected files from</sys:String>
+    <sys:String x:Key="MainWin__Text_Prompt_MyVault_Protect"> MyVault.</sys:String>
+    
+    <sys:String x:Key="MainWin__Text_Btn_Protect">Protect</sys:String>
+
+    <sys:String x:Key="MainWin__Text_Title_Share">Protect and Share files</sys:String>
+    <sys:String x:Key="MainWin__Text_Prompt_Share">Protect and Share files from your local or network drive, MyDrive, or an external repository.</sys:String>
+    <!--&amp; is & in WPF-->
+    <sys:String x:Key="MainWin__Text_Btn_Share">Protect &amp; share</sys:String>
+
+    <!--upload schedule-->
+    <sys:String x:Key="MainWin__UploadSchedule">Upload schedule:</sys:String>
+    <sys:String x:Key="MainWin__UploadSchedule_Auto">Automatic</sys:String>
+    <sys:String x:Key="MainWin__UploadSchedule_Change">change</sys:String>
+
+    <!--network status-->
+    <sys:String x:Key="MainWin__Network_Status">Status:</sys:String>
+
+    <sys:String x:Key="MainWin_Network_PromptTitle">OFFLINE MODE</sys:String>
+    <sys:String x:Key="MainWin_Network_PromptTitle2">You can only view locally-stored files.</sys:String>
+
+    <!--NxlFileConvetWindow.xaml-->
+    
+    <!--FileCapDesc.xaml-->
+    <sys:String x:Key="FileCapDesc_SelectFile">Selected file</sys:String>
+    <sys:String x:Key="FileCapDesc_Change">Change</sys:String>
+    <sys:String x:Key="FileCapDesc_Classified" xml:space="preserve">Protected with company defined rights:&#13;</sys:String>
+
+    <!--FileLocaltionDest.xaml-->
+    <sys:String x:Key="FileLocaltionDest_SavePath_Lable">File will be saved to</sys:String>
+    <sys:String x:Key="FileLocaltionDest_Sp_Lable">Save protected files to</sys:String>
+    <sys:String x:Key="FileLocaltionDest_Radio_LocalDrive_Text">Local Drive</sys:String>
+    <sys:String x:Key="FileLocaltionDest_Radio_CentralLocation_Text">Central Location</sys:String>
+    <sys:String x:Key="FileLocaltionDest_Select_Btn">Select</sys:String>
+    
+    <!--FileRightsSelect.xaml-->
+    <sys:String x:Key="FileRightsSelect_SavePath_Lable">File will be saved to</sys:String>
+    <sys:String x:Key="FileRightsSelect_Change_Location_Btn">Change save location</sys:String>
+    <sys:String x:Key="FileRightsSelect_Sp_Lable">Specify permissions to the file</sys:String>
+    <sys:String x:Key="FileRightsSelect_Radio_Cnetral_Text">Company-defined</sys:String>
+    <sys:String x:Key="FileRightsSelect_Radio_Ahoc_Text">User-defined</sys:String>
+    
+    
+    <!--FileRightsDisplay.xaml-->
+    <sys:String x:Key="FileTagRightDisplay_SectionTitle">Permissions granted for the project</sys:String>
+    
+    
+    
+    <!--PageSelectDigitalRights-->
+    <sys:String x:Key="PageSelectRights_Title">User-defined rights are pre-defined permissions that you can apply to your documents.</sys:String>
+    <sys:String x:Key="PageSelectRights_Content">Content</sys:String>
+    <sys:String x:Key="PageSelectRights_CheckBox_View">View</sys:String>
+    <sys:String x:Key="PageSelectRights_CheckBox_Edit">Edit</sys:String>
+    <sys:String x:Key="PageSelectRights_CheckBox_Print">Print</sys:String>
+    <sys:String x:Key="PageSelectRights_Collaboration">Collaboration</sys:String>
+    <sys:String x:Key="PageSelectRights_CheckBox_Share">Re-share</sys:String>
+    <sys:String x:Key="PageSelectRights_CheckBox_Download">Save As</sys:String>
+    <sys:String x:Key="PageSelectRights_Effect">Effect</sys:String>
+    <sys:String x:Key="PageSelectRights_CheckBox_Watermark">Watermark</sys:String>
+
+    <sys:String x:Key="PageSelectRights_Expiration">Expiration</sys:String>
+    <sys:String x:Key="PageSelectRights_CheckBox_Validity">Validity</sys:String>
+
+    <sys:String x:Key="PageSelectRights_Options">more options</sys:String>
+    <sys:String x:Key="PageSelectRights_CheckBox_Decrypt">Extract</sys:String>
+
+    <sys:String x:Key="PageSelectRights_Underline_Change">Change</sys:String>
+
+    <!--EditWatermarkWindow.xaml-->
+    <sys:String x:Key="EditWatermarkWin_Title">Edit watermark</sys:String>
+    
+    <!--EditWatermarkComponent-->
+    <sys:String x:Key="EditWatermarkCom_Title_Text">Edit the existing watermark by either typing a custom value or by selecting the preset values.</sys:String>
+    <sys:String x:Key="EditWatermarkCom_Tb_PromptInfo_Text">Watermark cannot be set empty.</sys:String>
+    <sys:String x:Key="EditWatermarkCom_Text_Add">Add preset values</sys:String>
+    <sys:String x:Key="EditWatermarkCom_Btn_Addline">Add line break</sys:String>
+
+    <!--ValiditySpecifyWindow-->
+    <sys:String x:Key="ValidityWin_Title">Specify rights expiry date</sys:String>
+    <sys:String x:Key="ValidityWin_RadioBtn_Never">Never expire</sys:String>
+    <sys:String x:Key="ValidityWin_RadioBtn_Relative">Relative</sys:String>
+    <sys:String x:Key="ValidityWin_RadioBtn_Absolute">Absolute date</sys:String>
+    <sys:String x:Key="ValidityWin_RadioBtn_Range">Data range</sys:String>
+    <sys:String x:Key="ValidityWin_Never_Description">Never expire</sys:String>
+
+    <sys:String x:Key="ValidityWin_Lable_Year">Year(s)</sys:String>
+    <sys:String x:Key="ValidityWin_Lable_Month">Month(s)</sys:String>
+    <sys:String x:Key="ValidityWin_Lable_Week">Week(s)</sys:String>
+    <sys:String x:Key="ValidityWin_Lable_Day">Day(s)</sys:String>
+
+    <sys:String x:Key="ValidityWin_Btn_Clear">Clear</sys:String>
+
+
+    <!--ProtectWindow.xaml-->
+    <!--ProtectSuccessPage-->
+    <sys:String x:Key="ProtectSuccessPage_Svae_Text">successfully saved</sys:String>
+    <sys:String x:Key="ProtectSuccessPage_To_Text">to</sys:String>
+    
+    <!--ShareWindow.xaml-->
+    <!--SharePage-->
+    <sys:String x:Key="SharePage_Title_Description">Above protected file will get uploaded and shared from&#160;</sys:String>
+    <sys:String x:Key="SharePage_Title_SubDescription">MyVault</sys:String>
+    
+    <!--ShareSuccessPage-->
+
+    
+    <!--FileInformationWindow.xaml-->
+    <sys:String x:Key="FileInfoWin_Size">Size</sys:String>
+    <sys:String x:Key="FileInfoWin_Last_Modified">Last modified on</sys:String>
+    <sys:String x:Key="FileInfoWin_Original_File">Original File</sys:String>
+    <sys:String x:Key="FileInfoWin_Request_Validity">Request Renew validity</sys:String>
+    <sys:String x:Key="FileInfoWin_Access_Denied">Access Denied</sys:String>
+    
+    <!--ActivityLogWindow.xaml-->
+
+    
+    <!--AboutSkyDrmWindow.xaml-->
+
+    
+    <!--CheckForUpdatesWindow.xaml-->
+
+    
+    <!--FeedBackWindow.xaml-->
+
+    
+    <!--PreferencesWindow.xaml-->
+    <!--PageSystem.xaml-->
+    <sys:String x:Key="PageSystem_System_Title">System</sys:String>
+    <sys:String x:Key="PageSystem_Check_Login">Automatically start SkyDRM Desktop when I log on to Windows.</sys:String>
+    <sys:String x:Key="PageSystem_Check_LeaveCopy">Leave a local offline copy after uploading new protected file.</sys:String>
+    <sys:String x:Key="PageSystem_Btn_Save">Save</sys:String>
+    <sys:String x:Key="PageSystem_Btn_Apply">Apply</sys:String>
+    <sys:String x:Key="PageSystem_Btn_Cancle">Cancel</sys:String>
+    <!--PageDocument.xaml-->
+    <sys:String x:Key="PageDocument_Document_Title">Document</sys:String>
+    <sys:String x:Key="PageDocument_Defult_WaterMark">Default watermark</sys:String>
+    <sys:String x:Key="PageDocument_Expire_Text">Digital rights validity period</sys:String>
+    <sys:String x:Key="PageDocument_Btn_Save">Save</sys:String>
+    <sys:String x:Key="PageDocument_Btn_Apply">Apply</sys:String>
+    <sys:String x:Key="PageDocument_Btn_Cancle">Cancel</sys:String>
+    
+    <!--ProfileWindow.xaml-->
+
+    
+</ResourceDictionary>

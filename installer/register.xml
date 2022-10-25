@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<REGISTER>
+    <TENANTID></TENANTID>
+    <SERVER></SERVER>
+    <PLATFORM>Win-64bit</PLATFORM>
+    <LANGUAGE>0x0409</LANGUAGE>
+    <AUTHN>
+        <TYPE></TYPE>
+    </AUTHN>
+	<OSRMXAPPS>
+		<APPITEM>
+			<PATH>C:\Program Files\Siemens\JT2Go\Products\JT2Go\VisView_NG.exe</PATH>
+			<EXT>.jt</EXT>
+			<ACTIONS>VIEW|PRINT|SAVE|SAVEAS|COPYCONTENT|PRINTSCREEN</ACTIONS>
+		</APPITEM>
+		<APPITEM>
+			<PATH>C:\Program Files (x86)\Siemens\JT2Go\Products\JT2Go\VisView.exe</PATH>
+			<EXT>.jt</EXT>
+			<ACTIONS>VIEW|PRINT|SAVE|SAVEAS|COPYCONTENT|PRINTSCREEN</ACTIONS>
+		</APPITEM>
+		<APPITEM>
+			<PATH>C:\Program Files\SAP\SAP 3D Visual Enterprise Viewer\VEViewer.exe</PATH>
+			<EXT>.vds</EXT>
+			<ACTIONS>VIEW|PRINT|SAVE|SAVEAS|COPYCONTENT|PRINTSCREEN</ACTIONS>
+		</APPITEM>                         
+		<APPITEM>
+			<PATH>C:\Program Files (x86)\SAP\SAP 3D Visual Enterprise Viewer\VEViewer.exe</PATH>
+			<EXT>.vds</EXT>
+			<ACTIONS>VIEW|PRINT|SAVE|SAVEAS|COPYCONTENT|PRINTSCREEN</ACTIONS>
+		</APPITEM>                         
+	</OSRMXAPPS>      
+	<TRUSTEDPRINTERS>
+		<PRINTER></PRINTER>
+	</TRUSTEDPRINTERS> 
+</REGISTER>

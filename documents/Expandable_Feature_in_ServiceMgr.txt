@@ -1,0 +1,20 @@
+List potential expandable features which can be impled in furture:
+
+- double click item to show the file in Viewer if possible
+- pop up item's context menu to show
+	- view
+	- file info
+	- upload to rms, (only this file, if status is waiting for upload)
+	- remove this item, just delete this log item record
+	- print? Edit? SaveAs? Delete this file
+
+
+- Global Shortcut to show this  i.e: ctrl + alt + n ??, 
+	- can be config in perference wnd
+
+
+Dependencies:
+
+- we need a component like Global_Finder / Convert
+	- get the INxlFile obj by each item in logTable if possible
+	- as quick as good

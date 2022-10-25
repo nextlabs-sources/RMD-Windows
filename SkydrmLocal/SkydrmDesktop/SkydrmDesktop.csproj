@@ -1,0 +1,1466 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{74F8F9CF-6A5E-405E-AFDB-DED838B00639}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SkydrmDesktop</RootNamespace>
+    <AssemblyName>nxrmdapp</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>AppICON.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>SkydrmDesktop.rmc.Startup</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AlphaFS, Version=2.2.0.0, Culture=neutral, PublicKeyToken=4d31a58f7d7ad5c9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(NLGITEXTERNALDIR)\AlphaFS.2.2.6\lib\net45\AlphaFS.dll</HintPath>
+    </Reference>
+    <Reference Include="CustomControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(CUSTOMCONTROLDIR)\CustomControls.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(NLGITEXTERNALDIR)\log4net\log4net-2.0.8\bin\net\4.5\release\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Outlook, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.PowerPoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(NLGITEXTERNALDIR)\Newtonsoft.Json\Json110r2\Bin\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="OFFICE, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="Spire.License, Version=1.4.0.40, Culture=neutral, PublicKeyToken=b1144360237c8b3f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(NLGITEXTERNAL)\spire\Spire.License.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.Pdf, Version=8.1.0.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(NLGITEXTERNAL)\spire\Spire.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>$(NLGITEXTERNALDIR)\system.data.sqlite.core\1.0.109.2\lib\net45\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>$(ProgramFiles(x86)))\Microsoft SDKs\Expression\Blend\.NETFramework\v4.0\Libraries\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="rmc\resources\style\ScrollBarStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="rmc\resources\style\ScrollViewerStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="rmc\resources\style\TabItemStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="rmc\resources\style\UnifiedCheckBoxStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="rmc\SkydrmApp.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="rmc\app\drive\RightsManagementService.cs" />
+    <Compile Include="rmc\app\process\IProcess.cs" />
+    <Compile Include="rmc\app\process\office\PowerpntProcess.cs" />
+    <Compile Include="rmc\app\process\PrintProcess.cs" />
+    <Compile Include="rmc\app\process\ViewerProcess.cs" />
+    <Compile Include="rmc\common\decryptor\DecryptAgent.cs" />
+    <Compile Include="rmc\common\helper\AsyncHelper.cs" />
+    <Compile Include="rmc\common\helper\DateTimeHelper.cs" />
+    <Compile Include="rmc\common\helper\FilterSystemPath.cs" />
+    <Compile Include="rmc\common\helper\FileHelper.cs" />
+    <Compile Include="rmc\common\helper\JavaTimeConverter.cs" />
+    <Compile Include="rmc\common\helper\NxlHelper.cs" />
+    <Compile Include="rmc\common\helper\StringHelper.cs" />
+    <Compile Include="rmc\common\helper\Win32Common.cs" />
+    <Compile Include="rmc\common\search\GlobalSearchEx.cs" />
+    <Compile Include="rmc\database\table\externalrepo\Box\BoxFileDao.cs" />
+    <Compile Include="rmc\database\table\externalrepo\Box\BoxLocalFileDao.cs" />
+    <Compile Include="rmc\database\table\externalrepo\dropbox\DropBoxFileDao.cs" />
+    <Compile Include="rmc\database\table\externalrepo\dropbox\DropBoxLocalFileDao.cs" />
+    <Compile Include="rmc\database\table\externalrepo\ExternalDriveFile.cs" />
+    <Compile Include="rmc\database\table\externalrepo\ExternalDriveLocalFile.cs" />
+    <Compile Include="rmc\database\table\externalrepo\googledrive\GooglDriveFileDao.cs" />
+    <Compile Include="rmc\database\table\externalrepo\googledrive\GoogleDriveLocalFileDao.cs" />
+    <Compile Include="rmc\database\table\externalrepo\oneDrive\OneDriveFileCommonDao.cs" />
+    <Compile Include="rmc\database\table\externalrepo\oneDrive\OneDriveFileDao.cs" />
+    <Compile Include="rmc\database\table\externalrepo\oneDrive\OneDriveFileLocalStatusDao.cs" />
+    <Compile Include="rmc\database\table\externalrepo\oneDrive\OneDriveFilesDao.cs" />
+    <Compile Include="rmc\database\table\externalrepo\oneDrive\OneDriveFoldersDao.cs" />
+    <Compile Include="rmc\database\table\externalrepo\oneDrive\OneDriveItem.cs" />
+    <Compile Include="rmc\database\table\externalrepo\oneDrive\OneDriveLocalFileDao.cs" />
+    <Compile Include="rmc\database\table\externalrepo\RmsExternalRepoDao.cs" />
+    <Compile Include="rmc\database\table\externalrepo\sharepoint\SharePointDriveFile.cs" />
+    <Compile Include="rmc\database\table\externalrepo\sharepoint\SharePointDriveLocalFile.cs" />
+    <Compile Include="rmc\database\table\externalrepo\sharepoint\SharePointFileDao.cs" />
+    <Compile Include="rmc\database\table\externalrepo\sharepoint\SharePointLocalFileDao.cs" />
+    <Compile Include="rmc\database\table\myspace\MyDriveFileDao.cs" />
+    <Compile Include="rmc\database\table\myspace\MyDriveLocalFileDao.cs" />
+    <Compile Include="rmc\database\table\project\SharedWithProjectDao.cs" />
+    <Compile Include="rmc\database\table\sharedworkspace\SharedWorkspaceFileDao.cs" />
+    <Compile Include="rmc\database\table\sharedworkspace\SharedWorkspaceLocalFileDao.cs" />
+    <Compile Include="rmc\database\table\workspace\WorkSpaceFileDao.cs" />
+    <Compile Include="rmc\database\table\workspace\WorkSpaceLocalFileDao.cs" />
+    <Compile Include="rmc\featureProvider\common\IMessageNotify.cs" />
+    <Compile Include="rmc\featureProvider\externalDrive\errorHandler\RepoApiException.cs" />
+    <Compile Include="rmc\featureProvider\externalDrive\oneDrive\NxOneDrive.cs" />
+    <Compile Include="rmc\featureProvider\externalDrive\NxBox.cs" />
+    <Compile Include="rmc\featureProvider\externalDrive\NxDropBox.cs" />
+    <Compile Include="rmc\featureProvider\externalDrive\sharepoint\HttpDownloadProgress.cs" />
+    <Compile Include="rmc\featureProvider\externalDrive\sharepoint\ListFileResult.cs" />
+    <Compile Include="rmc\featureProvider\externalDrive\sharepoint\NxHttpClient.cs" />
+    <Compile Include="rmc\featureProvider\externalDrive\sharepoint\NxSharePointBase.cs" />
+    <Compile Include="rmc\featureProvider\externalDrive\sharepoint\NxSharePointOnline.cs" />
+    <Compile Include="rmc\featureProvider\externalDrive\sharepoint\NxSharePointOnPremise.cs" />
+    <Compile Include="rmc\featureProvider\externalDrive\RmsRepoMgr\ExternalRepoType.cs" />
+    <Compile Include="rmc\featureProvider\externalDrive\baseModel\ExternalDriveFile.cs" />
+    <Compile Include="rmc\featureProvider\externalDrive\baseModel\ExternalDriveLocalFile.cs" />
+    <Compile Include="rmc\featureProvider\externalDrive\baseModel\IExternalDriveFile.cs" />
+    <Compile Include="rmc\featureProvider\externalDrive\baseModel\IExternalDriveLocalFile.cs" />
+    <Compile Include="rmc\featureProvider\externalDrive\IExternalDrive.cs" />
+    <Compile Include="rmc\featureProvider\externalDrive\NxGoogleDrive.cs" />
+    <Compile Include="rmc\featureProvider\externalDrive\RmsRepoMgr\IRmsRepo.cs" />
+    <Compile Include="rmc\featureProvider\externalDrive\RmsRepoMgr\IRmsRepoMgr.cs" />
+    <Compile Include="rmc\featureProvider\externalDrive\RmsRepoMgr\RmsRepoMgr.cs" />
+    <Compile Include="rmc\featureProvider\externalDrive\sharepoint\SharePointBaseFile.cs" />
+    <Compile Include="rmc\featureProvider\externalDrive\sharepoint\SharePointBaseLocalFile.cs" />
+    <Compile Include="rmc\featureProvider\externalDrive\sharepoint\SharePointOnlineFile.cs" />
+    <Compile Include="rmc\featureProvider\externalDrive\sharepoint\SharePointOnlineLocalFile.cs" />
+    <Compile Include="rmc\featureProvider\externalDrive\sharepoint\SharePointOnPremiseFile.cs" />
+    <Compile Include="rmc\featureProvider\externalDrive\sharepoint\SharePointOnPremiseLocalFile.cs" />
+    <Compile Include="rmc\featureProvider\IMyDrive.cs" />
+    <Compile Include="rmc\featureProvider\IWorkSpace.cs" />
+    <Compile Include="rmc\featureProvider\common\MessageNotify.cs" />
+    <Compile Include="rmc\featureProvider\MySpace\MyDrive.cs" />
+    <Compile Include="rmc\featureProvider\externalDrive\oneDrive\MultipleThreadDownload.cs" />
+    <Compile Include="rmc\featureProvider\SharedWorkspace\ISharedWorkspace.cs" />
+    <Compile Include="rmc\featureProvider\SharedWorkspace\SharedWorkSpace.cs" />
+    <Compile Include="rmc\featureProvider\WorkSpace\WorkSpace.cs" />
+    <Compile Include="rmc\fileSystem\AbstractFileRepo.cs" />
+    <Compile Include="rmc\fileSystem\externalRepo\externalbase\DriveDoc.cs" />
+    <Compile Include="rmc\fileSystem\externalRepo\externalbase\DriveFolder.cs" />
+    <Compile Include="rmc\fileSystem\externalRepo\ExternalRepoFactory.cs" />
+    <Compile Include="rmc\fileSystem\externalRepo\ExternalRepo.cs" />
+    <Compile Include="rmc\fileSystem\externalRepo\sharepoint\SharePointOnPremiseRepo.cs" />
+    <Compile Include="rmc\fileSystem\localDrive\AbstractLocalDriveRepo.cs" />
+    <Compile Include="rmc\fileSystem\localDrive\LocalDriveRepo.cs" />
+    <Compile Include="rmc\fileSystem\mySpace\MyDriveRepo.cs" />
+    <Compile Include="rmc\fileSystem\project\Helper.cs" />
+    <Compile Include="rmc\fileSystem\project\ProjectData.cs" />
+    <Compile Include="rmc\fileSystem\project\ProjectInfo.cs" />
+    <Compile Include="rmc\fileSystem\sharedWorkspace\SharedWorkspaceRepo.cs" />
+    <Compile Include="rmc\fileSystem\utils\FileSysConstant.cs" />
+    <Compile Include="rmc\fileSystem\workspace\WorkSpaceRepo.cs" />
+    <Compile Include="rmc\sdk\Exception.cs" />
+    <Compile Include="rmc\sdk\helper\CultureStringInfo.cs" />
+    <Compile Include="rmc\sdk\helper\DataConvert.cs" />
+    <Compile Include="rmc\sdk\helper\StringHelper.cs" />
+    <Compile Include="rmc\sdk\internal\boundary.cs" />
+    <Compile Include="rmc\sdk\internal\config.cs" />
+    <Compile Include="rmc\sdk\internal\factory.cs" />
+    <Compile Include="rmc\sdk\Session.cs" />
+    <Compile Include="rmc\sdk\SkydrmException.cs" />
+    <Compile Include="rmc\sdk\Tenant.cs" />
+    <Compile Include="rmc\sdk\Type.cs" />
+    <Compile Include="rmc\sdk\User.cs" />
+    <Compile Include="rmc\Startup.cs" />
+    <Compile Include="rmc\ui\components\AccessDeniedView.xaml.cs">
+      <DependentUpon>AccessDeniedView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="rmc\ui\components\CentralTagView.xaml.cs">
+      <DependentUpon>CentralTagView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="rmc\ui\components\CustomSearchBox.xaml.cs">
+      <DependentUpon>CustomSearchBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="rmc\ui\components\ListViewLayoutManagerLib\LayoutColumn.cs" />
+    <Compile Include="rmc\ui\components\ListViewLayoutManagerLib\ListViewLayoutManager.cs" />
+    <Compile Include="rmc\ui\components\ListViewLayoutManagerLib\RangeColumn.cs" />
+    <Compile Include="rmc\ui\components\ProBarComponent.xaml.cs">
+      <DependentUpon>ProBarComponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="rmc\ui\components\ProBarComponent2.xaml.cs">
+      <DependentUpon>ProBarComponent2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="rmc\ui\components\sortListView\ListSortDecorator.cs" />
+    <Compile Include="rmc\ui\components\sortListView\ListViewBehavior.cs" />
+    <Compile Include="rmc\ui\components\sortListView\SortInfo.cs" />
+    <Compile Include="rmc\ui\components\sortListView\UIElementAdorner.cs" />
+    <Compile Include="rmc\ui\utils\FileIconSupportHelper.cs" />
+    <Compile Include="rmc\ui\utils\DataTypeConvertHelper.cs" />
+    <Compile Include="rmc\ui\utils\FileSizeHelper.cs" />
+    <Compile Include="rmc\ui\utils\NameConvertHelper.cs" />
+    <Compile Include="rmc\ui\utils\Notification.cs" />
+    <Compile Include="rmc\ui\utils\ProjectHelper.cs" />
+    <Compile Include="rmc\ui\utils\ProtectFileHelper.cs" />
+    <Compile Include="rmc\ui\utils\UriToBitmapImageConverter.cs" />
+    <Compile Include="rmc\ui\utils\WarterMarkConvertHelper.cs" />
+    <Compile Include="rmc\ui\windows\AboutSkyDrmWindow.xaml.cs">
+      <DependentUpon>AboutSkyDrmWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="rmc\ui\windows\AddExternalRepoWindow\addRepo\AddExternalRepo.cs" />
+    <Compile Include="rmc\ui\windows\AddExternalRepoWindow\addRepo\IAddExternalRepo.cs" />
+    <Compile Include="rmc\ui\windows\AddExternalRepoWindow\addRepo\IInputPwdAuth.cs" />
+    <Compile Include="rmc\ui\windows\AddExternalRepoWindow\addRepo\InputPwdAuth.cs" />
+    <Compile Include="rmc\ui\windows\AddExternalRepoWindow\viewModel\AddExternalRepoViewModel.cs" />
+    <Compile Include="rmc\ui\windows\AddExternalRepoWindow\viewModel\BaseViewModel.cs" />
+    <Compile Include="rmc\ui\windows\AddExternalRepoWindow\view\AddExternalRepoWin.xaml.cs">
+      <DependentUpon>AddExternalRepoWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="rmc\ui\windows\AddExternalRepoWindow\view\InputNameAndPasswordWin.xaml.cs">
+      <DependentUpon>InputNameAndPasswordWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="rmc\ui\windows\BaseWindow.cs" />
+    <Compile Include="rmc\ui\windows\CheckForUpdates.xaml.cs">
+      <DependentUpon>CheckForUpdates.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="rmc\ui\windows\FeedBackWindow.xaml.cs">
+      <DependentUpon>FeedBackWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="rmc\ui\windows\fileInformation\helper\Converters.cs" />
+    <Compile Include="rmc\ui\windows\fileInformation\view\FileInformationWindown.xaml.cs">
+      <DependentUpon>FileInformationWindown.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="rmc\ui\windows\fileInformation\view\FileInfoWin.xaml.cs">
+      <DependentUpon>FileInfoWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="rmc\ui\windows\fileOperationWindow\model\FileFromSource.cs" />
+    <Compile Include="rmc\ui\windows\fileOperationWindow\operation\AddNxlFile\AddNxlFile.cs" />
+    <Compile Include="rmc\ui\windows\fileOperationWindow\operation\IAddNxlFile.cs" />
+    <Compile Include="rmc\ui\windows\fileOperationWindow\operation\IModifyNxlFileRight.cs" />
+    <Compile Include="rmc\ui\windows\fileOperationWindow\operation\IProtectAndShare.cs" />
+    <Compile Include="rmc\ui\windows\fileOperationWindow\operation\ISpecialProtect.cs" />
+    <Compile Include="rmc\ui\windows\fileOperationWindow\operation\IUpdateRecipients.cs" />
+    <Compile Include="rmc\ui\windows\fileOperationWindow\operation\ModifyRight\ModifyNxlFileRight.cs" />
+    <Compile Include="rmc\ui\windows\fileOperationWindow\operation\ProtectAndShare\ProtectAndShare.cs" />
+    <Compile Include="rmc\ui\windows\fileOperationWindow\operation\SpecialProtect\SpecialProtect.cs" />
+    <Compile Include="rmc\ui\windows\fileOperationWindow\operation\UpdateRecipient\UpdateRecipient.cs" />
+    <Compile Include="rmc\ui\windows\fileOperationWindow\operation\UploadFile\UploadFile.cs" />
+    <Compile Include="rmc\ui\windows\fileOperationWindow\operation\IBase.cs" />
+    <Compile Include="rmc\ui\windows\fileOperationWindow\operation\IProtect.cs" />
+    <Compile Include="rmc\ui\windows\fileOperationWindow\operation\IReShare.cs" />
+    <Compile Include="rmc\ui\windows\fileOperationWindow\model\FileAction.cs" />
+    <Compile Include="rmc\ui\windows\fileOperationWindow\model\OperateFileInfo.cs" />
+    <Compile Include="rmc\ui\windows\fileOperationWindow\model\NxlFileType.cs" />
+    <Compile Include="rmc\ui\windows\fileOperationWindow\operation\IReShareUpdate.cs" />
+    <Compile Include="rmc\ui\windows\fileOperationWindow\operation\IUpload.cs" />
+    <Compile Include="rmc\ui\windows\fileOperationWindow\operation\Protect\Protect.cs" />
+    <Compile Include="rmc\ui\windows\fileOperationWindow\operation\ReShareUpdate\ReShareUpdate.cs" />
+    <Compile Include="rmc\ui\windows\fileOperationWindow\operation\ReShare\ReShare.cs" />
+    <Compile Include="rmc\ui\windows\fileOperationWindow\viewModel\AddNxlFileViewModel.cs" />
+    <Compile Include="rmc\ui\windows\fileOperationWindow\viewModel\BaseViewModel.cs" />
+    <Compile Include="rmc\ui\windows\fileOperationWindow\viewModel\ModifyNxlFileRightViewModel.cs" />
+    <Compile Include="rmc\ui\windows\fileOperationWindow\viewModel\ProtectAndShareViewModel.cs" />
+    <Compile Include="rmc\ui\windows\fileOperationWindow\viewModel\ProtectViewModel.cs" />
+    <Compile Include="rmc\ui\windows\fileOperationWindow\viewModel\ReShareUpdateViewModel.cs" />
+    <Compile Include="rmc\ui\windows\fileOperationWindow\viewModel\ReShareViewModel.cs" />
+    <Compile Include="rmc\ui\windows\fileOperationWindow\viewModel\SpecialProtectViewModel.cs" />
+    <Compile Include="rmc\ui\windows\fileOperationWindow\viewModel\UpdateRecipientViewModel.cs" />
+    <Compile Include="rmc\ui\windows\fileOperationWindow\viewModel\UploadFileViewModel.cs" />
+    <Compile Include="rmc\ui\windows\fileOperationWindow\viewModel\VMContext.cs" />
+    <Compile Include="rmc\ui\windows\fileOperationWindow\view\FailedPage.xaml.cs">
+      <DependentUpon>FailedPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="rmc\ui\windows\fileOperationWindow\view\FileOperationWin.xaml.cs">
+      <DependentUpon>FileOperationWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="rmc\ui\windows\fileOperationWindow\view\FileSelectPage.xaml.cs">
+      <DependentUpon>FileSelectPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="rmc\ui\windows\fileOperationWindow\view\OrdinaryWin.xaml.cs">
+      <DependentUpon>OrdinaryWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="rmc\ui\windows\InitializeWindow.xaml.cs">
+      <DependentUpon>InitializeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="rmc\ui\windows\mainWindow\CustomMainWindow.cs" />
+    <Compile Include="rmc\ui\windows\mainWindow\helper\Constant.cs" />
+    <Compile Include="rmc\ui\windows\mainWindow\helper\ListContextMenu.cs" />
+    <Compile Include="rmc\ui\windows\mainWindow\helper\converter\ConvertersEx.cs" />
+    <Compile Include="rmc\ui\windows\mainWindow\helper\DelegateCommand.cs" />
+    <Compile Include="rmc\ui\windows\mainWindow\helper\DelegateCommandGeneric.cs" />
+    <Compile Include="rmc\ui\windows\mainWindow\helper\FileOperateHelper.cs" />
+    <Compile Include="rmc\ui\windows\mainWindow\helper\FileTypeHelper.cs" />
+    <Compile Include="rmc\ui\windows\mainWindow\helper\ListOperateHelper.cs" />
+    <Compile Include="rmc\ui\windows\mainWindow\helper\MyEventCommand.cs" />
+    <Compile Include="rmc\ui\windows\mainWindow\model\ContextMenuCmdArgsEx.cs" />
+    <Compile Include="rmc\ui\windows\mainWindow\model\CurrentSelectedSavePath.cs" />
+    <Compile Include="rmc\ui\windows\mainWindow\model\CurrentWorkingAreaInfo.cs" />
+    <Compile Include="rmc\ui\windows\mainWindow\model\EnumCurrentWorkingArea.cs" />
+    <Compile Include="rmc\ui\windows\mainWindow\model\EnumLocalNxlFileStatus.cs" />
+    <Compile Include="rmc\ui\windows\mainWindow\model\EnumMainWinTabItems.cs" />
+    <Compile Include="rmc\ui\windows\mainWindow\model\FileUploadStatus.cs" />
+    <Compile Include="rmc\ui\windows\mainWindow\model\RefreshRepositoriesInfo.cs" />
+    <Compile Include="rmc\ui\windows\mainWindow\treeViewComponent\helper\Converters.cs" />
+    <Compile Include="rmc\ui\windows\mainWindow\treeViewComponent\helper\TreeViewHelper.cs" />
+    <Compile Include="rmc\ui\windows\mainWindow\treeViewComponent\model\Root.cs" />
+    <Compile Include="rmc\ui\windows\mainWindow\treeViewComponent\viewModel\FolderViewModel.cs" />
+    <Compile Include="rmc\ui\windows\mainWindow\treeViewComponent\viewModel\ProjectViewModel.cs" />
+    <Compile Include="rmc\ui\windows\mainWindow\treeViewComponent\viewModel\RepoViewModel.cs" />
+    <Compile Include="rmc\ui\windows\mainWindow\treeViewComponent\viewModel\RootViewModel.cs" />
+    <Compile Include="rmc\ui\windows\mainWindow\treeViewComponent\viewModel\TreeViewItemViewModel.cs" />
+    <Compile Include="rmc\ui\windows\mainWindow\treeViewComponent\view\TreeViewComponent.xaml.cs">
+      <DependentUpon>TreeViewComponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="rmc\ui\windows\mainWindow\viewModel\ViewModelHelper.cs" />
+    <Compile Include="rmc\ui\windows\mainWindow\viewModel\ViewModelMainWindow.cs" />
+    <Compile Include="rmc\ui\windows\mainWindow\view\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="rmc\ui\windows\messageBox\CustomMessageBox.xaml.cs">
+      <DependentUpon>CustomMessageBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="rmc\ui\windows\messageBox\MsgBox.cs" />
+    <Compile Include="rmc\ui\windows\outlookAddressBook\GlobalAddressListWindow.xaml.cs">
+      <DependentUpon>GlobalAddressListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="rmc\ui\windows\outlookAddressBook\viewModel\GlobalAddressViewModel.cs" />
+    <Compile Include="rmc\ui\windows\outlookAddressBook\viewModel\OutlookConnector.cs" />
+    <Compile Include="rmc\ui\windows\PreferencesWindow.xaml.cs">
+      <DependentUpon>PreferencesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="rmc\ui\windows\ProfileWindow.xaml.cs">
+      <DependentUpon>ProfileWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="rmc\ui\windows\renameFileWindow\rename\IRenameFile.cs" />
+    <Compile Include="rmc\ui\windows\renameFileWindow\rename\RenameFile.cs" />
+    <Compile Include="rmc\ui\windows\renameFileWindow\view\RenameFileWin.xaml.cs">
+      <DependentUpon>RenameFileWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\languages\CultureStringInfo.cs" />
+    <Compile Include="rmc\app\CommandParser.cs" />
+    <Compile Include="rmc\app\Config.cs" />
+    <Compile Include="rmc\app\HeartBeater.cs" />
+    <Compile Include="rmc\app\process\office\ExcelProcess.cs" />
+    <Compile Include="rmc\app\process\office\OfficeProcess.cs" />
+    <Compile Include="rmc\app\process\office\WinWordProcess.cs" />
+    <Compile Include="rmc\app\process\outlook\Outlook.cs" />
+    <Compile Include="rmc\app\process\pdf\AdobeProcess.cs" />
+    <Compile Include="rmc\app\SingleInstance.cs" />
+    <Compile Include="rmc\app\UIMediator.cs" />
+    <Compile Include="rmc\common\component\DownloadManager.cs" />
+    <Compile Include="rmc\common\component\IPCManager.cs" />
+    <Compile Include="rmc\common\component\MenuDisableMgr.cs" />
+    <Compile Include="rmc\common\component\NetworkStatus.cs" />
+    <Compile Include="rmc\common\component\NoThrowTask.cs" />
+    <Compile Include="rmc\common\component\NxlConverter.cs" />
+    <Compile Include="rmc\common\component\NxlFileConflictMgr.cs" />
+    <Compile Include="rmc\common\component\PrintArgument.cs" />
+    <Compile Include="rmc\common\component\UploadManager.cs" />
+    <Compile Include="rmc\common\component\UploadManagerEx.cs" />
+    <Compile Include="rmc\common\interfaces\IHeartBeat.cs" />
+    <Compile Include="rmc\common\namedPipesServer\NamedPipesServer.cs" />
+    <Compile Include="rmc\common\search\GlobalSearch.cs" />
+    <Compile Include="rmc\database\config\Config.cs" />
+    <Compile Include="rmc\database\DbVersionControl.cs" />
+    <Compile Include="rmc\database\FunctionProvider.cs" />
+    <Compile Include="rmc\database\memcache\project\IProjectCache.cs" />
+    <Compile Include="rmc\database\memcache\project\IProjectLocal.cs" />
+    <Compile Include="rmc\database\memcache\project\ProjectCache.cs" />
+    <Compile Include="rmc\database\memcache\project\ProjectCacheProxy.cs" />
+    <Compile Include="rmc\database\memcache\project\ProjectLocal.cs" />
+    <Compile Include="rmc\database\memcache\project\ProjectLocalLoader.cs" />
+    <Compile Include="rmc\database\memcache\project\Utils.cs" />
+    <Compile Include="rmc\database\SqliteOpenHelper.cs" />
+    <Compile Include="rmc\database\table\myspace\MyVaultFileDao.cs" />
+    <Compile Include="rmc\database\table\myspace\MyVaultLocalFileDao.cs" />
+    <Compile Include="rmc\database\table\nxloperlog\NxlOperLog.cs" />
+    <Compile Include="rmc\database\table\nxloperlog\NxlOperLogDao.cs" />
+    <Compile Include="rmc\database\table\project\ProjectDao.cs" />
+    <Compile Include="rmc\database\table\project\ProjectFileDao.cs" />
+    <Compile Include="rmc\database\table\project\ProjectLocalFileDao.cs" />
+    <Compile Include="rmc\database\table\recentTouchedFile\RecentTouchedFileDao.cs" />
+    <Compile Include="rmc\database\table\recipient\Recipient.cs" />
+    <Compile Include="rmc\database\table\recipient\RecipientDao.cs" />
+    <Compile Include="rmc\database\table\server\Server.cs" />
+    <Compile Include="rmc\database\table\server\ServerDao.cs" />
+    <Compile Include="rmc\database\table\sharedwithme\SharedWithMeFileDao.cs" />
+    <Compile Include="rmc\database\table\systembucket\SystemBucketDao.cs" />
+    <Compile Include="rmc\database\table\user\UserDao.cs" />
+    <Compile Include="rmc\exception\GeneralHandler.cs" />
+    <Compile Include="rmc\featureProvider\BaseOperation\Edit\EditFeature.cs" />
+    <Compile Include="rmc\featureProvider\BaseOperation\Edit\FileEditor.cs" />
+    <Compile Include="rmc\featureProvider\BaseOperation\Edit\Helper.cs" />
+    <Compile Include="rmc\featureProvider\BaseOperation\Edit\IEditFeature.cs" />
+    <Compile Include="rmc\featureProvider\BaseOperation\Export\FileExport.cs" />
+    <Compile Include="rmc\featureProvider\BaseOperation\extractContent\ExtractContentFeature.cs" />
+    <Compile Include="rmc\featureProvider\FileInfo\IFileInfo.cs" />
+    <Compile Include="rmc\featureProvider\common\INxlFileStatusChangedNotifiable.cs" />
+    <Compile Include="rmc\featureProvider\FileInfo\FileInfoBase.cs" />
+    <Compile Include="rmc\featureProvider\ILocalFile.cs" />
+    <Compile Include="rmc\featureProvider\IMyProject.cs" />
+    <Compile Include="rmc\featureProvider\IMyVault.cs" />
+    <Compile Include="rmc\featureProvider\ISharedWithMe.cs" />
+    <Compile Include="rmc\featureProvider\ISystemProject.cs" />
+    <Compile Include="rmc\featureProvider\IUser.cs" />
+    <Compile Include="rmc\featureProvider\MySpace\MyVault.cs" />
+    <Compile Include="rmc\featureProvider\Project\MyProject.cs" />
+    <Compile Include="rmc\featureProvider\SharedWithMe\SharedWithMe.cs" />
+    <Compile Include="rmc\featureProvider\SystemProject\SystemProject.cs" />
+    <Compile Include="rmc\featureProvider\User\User.cs" />
+    <Compile Include="rmc\fileSystem\basemodel\INxlFile.cs" />
+    <Compile Include="rmc\fileSystem\basemodel\LocalImpl.cs" />
+    <Compile Include="rmc\fileSystem\basemodel\NxlImpl.cs" />
+    <Compile Include="rmc\fileSystem\enum\EnumFileLocation.cs" />
+    <Compile Include="rmc\fileSystem\enum\EnumNxlFileStatus.cs" />
+    <Compile Include="rmc\fileSystem\enum\EnumRepoType.cs" />
+    <Compile Include="rmc\fileSystem\utils\externalMgr\ExternalMgrImpl.cs" />
+    <Compile Include="rmc\fileSystem\utils\externalMgr\Helper.cs" />
+    <Compile Include="rmc\fileSystem\utils\externalMgr\IExternalMgr.cs" />
+    <Compile Include="rmc\fileSystem\IFileRepo.cs" />
+    <Compile Include="rmc\fileSystem\mySpace\MyVaultRepo.cs" />
+    <Compile Include="rmc\fileSystem\project\ProjectRepo.cs" />
+    <Compile Include="rmc\SkydrmApp.xaml.cs">
+      <DependentUpon>SkydrmApp.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Resources\languages\StringResource.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="rmc\resources\style\listSortDecoratorStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="rmc\resources\style\MainLocalWinStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="rmc\resources\style\MouseOverButtonStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="rmc\resources\style\UnifiedButtonStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="rmc\ui\components\AccessDeniedView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="rmc\ui\components\CentralTagView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="rmc\ui\components\CustomSearchBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="rmc\ui\components\ProBarComponent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="rmc\ui\components\ProBarComponent2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="rmc\ui\windows\AboutSkyDrmWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="rmc\ui\windows\AddExternalRepoWindow\view\AddExternalRepoWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="rmc\ui\windows\AddExternalRepoWindow\view\InputNameAndPasswordWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="rmc\ui\windows\CheckForUpdates.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="rmc\ui\windows\FeedBackWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="rmc\ui\windows\fileInformation\view\FileInformationWindown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="rmc\ui\windows\fileInformation\view\FileInfoWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="rmc\ui\windows\fileOperationWindow\view\FailedPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="rmc\ui\windows\fileOperationWindow\view\FileOperationWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="rmc\ui\windows\fileOperationWindow\view\FileSelectPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="rmc\ui\windows\fileOperationWindow\view\OrdinaryWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="rmc\ui\windows\InitializeWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="rmc\ui\windows\mainWindow\treeViewComponent\view\TreeViewComponent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="rmc\ui\windows\mainWindow\view\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="rmc\ui\windows\messageBox\CustomMessageBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="rmc\ui\windows\outlookAddressBook\GlobalAddressListWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="rmc\ui\windows\PreferencesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="rmc\ui\windows\ProfileWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="rmc\ui\windows\renameFileWindow\view\RenameFileWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\BaseWindowStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Resource Include="rmc\resources\font\Lato-Regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="rmc\App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="AppICON.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\icons\right_dowload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\icons\right_print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\icons\right_share.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\icons\right_view.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\icons\right_watermark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\icons\test.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\about_skydrm_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Add_line_break.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\bb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\BigAppIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\browse_web.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Edit_watermark_info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\ellipse_ab.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\expander_menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\file_upload_failure.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\file_upload_success.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\folder-green-empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\headbp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\home_protect_file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\home_protect_file_0.5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\home_share_file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_about_window_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_access_denied.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_access_file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_add_email.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_add_email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_availableOffline.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_back_arrow_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_back_arrow_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_black_close_window.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_blue_circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_browser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_cachedFile.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_clear_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_close_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_company_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_down_arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_downloading.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_Edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_Edit_gray.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_Ellipse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_forward_arrow_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_forward_arrow_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_intro_circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_intro_circle_actived.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_local.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_max.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_menu_addfile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_menu_addfile_gray.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_menu_extract.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_menu_extract_gray.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_menu_extract_gray2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_menu_extract2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_menu_modifyrights.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_menu_modifyrights_gray.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_menu_offline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_menu_offline_gray.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_menu_share.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_menu_share_gray.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_menu_upload.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_min.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_more.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_net_connect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_net_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_offline_long_line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_offline_short_line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_openSkyDrm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_openSkyDrm_gray.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_protect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_protect_documents.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_red_circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_red_warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_remove_gray.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_ResultAllow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_ResultDeny.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_rights_decrypt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_rights_download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_rights_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_rights_extract.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_rights_print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_rights_save_as.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_rights_share.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_rights_validity.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_rights_view.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_rights_watermark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_SaveAs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_SaveAs_gray.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_search24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_share.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_share_files_securely.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_share_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_StartUpload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_stopUpload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_switcher_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_switcher_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_title.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_track_usage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_up_arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_vertical_divider.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_viewFile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_viewFile_gray.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_viewFileInfo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_viewFileInfo_gray.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_waitinigUpload.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_yellow_rectangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\InitilizeBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Nextlabs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Offline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\online_long_line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\online_long_short.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Outbox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\preference_menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\prefixpng.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\PresetValue_blue_tick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\PresetValue_cross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\PresetValue_gray_tick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\rights_decrypt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\rights_download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\rights_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\rights_extract.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\rights_extract2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\rights_print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\rights_save_as.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\rights_share.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\rights_validity.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\rights_view.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\rights_watermark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\share.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\SkyDRM-loader.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\skydrm_desktop_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\skydrm_local_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\skydrm_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\SkyDRM_White_Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\skydrmlog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\success.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\to_main_menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\TrayIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\TrayIcon2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\TrayIcon2_Original.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Update_Folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\uploading.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\uploading_sign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\vector.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Win_close_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\ui\windows\mainWindow\treeViewComponent\Images\Folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\ui\windows\mainWindow\treeViewComponent\Images\myvault.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\ui\windows\mainWindow\treeViewComponent\Images\project.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\ui\windows\mainWindow\treeViewComponent\Images\projectByMe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\ui\windows\mainWindow\treeViewComponent\Images\projectByOthers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\ui\windows\mainWindow\treeViewComponent\Images\sharedWithMe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\ui\windows\mainWindow\treeViewComponent\Images\workspace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\ui\windows\mainWindow\treeViewComponent\Images\mydrive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\ui\windows\mainWindow\treeViewComponent\Images\myspace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_uploadfile%402x.png" />
+    <Resource Include="rmc\resources\icons\icon_uploadfile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_createfolder%402x.png" />
+    <Resource Include="rmc\resources\icons\icon_createfolder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_addmember%402x.png" />
+    <Resource Include="rmc\resources\icons\icon_addmember.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_setmember%402x.png" />
+    <Resource Include="rmc\resources\icons\icon_setmember.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_myspace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_mydrive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_myvault.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_protect_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\ShareWithMe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\ui\windows\mainWindow\treeViewComponent\Images\oneDrive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\ui\windows\mainWindow\treeViewComponent\Images\box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\ui\windows\mainWindow\treeViewComponent\Images\sharepoint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\ui\windows\mainWindow\treeViewComponent\Images\dropbox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\ui\windows\mainWindow\treeViewComponent\Images\googleDrive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\ui\windows\mainWindow\treeViewComponent\Images\all-file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_menu_addrepo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\externalrepo\box-black.png" />
+    <Resource Include="rmc\resources\icons\externalrepo\box-white.png" />
+    <Resource Include="rmc\resources\icons\externalrepo\dropbox-black.png" />
+    <Resource Include="rmc\resources\icons\externalrepo\dropbox-white.png" />
+    <Resource Include="rmc\resources\icons\externalrepo\googledrive-black.png" />
+    <Resource Include="rmc\resources\icons\externalrepo\googledrive-white.png" />
+    <Resource Include="rmc\resources\icons\externalrepo\onedrive-black.png" />
+    <Resource Include="rmc\resources\icons\externalrepo\onedrive-white.png" />
+    <Resource Include="rmc\resources\icons\externalrepo\sharepoint-black.png" />
+    <Resource Include="rmc\resources\icons\externalrepo\sharepoint-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\ui\windows\mainWindow\treeViewComponent\Images\repositories.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\externalrepo\box-color.png" />
+    <Resource Include="rmc\resources\icons\externalrepo\dropbox-color.png" />
+    <Resource Include="rmc\resources\icons\externalrepo\googledrive-color.png" />
+    <Resource Include="rmc\resources\icons\externalrepo\onedrive-color.png" />
+    <Resource Include="rmc\resources\icons\externalrepo\sharepoint-color-old.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_menu_overwrite.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_menu_rename.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\fileTypeIcons\---.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\---_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\3DXML.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\3DXML_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\BMP.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\BMP_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\C.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\CATPART.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\CATPART_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\CATSHAPE.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\CATSHAPE_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\CGR.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\CGR_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\CPP.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\CPP_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\CSV.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\CSV_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\C_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\DOC.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\DOCM.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\DOCM_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\DOCX.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\DOCX_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\DOC_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\DOTX.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\DOTX_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\DWG.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\DWG_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\DXF.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\DXF_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\ERR.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\ERR_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\EXE.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\EXE_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\EXT.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\EXT_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\File.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\File_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\GDOC.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\GDOC_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\GDRA.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\GDRA_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\GIF.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\GIF_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\GSHE.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\GSHE_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\GSLI.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\GSLI_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\H.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\HSF.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\HSF_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\HTM.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\HTML.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\HTML_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\HTM_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\HWF.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\HWF_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\H_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\IGES.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\IGES_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\IGS.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\IGS_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\IPT.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\IPT_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\JAVA.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\JAVA_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\JPG.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\JPG_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\JS.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\JSON.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\JSON_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\JS_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\JT.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\JT_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\KEY.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\KEY_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\LOG.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\LOG_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\M.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\MD.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\MD_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\MODEL.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\MODEL_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\MOV.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\MOV_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\MP3.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\MP3_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\MP4.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\MP4_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\M_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\NUMB.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\NUMB_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\PAGE.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\PAGE_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\PAR.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\PAR_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\PDF.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\PDF_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\PNG.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\PNG_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\POTM.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\POTM_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\POTX.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\POTX_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\PPT.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\PPTX.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\PPTX_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\PPT_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\PROPERTIES.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\PROPERTIES_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\PRT.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\PRT_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\PSM.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\PSM_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\PY.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\PY_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\RFT.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\RFT_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\RH.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\RH_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\RTF.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\RTF_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\SLDASM.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\SLDASM_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\SLDPRT.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\SLDPRT_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\SQL.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\SQL_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\STEP.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\STEP_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\STL_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\STL.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\STP.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\STP_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\SWIFT.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\SWIFT_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\TIF.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\TIFF.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\TIFF_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\TIF_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\TXT.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\TXT_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\VB.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\VB_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\VDS.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\VDS_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\VSD.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\VSDX.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\VSDX_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\VSD_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\XLS.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\XLSB.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\XLSB_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\XLSM.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\XLSM_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\XLSX.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\XLSX_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\XLS_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\XLT.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\XLTM.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\XLTM_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\XLTX.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\XLTX_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\XLT_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\XML.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\XML_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\XMT_TXT.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\XMT_TXT_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\X_B.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\X_B_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\X_T.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\X_T_G.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\ZIP.png" />
+    <Resource Include="rmc\resources\fileTypeIcons\ZIP_G.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\fileTypeStatus\offline.png" />
+    <Resource Include="rmc\resources\fileTypeStatus\stop.png" />
+    <Resource Include="rmc\resources\fileTypeStatus\uploading.png" />
+    <Resource Include="rmc\resources\fileTypeStatus\uploadsuccessfully.png" />
+    <Resource Include="rmc\resources\fileTypeStatus\waitupload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\externalrepo\type\application.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\externalrepo\type\personal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\externalrepo\type\company.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_workspace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\ui\windows\mainWindow\treeViewComponent\Images\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\externalrepo\sharepoint-color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\icon_sharewithme.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\folder_big.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\ui\windows\mainWindow\treeViewComponent\Images\localdrive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\set_menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\open_skydrm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rmc\resources\icons\Icon_menu_addfile_gray.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

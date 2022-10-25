@@ -1,0 +1,23 @@
+﻿<Page x:Class="SkydrmLocal.rmc.ui.windows.nxlConvert.subs.PageSelectCentralLocation"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SkydrmLocal.rmc.ui.pages"
+      xmlns:Tree_View="clr-namespace:SkydrmLocal.rmc.ui.windows.mainWindow.treeViewComponent.view"
+      mc:Ignorable="d" 
+      d:DesignWidth="600"
+      Title="PageSelectCentralLocation">
+
+    <StackPanel>
+        <TextBlock x:Name="tb_Title" HorizontalAlignment="Center" Margin="0,0,0,10" Foreground="Gray" FontFamily="Lato" FontWeight="Regular" FontSize="16">Select central location to save protected file</TextBlock>
+
+        <Border Margin="30,0,30,10" Height="150" BorderBrush="#BEBEBE" Background="#F2F3F5" BorderThickness="0.5">
+            <ScrollViewer x:Name="TreeView_Scroll" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                <Tree_View:TreeViewComponent Margin="5" x:Name="UserControl_TreeView" TransmitItemEvent="TreeViewItem_Selected"></Tree_View:TreeViewComponent>
+            </ScrollViewer>
+        </Border>
+        
+    </StackPanel>
+    
+</Page>

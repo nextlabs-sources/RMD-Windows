@@ -1,0 +1,710 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7E427446-32B4-4A51-95D8-B6B936438BC2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Viewer</RootNamespace>
+    <AssemblyName>nxrmviewer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>AppICON.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Viewer.ViewerApp</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AlphaFS, Version=2.2.0.0, Culture=neutral, PublicKeyToken=4d31a58f7d7ad5c9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(NLGITEXTERNALDIR)\AlphaFS.2.2.6\lib\net45\AlphaFS.dll</HintPath>
+    </Reference>
+    <Reference Include="CustomControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(CUSTOMCONTROLDIR)\CustomControls.dll</HintPath>
+    </Reference>
+    <Reference Include="DVLNodeMetaControl, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(NLGITEXTERNALDIR)\ASP\x64_release\DVLNodeMetaControl.dll</HintPath>
+    </Reference>
+    <Reference Include="DVLSceneTreeControl, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(NLGITEXTERNALDIR)\ASP\x64_release\DVLSceneTreeControl.dll</HintPath>
+    </Reference>
+    <Reference Include="DVLSettingsControl, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(NLGITEXTERNALDIR)\ASP\x64_release\DVLSettingsControl.dll</HintPath>
+    </Reference>
+    <Reference Include="DVLStepNameControl, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(NLGITEXTERNALDIR)\ASP\x64_release\DVLStepNameControl.dll</HintPath>
+    </Reference>
+    <Reference Include="DVLStepsControl, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(NLGITEXTERNALDIR)\ASP\x64_release\DVLStepsControl.dll</HintPath>
+    </Reference>
+    <Reference Include="hps_cs_core">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(NLGITEXTERNALDIR)\HOOPS_Visualize_2021_U1_Win_v141\HOOPS_Visualize_2021_U1\bin\win64_v141\hps_cs_core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="hps_cs_sprk">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(NLGITEXTERNALDIR)\HOOPS_Visualize_2021_U1_Win_v141\HOOPS_Visualize_2021_U1\bin\win64_v141\hps_cs_sprk.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="hps_cs_sprk_d3dimage">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(NLGITEXTERNALDIR)\HOOPS_Visualize_2021_U1_Win_v141\HOOPS_Visualize_2021_U1\bin\win64_v141\hps_cs_sprk_d3dimage.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="hps_cs_sprk_exchange">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(NLGITEXTERNALDIR)\HOOPS_Visualize_2021_U1_Win_v141\HOOPS_Visualize_2021_U1\bin\win64_v141\hps_cs_sprk_exchange.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="hps_cs_sprk_ops">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(NLGITEXTERNALDIR)\HOOPS_Visualize_2021_U1_Win_v141\HOOPS_Visualize_2021_U1\bin\win64_v141\hps_cs_sprk_ops.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(NLGITEXTERNALDIR)\log4net\log4net-2.0.8\bin\net\4.5\release\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Outlook, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.PowerPoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.Web.WebView2.Core, Version=1.0.1293.44, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>$(NLGITEXTERNALDIR)\Microsoft.Web.WebView2.1.0.1293.44\lib\net45\Microsoft.Web.WebView2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebView2.WinForms, Version=1.0.1293.44, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>$(NLGITEXTERNALDIR)\Microsoft.Web.WebView2.1.0.1293.44\lib\net45\Microsoft.Web.WebView2.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebView2.Wpf, Version=1.0.1293.44, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>$(NLGITEXTERNALDIR)\Microsoft.Web.WebView2.1.0.1293.44\lib\net45\Microsoft.Web.WebView2.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(NLGITEXTERNALDIR)\newtonsoft.Json\Json110r2\Bin\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationUI, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="ReachFramework" />
+    <Reference Include="RibbonControlsLibrary">
+      <HintPath>$(NLGITEXTERNALDIR)\RibbonControlsLibrary\RibbonControlsLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="SAP.VE.DVL, Version=4.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(NLGITEXTERNALDIR)\ASP\x64_release\SAP.VE.DVL.dll</HintPath>
+    </Reference>
+    <Reference Include="SAP.VE.DVL.Interop, Version=6.2.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(NLGITEXTERNALDIR)\ASP\x64_release\SAP.VE.DVL.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>$(NLGITEXTERNALDIR)\system.data.sqlite.core\1.0.109.2\lib\net45\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="WpfAnimatedGif, Version=1.4.17.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>$(NLGITEXTERNALDIR)\WpfAnimatedGif\1.4.17\lib\net\WpfAnimatedGif.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="ViewerApp.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="resources\languages\StringResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resources\style\MouseOverButtonStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="resources\style\UnifiedButtonStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="upgrade\file\component\share\page\sharePage\view\SharePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="upgrade\file\component\share\window\view\ShareWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="upgrade\ui\common\avPage\view\AVPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="upgrade\ui\common\edgeWebView2Page\view\EdgeWebView2Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="upgrade\ui\common\email\view\EmailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="upgrade\ui\common\errorPage\view\ErrorPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="upgrade\ui\common\fileInfoWindow\FileInfoWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="upgrade\ui\common\htmlPage\view\HtmlPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="upgrade\ui\common\imagePage\view\ImagePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="upgrade\ui\common\loadingBarPage\view\LoadingBarPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="upgrade\ui\common\loadingBar\LoadingBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="upgrade\ui\common\overlayWindow\view\OverlayWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="upgrade\ui\common\previewer2\view\PreviewerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="upgrade\ui\common\hoops\view\ExchangeImportDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="upgrade\ui\common\hoops\view\ProgressBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="upgrade\ui\common\hoops\view\ThreeDViewer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="upgrade\ui\common\richTextPage\view\RichTextPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="upgrade\ui\common\vdsPage\view\VdsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="upgrade\ui\common\viewerWindow\view\ViewerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="upgrade\ui\normal\page\toolbar\view\ToolBarPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="upgrade\ui\nxl\page\toolbar\view\ToolBarPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="..\SkydrmDesktop\rmc\sdk\Exception.cs">
+      <Link>sdk\Exception.cs</Link>
+    </Compile>
+    <Compile Include="..\SkydrmDesktop\rmc\sdk\helper\CultureStringInfo.cs">
+      <Link>sdk\helper\CultureStringInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\SkydrmDesktop\rmc\sdk\helper\DataConvert.cs">
+      <Link>sdk\helper\DataConvert.cs</Link>
+    </Compile>
+    <Compile Include="..\SkydrmDesktop\rmc\sdk\helper\StringHelper.cs">
+      <Link>sdk\helper\StringHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\SkydrmDesktop\rmc\sdk\internal\boundary.cs">
+      <Link>sdk\internal\boundary.cs</Link>
+    </Compile>
+    <Compile Include="..\SkydrmDesktop\rmc\sdk\internal\config.cs">
+      <Link>sdk\internal\config.cs</Link>
+    </Compile>
+    <Compile Include="..\SkydrmDesktop\rmc\sdk\internal\factory.cs">
+      <Link>sdk\internal\factory.cs</Link>
+    </Compile>
+    <Compile Include="..\SkydrmDesktop\rmc\sdk\Session.cs">
+      <Link>sdk\Session.cs</Link>
+    </Compile>
+    <Compile Include="..\SkydrmDesktop\rmc\sdk\SkydrmException.cs">
+      <Link>sdk\SkydrmException.cs</Link>
+    </Compile>
+    <Compile Include="..\SkydrmDesktop\rmc\sdk\Tenant.cs">
+      <Link>sdk\Tenant.cs</Link>
+    </Compile>
+    <Compile Include="..\SkydrmDesktop\rmc\sdk\Type.cs">
+      <Link>sdk\Type.cs</Link>
+    </Compile>
+    <Compile Include="..\SkydrmDesktop\rmc\sdk\User.cs">
+      <Link>sdk\User.cs</Link>
+    </Compile>
+    <Compile Include="Startup.cs" />
+    <Compile Include="upgrade\application\AppStatusCode.cs" />
+    <Compile Include="upgrade\application\IApplication.cs" />
+    <Compile Include="upgrade\communication\namedPipe\client\NamedPipeClient.cs" />
+    <Compile Include="upgrade\cookie\FileExternalInfo.cs" />
+    <Compile Include="upgrade\database\config\Config.cs" />
+    <Compile Include="upgrade\database\FunctionProvider.cs" />
+    <Compile Include="upgrade\database\helper\Helper.cs" />
+    <Compile Include="upgrade\database\SqliteOpenHelper.cs" />
+    <Compile Include="upgrade\database\table\myvault\MyVaultFileDao.cs" />
+    <Compile Include="upgrade\database\table\myvault\MyVaultLocalFileDao.cs" />
+    <Compile Include="upgrade\database\table\project\ProjectDao.cs" />
+    <Compile Include="upgrade\database\table\project\ProjectFileDao.cs" />
+    <Compile Include="upgrade\database\table\project\ProjectLocalFileDao.cs" />
+    <Compile Include="upgrade\database\table\server\Server.cs" />
+    <Compile Include="upgrade\database\table\server\ServerDao.cs" />
+    <Compile Include="upgrade\database\table\sharedwithme\SharedWithMeFileDao.cs" />
+    <Compile Include="upgrade\database\table\user\UserDao.cs" />
+    <Compile Include="upgrade\database\table\wrokspace\WorkSpaceFileDao.cs" />
+    <Compile Include="upgrade\exception\ComponentInitializeException.cs" />
+    <Compile Include="upgrade\exception\EssentialInitializeException.cs" />
+    <Compile Include="upgrade\exception\FileExpiredException.cs" />
+    <Compile Include="upgrade\exception\FileTypeNoSupportedException.cs" />
+    <Compile Include="upgrade\exception\LogInitializeException.cs" />
+    <Compile Include="upgrade\exception\NotAuthorizedException.cs" />
+    <Compile Include="upgrade\exception\NxlFileException.cs" />
+    <Compile Include="upgrade\exception\NxlRMAddinUnloadException.cs" />
+    <Compile Include="upgrade\exception\ParseCmdArgsException.cs" />
+    <Compile Include="upgrade\exception\UnknownException.cs" />
+    <Compile Include="upgrade\exception\ViewerSystemException.cs" />
+    <Compile Include="upgrade\file\component\edit\com\COM_Excel.cs" />
+    <Compile Include="upgrade\file\component\edit\com\COM_PowerPnt.cs" />
+    <Compile Include="upgrade\file\component\edit\com\COM_WinWord.cs" />
+    <Compile Include="upgrade\file\component\edit\EditProcess.cs" />
+    <Compile Include="upgrade\file\component\export\FileExport.cs" />
+    <Compile Include="upgrade\file\component\export\MyVaultFileExport.cs" />
+    <Compile Include="upgrade\file\component\export\ProjectFileExport.cs" />
+    <Compile Include="upgrade\file\component\export\ShareWithMeFileExport.cs" />
+    <Compile Include="upgrade\file\component\export\ShareWorkSpaceFileExport.cs" />
+    <Compile Include="upgrade\file\component\export\WorkSpaceFileExport.cs" />
+    <Compile Include="upgrade\file\component\share\outLook\Outlook.cs" />
+    <Compile Include="upgrade\file\component\share\page\sharePage\converts\Converts.cs" />
+    <Compile Include="upgrade\file\component\share\page\sharePage\view\SharePage.xaml.cs">
+      <DependentUpon>SharePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="upgrade\file\component\share\page\sharePage\viewModel\EmailItem.cs" />
+    <Compile Include="upgrade\file\component\share\page\sharePage\viewModel\EmailStatus.cs" />
+    <Compile Include="upgrade\file\component\share\page\sharePage\viewModel\Helper.cs" />
+    <Compile Include="upgrade\file\component\share\page\sharePage\viewModel\IExpiry.cs" />
+    <Compile Include="upgrade\file\component\share\page\sharePage\viewModel\IShare.cs" />
+    <Compile Include="upgrade\file\component\share\page\sharePage\viewModel\NoThrowTask.cs" />
+    <Compile Include="upgrade\file\component\share\page\sharePage\viewModel\ReShare.cs" />
+    <Compile Include="upgrade\file\component\share\page\sharePage\viewModel\RightsItem.cs" />
+    <Compile Include="upgrade\file\component\share\page\sharePage\viewModel\ShareAdhocFileInProject.cs" />
+    <Compile Include="upgrade\file\component\share\page\sharePage\viewModel\SharePageViewModel.cs" />
+    <Compile Include="upgrade\file\component\share\page\sharePage\viewModel\ShareStatus.cs" />
+    <Compile Include="upgrade\file\component\share\page\sharePage\viewModel\UpdateRecipients.cs" />
+    <Compile Include="upgrade\file\component\share\window\view\ShareWindow.xaml.cs">
+      <DependentUpon>ShareWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="upgrade\file\utils\DecryptResult.cs" />
+    <Compile Include="upgrade\file\utils\NxlFileUtils.cs" />
+    <Compile Include="upgrade\ui\common\avPage\viewModel\ISensor.cs" />
+    <Compile Include="upgrade\ui\common\avPage\view\AVPage.xaml.cs">
+      <DependentUpon>AVPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="upgrade\ui\common\edgeWebView2Page\viewModel\ISensor.cs" />
+    <Compile Include="upgrade\ui\common\edgeWebView2Page\viewModel\ViewModel.cs" />
+    <Compile Include="upgrade\ui\common\edgeWebView2Page\view\EdgeWebView2Page.xaml.cs">
+      <DependentUpon>EdgeWebView2Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="upgrade\ui\common\email\viewModel\ISensor.cs" />
+    <Compile Include="upgrade\ui\common\email\viewModel\OutlookDataObject.cs" />
+    <Compile Include="upgrade\ui\common\email\viewModel\OutlookStorage.cs" />
+    <Compile Include="upgrade\ui\common\email\viewModel\ViewModel.cs" />
+    <Compile Include="upgrade\ui\common\email\view\EmailPage.xaml.cs">
+      <DependentUpon>EmailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="upgrade\ui\common\errorPage\viewModel\ViewModel.cs" />
+    <Compile Include="upgrade\ui\common\errorPage\view\ErrorPage.xaml.cs">
+      <DependentUpon>ErrorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="upgrade\ui\common\fileInfoWindow\FileInfoWin.xaml.cs">
+      <DependentUpon>FileInfoWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="upgrade\ui\common\hoops\viewModel\ISensor.cs" />
+    <Compile Include="upgrade\ui\common\htmlPage\viewModel\ISensor.cs" />
+    <Compile Include="upgrade\ui\common\htmlPage\viewModel\ViewModel.cs" />
+    <Compile Include="upgrade\ui\common\htmlPage\view\HtmlPage.xaml.cs">
+      <DependentUpon>HtmlPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="upgrade\ui\common\imagePage\viewModel\ISensor.cs" />
+    <Compile Include="upgrade\ui\common\imagePage\viewModel\ViewModel.cs" />
+    <Compile Include="upgrade\ui\common\imagePage\view\ImagePage.xaml.cs">
+      <DependentUpon>ImagePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="upgrade\ui\common\loadingBarPage\view\LoadingBarPage.xaml.cs">
+      <DependentUpon>LoadingBarPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="upgrade\ui\common\overlayWindow\viewModel\ViewModel.cs" />
+    <Compile Include="upgrade\ui\common\overlayWindow\view\OverlayWindow.xaml.cs">
+      <DependentUpon>OverlayWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="upgrade\ui\common\previewer2\viewModel\ISensor.cs" />
+    <Compile Include="upgrade\ui\common\previewer2\viewModel\PreviewHandlerHost.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="upgrade\ui\common\previewer2\viewModel\PreviewHandlerHost.Designer.cs">
+      <DependentUpon>PreviewHandlerHost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="upgrade\ui\common\previewer2\viewModel\ViewModel.cs" />
+    <Compile Include="upgrade\ui\common\previewer2\view\PreviewerPage.xaml.cs">
+      <DependentUpon>PreviewerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="upgrade\ui\common\hoops\commands\BaseCommand.cs" />
+    <Compile Include="upgrade\ui\common\hoops\commands\FileOpenCommand.cs" />
+    <Compile Include="upgrade\ui\common\hoops\commands\ModesCommands.cs" />
+    <Compile Include="upgrade\ui\common\hoops\commands\OperatorsCommands.cs" />
+    <Compile Include="upgrade\ui\common\hoops\hoops_license.cs" />
+    <Compile Include="upgrade\ui\common\hoops\SandboxHighlightOperator.cs" />
+    <Compile Include="upgrade\ui\common\hoops\SprocketsWPFControl.cs" />
+    <Compile Include="upgrade\ui\common\hoops\view\ExchangeImportDialog.xaml.cs">
+      <DependentUpon>ExchangeImportDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="upgrade\ui\common\hoops\view\ProgressBar.xaml.cs">
+      <DependentUpon>ProgressBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="upgrade\ui\common\hoops\view\ThreeDViewer.xaml.cs">
+      <DependentUpon>ThreeDViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="upgrade\ui\common\richTextPage\viewModel\ISensor.cs" />
+    <Compile Include="upgrade\ui\common\richTextPage\viewModel\RichTextBoxPrintCtrl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="upgrade\ui\common\richTextPage\viewModel\ViewModel.cs" />
+    <Compile Include="upgrade\ui\common\richTextPage\view\RichTextPage.xaml.cs">
+      <DependentUpon>RichTextPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="upgrade\ui\common\vdsPage\viewModel\ISensor.cs" />
+    <Compile Include="upgrade\ui\common\vdsPage\view\VdsPage.xaml.cs">
+      <DependentUpon>VdsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="upgrade\ui\common\viewerWindow\viewModel\AbsViewModel.cs" />
+    <Compile Include="upgrade\ui\common\viewerWindow\viewModel\ErrorViewModel.cs" />
+    <Compile Include="upgrade\ui\common\viewerWindow\viewModel\FileLoader.cs" />
+    <Compile Include="upgrade\ui\common\viewerWindow\viewModel\IViewModel.cs" />
+    <Compile Include="upgrade\ui\common\viewerWindow\viewModel\NativeFileLoader.cs" />
+    <Compile Include="upgrade\ui\common\viewerWindow\viewModel\NxlFileLoader.cs" />
+    <Compile Include="upgrade\ui\common\viewerWindow\viewModel\ViewModel.cs" />
+    <Compile Include="upgrade\ui\common\viewerWindow\view\ViewerWindow.xaml.cs">
+      <DependentUpon>ViewerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="upgrade\ui\normal\page\toolbar\viewModel\ViewModel.cs" />
+    <Compile Include="upgrade\ui\normal\page\toolbar\view\ToolBarPage.xaml.cs">
+      <DependentUpon>ToolBarPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="upgrade\ui\nxl\page\toolbar\viewModel\Converts.cs" />
+    <Compile Include="upgrade\ui\nxl\page\toolbar\viewModel\ISensor.cs" />
+    <Compile Include="upgrade\ui\nxl\page\toolbar\viewModel\ViewModel.cs" />
+    <Compile Include="upgrade\ui\nxl\page\toolbar\view\ToolBarPage.xaml.cs">
+      <DependentUpon>ToolBarPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="upgrade\ui\common\viatalError\viewModel\CViewModel.cs" />
+    <Compile Include="upgrade\ui\common\viatalError\view\ViatalErrorWindow.xaml.cs">
+      <DependentUpon>ViatalErrorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="upgrade\utils\3dPdfAnalyzer\BasicObjects.cs" />
+    <Compile Include="upgrade\utils\3dPdfAnalyzer\LZWDecode.cs" />
+    <Compile Include="upgrade\utils\3dPdfAnalyzer\PdfDocument.cs" />
+    <Compile Include="upgrade\utils\3dPdfAnalyzer\PdfIndirectObject.cs" />
+    <Compile Include="upgrade\utils\3dPdfAnalyzer\PdfParser.cs" />
+    <Compile Include="upgrade\utils\3dPdfAnalyzer\ProgramState.cs" />
+    <Compile Include="upgrade\utils\overlay\utils\OverlayUtils.cs" />
+    <Compile Include="upgrade\utils\overlay\windowOverlay\WindowOverlay.cs" />
+    <Compile Include="upgrade\utils\UriToBitmapImageConverter.cs" />
+    <Compile Include="upgrade\utils\Win32Common.cs" />
+    <Compile Include="upgrade\utils\WindowWrapper.cs" />
+    <Compile Include="upgrade\vTask\IVTask.cs" />
+    <Compile Include="upgrade\vTask\ViewFile.cs" />
+    <Compile Include="upgrade\vTask\VitalSystemError.cs" />
+    <Compile Include="upgrade\file\basic\FileStatusCode.cs" />
+    <Compile Include="upgrade\file\basic\IFile.cs" />
+    <Compile Include="upgrade\file\basic\INxlFile.cs" />
+    <Compile Include="upgrade\file\basic\_BaseFile.cs" />
+    <Compile Include="upgrade\file\basic\_File.cs" />
+    <Compile Include="upgrade\file\basic\_NxlFile.cs" />
+    <Compile Include="upgrade\file\basic\_RpmNxlFile.cs" />
+    <Compile Include="upgrade\file\basic\_StdNxlFile.cs" />
+    <Compile Include="upgrade\file\component\removeProtection\RemoveProtection.cs" />
+    <Compile Include="upgrade\file\utils\EditCallBack.cs" />
+    <Compile Include="upgrade\file\utils\EditWatcher.cs" />
+    <Compile Include="upgrade\file\utils\EnumFileType.cs" />
+    <Compile Include="upgrade\file\utils\IPrintable.cs" />
+    <Compile Include="upgrade\file\utils\ISupportable.cs" />
+    <Compile Include="upgrade\file\utils\OfficeRMXHelper.cs" />
+    <Compile Include="upgrade\file\utils\WatermarkInfo.cs" />
+    <Compile Include="upgrade\process\basic\IProcess.cs" />
+    <Compile Include="upgrade\process\office\basic\OfficeProcess.cs" />
+    <Compile Include="upgrade\process\office\ExcelProcess.cs" />
+    <Compile Include="upgrade\process\office\PowerPntProcess.cs" />
+    <Compile Include="upgrade\process\office\WinWordProcess.cs" />
+    <Compile Include="upgrade\process\pdf\AdobeProcess.cs" />
+    <Compile Include="upgrade\cookie\EnumIntent.cs" />
+    <Compile Include="upgrade\cookie\IntentParser.cs" />
+    <Compile Include="upgrade\session\ISession.cs" />
+    <Compile Include="upgrade\session\Session.cs" />
+    <Compile Include="upgrade\session\SessionStatusCode.cs" />
+    <Compile Include="upgrade\cookie\Cookie.cs" />
+    <Compile Include="upgrade\ui\common\loadingBar\LoadingBar.xaml.cs">
+      <DependentUpon>LoadingBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="upgrade\ui\common\statusCode\UIStatusCode.cs" />
+    <Compile Include="upgrade\utils\PreviewHandler.cs" />
+    <Compile Include="upgrade\utils\CultureStringInfo.cs" />
+    <Compile Include="upgrade\utils\DelegateCommand.cs" />
+    <Compile Include="upgrade\utils\ErrorCode.cs" />
+    <Compile Include="upgrade\utils\FileUtils.cs" />
+    <Compile Include="upgrade\communication\ipc\IPCManager.cs" />
+    <Compile Include="upgrade\communication\message\MessageNotify.cs" />
+    <Compile Include="upgrade\utils\NetworkStatus.cs" />
+    <Compile Include="upgrade\utils\RegisterProcessUtils.cs" />
+    <Compile Include="upgrade\utils\StringHelper.cs" />
+    <Compile Include="upgrade\utils\ToolKit.cs" />
+    <Compile Include="ViewerApp.xaml.cs">
+      <DependentUpon>ViewerApp.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="upgrade\ui\common\viatalError\view\ViatalErrorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="AppICON.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\icons\Icon_title.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\icons\Icon_Loading.png" />
+    <Resource Include="resources\icons\Icon_Print.png" />
+    <Resource Include="resources\icons\Icon_Protect.png" />
+    <Resource Include="resources\icons\Icon_Share.png" />
+    <Resource Include="resources\icons\Icon_ViewerInfo.png" />
+    <Resource Include="resources\icons\RotateAntiClockwise.png" />
+    <Resource Include="resources\icons\RotateClockwise.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\icons\ArrowLeft_small.png" />
+    <Resource Include="resources\icons\ArrowRight_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\icons\IconAvPlay.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\icons\IconAvPause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\icons\IconMp3Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\icons\Icon_red_warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\icons\IconRedCross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\icons\Icon_access_denied.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\icons\Icon_SaveAs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\icons\Icon_Edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\icons\Icon_extract_content.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\icons\Icon_menu_extract2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\icons\sap_grid.png" />
+    <Resource Include="resources\icons\sap_home.png" />
+    <Resource Include="resources\icons\sap_hotspot.png" />
+    <Resource Include="resources\icons\sap_hotspot_off.png" />
+    <Resource Include="resources\icons\sap_layers.png" />
+    <Resource Include="resources\icons\sap_parts.png" />
+    <Resource Include="resources\icons\sap_pause.png" />
+    <Resource Include="resources\icons\sap_play.png" />
+    <Resource Include="resources\icons\sap_scene_tree.png" />
+    <Resource Include="resources\icons\sap_settings.png" />
+    <Resource Include="resources\icons\sap_steps.png" />
+    <Resource Include="resources\icons\sap_text.png" />
+    <Resource Include="resources\icons\sap_text_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\icons\Icon_add_email.ico" />
+    <Resource Include="resources\icons\Icon_add_email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\icons\icon_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="upgrade\file\component\share\window\viewModel\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\icons\icon_rights_edit.png" />
+    <Resource Include="resources\icons\icon_rights_extract.png" />
+    <Resource Include="resources\icons\icon_rights_print.png" />
+    <Resource Include="resources\icons\icon_rights_save_as.png" />
+    <Resource Include="resources\icons\icon_rights_share.png" />
+    <Resource Include="resources\icons\icon_rights_validity.png" />
+    <Resource Include="resources\icons\icon_rights_view.png" />
+    <Resource Include="resources\icons\icon_rights_watermark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="upgrade\ui\common\hoops\images\IconHome.png" />
+    <Resource Include="upgrade\ui\common\hoops\images\IconOrbit.png" />
+    <Resource Include="upgrade\ui\common\hoops\images\IconPan.png" />
+    <Resource Include="upgrade\ui\common\hoops\images\IconRedCross.png" />
+    <Resource Include="upgrade\ui\common\hoops\images\IconSelectArea.png" />
+    <Resource Include="upgrade\ui\common\hoops\images\IconSelectPoint.png" />
+    <Resource Include="upgrade\ui\common\hoops\images\IconZoomArea.png" />
+    <Resource Include="upgrade\ui\common\hoops\images\IconZoomFit.png" />
+    <Resource Include="upgrade\ui\common\hoops\images\LargeIcon.png" />
+    <Resource Include="upgrade\ui\common\hoops\images\paper_plane.png" />
+    <Resource Include="upgrade\ui\common\hoops\images\ts3d.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\icons\Icon_reset.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

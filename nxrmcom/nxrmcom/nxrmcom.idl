@@ -1,0 +1,72 @@
+// nxrmcom.idl : IDL source for nxrmcom
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (nxrmcom.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(d6760b92-7988-4ed3-a8b7-990016761ce1),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface ICnxrmcom : IDispatch
+{
+	[id(0x01), helpstring("get the rights of an nxl file")]
+	HRESULT GetRights([in]BSTR NxlFilePath, [out, retval]BSTR* Rights);
+
+	[id(0x02), helpstring("convert file to nxl")]
+	HRESULT ProtectFile([in]BSTR PlainFilePath, [in]BSTR Tags, [in]BSTR DestinationFolder, [out, retval]BSTR* NxlFilePath);
+
+	[id(0x03), helpstring("view the file")]
+	HRESULT ViewFile([in]BSTR NxlFilePath, [in]int Options, [out, retval]BSTR* OutputJson);
+
+	[id(0x04), helpstring("Is user logined")]
+	HRESULT IsUserLogined([out, retval]BSTR* OutputJson);
+
+	[id(0x05), helpstring("LockFileSync")]
+	HRESULT LockFileSync([in]BSTR NxlFilePath, [out, retval]BSTR* OutputJson);
+
+	[id(0x06), helpstring("ResumeFileSync")]
+	HRESULT ResumeFileSync([in]BSTR NxlFilePath, [out, retval]BSTR* OutputJson);
+
+	[id(0x07), helpstring("AddRPMDir")]
+	HRESULT AddRPMDir([in]BSTR Path, [in]unsigned int Option ,[out, retval]BSTR* OutputJson);
+
+	[id(0x08), helpstring("RemoveRPMDir")]
+	HRESULT RemoveRPMDir([in]BSTR Path, [out, retval]BSTR* OutputJson);
+
+	[id(0x09), helpstring("RPMAddTrustedProcess")]
+	HRESULT RPMAddTrustedProcess([in]unsigned long processId, [in]BSTR security, [out, retval]BSTR* OutputJson);
+
+	[id(0xA), helpstring("RPMRemoveTrustedProcess")]
+	HRESULT RPMRemoveTrustedProcess([in]unsigned long processId, [in]BSTR security, [out, retval]BSTR* OutputJson);
+
+	[id(0xB), helpstring("RPMRegisterApp")]
+	HRESULT RPMRegisterApp([in]BSTR AppPath, [in]BSTR Security, [out, retval]BSTR* OutputJson);
+
+	[id(0xC), helpstring("RPMNotifyRMXStatus")]
+	HRESULT RPMNotifyRMXStatus([in]boolean Running, [in]BSTR Security, [out, retval]BSTR* OutputJson);
+
+};
+[
+	uuid(5e731a5d-713f-477c-bbe6-941cf41ef64d),
+	version(1.0),
+]
+library nxrmcomLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(1e49b7da-979d-4a6d-9550-8c7b12c7851c)
+	]
+	coclass Cnxrmcom
+	{
+		[default] interface ICnxrmcom;
+	};
+};
+
+import "shobjidl.idl";

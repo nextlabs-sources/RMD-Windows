@@ -1,0 +1,26 @@
+HKCR
+{
+	nextlabs.nxrmcom.1 = s 'Cnxrmcom class'
+	{
+		CLSID = s '{1e49b7da-979d-4a6d-9550-8c7b12c7851c}'
+	}
+	nextlabs.nxrmcom = s 'Cnxrmcom class'
+	{		
+		CurVer = s 'nextlabs.nxrmcom.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {1e49b7da-979d-4a6d-9550-8c7b12c7851c} = s 'Cnxrmcom class'
+		{
+			ProgID = s 'nextlabs.nxrmcom.1'
+			VersionIndependentProgID = s 'nextlabs.nxrmcom'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{5e731a5d-713f-477c-bbe6-941cf41ef64d}'
+			Version = s '1.0'
+		}
+	}
+}

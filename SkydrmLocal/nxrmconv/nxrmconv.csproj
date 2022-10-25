@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0F446554-B87B-44B2-801C-7D7AEE043F2A}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>nxrmconv</RootNamespace>
+    <AssemblyName>nxrmconv</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>S:\development\SkyDRM_Used_Only\windows\git_external\log4net\log4net-2.0.8\bin\net\4.5\release\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>S:\development\SkyDRM_Used_Only\windows\git_external\Newtonsoft.Json\Json110r2\Bin\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\WindowsLocalMode\rmc\exception\SkydrmException.cs">
+      <Link>sdk\SkydrmException.cs</Link>
+    </Compile>
+    <Compile Include="..\WindowsLocalMode\rmc\sdk\Exception.cs">
+      <Link>sdk\Exception.cs</Link>
+    </Compile>
+    <Compile Include="..\WindowsLocalMode\rmc\sdk\helper\CultureStringInfo.cs">
+      <Link>sdk\helper\CultureStringInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\WindowsLocalMode\rmc\sdk\helper\Utils.cs">
+      <Link>sdk\helper\Utils.cs</Link>
+    </Compile>
+    <Compile Include="..\WindowsLocalMode\rmc\sdk\internal\boundary.cs">
+      <Link>sdk\internal\boundary.cs</Link>
+    </Compile>
+    <Compile Include="..\WindowsLocalMode\rmc\sdk\internal\config.cs">
+      <Link>sdk\internal\config.cs</Link>
+    </Compile>
+    <Compile Include="..\WindowsLocalMode\rmc\sdk\internal\factory.cs">
+      <Link>sdk\internal\factory.cs</Link>
+    </Compile>
+    <Compile Include="..\WindowsLocalMode\rmc\sdk\Session.cs">
+      <Link>sdk\Session.cs</Link>
+    </Compile>
+    <Compile Include="..\WindowsLocalMode\rmc\sdk\Tenant.cs">
+      <Link>sdk\Tenant.cs</Link>
+    </Compile>
+    <Compile Include="..\WindowsLocalMode\rmc\sdk\Type.cs">
+      <Link>sdk\Type.cs</Link>
+    </Compile>
+    <Compile Include="..\WindowsLocalMode\rmc\sdk\User.cs">
+      <Link>sdk\User.cs</Link>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

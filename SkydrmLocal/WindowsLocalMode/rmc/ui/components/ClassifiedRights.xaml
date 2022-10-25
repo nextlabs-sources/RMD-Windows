@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="SkydrmLocal.rmc.ui.components.ClassifiedRights"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SkydrmLocal.rmc.ui.components"
+             xmlns:rights="clr-namespace:SkydrmLocal.rmc.ui.components.RightsDisplay"
+             xmlns:centralrigthscontrol="clr-namespace:CentralRigthsControl"
+             mc:Ignorable="d">
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <!--Tag Display-->
+            <ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="100">
+                <centralrigthscontrol:CentralTagView x:Name="TagView"></centralrigthscontrol:CentralTagView>
+            </ScrollViewer>
+            <!--Rights Display-->
+            <rights:RightsStackPanle x:Name="RightsSp" Margin="0,10,0,0"/>
+            <!--NoRights-->
+            <local:AccessDeniedView x:Name="AccessDenied" Visibility="Collapsed"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

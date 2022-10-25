@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="nxrmaddin.cpp" />
+    <ClCompile Include="nxrmext2.cpp" />
+    <ClCompile Include="CommonFunction.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="Log.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="SkyDrmSDKMgr.cpp">
+      <Filter>NXL</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreIDropTarget.cpp">
+      <Filter>Hook</Filter>
+    </ClCompile>
+    <ClCompile Include="HookManager.cpp">
+      <Filter>Hook</Filter>
+    </ClCompile>
+    <ClCompile Include="excelevents.cpp">
+      <Filter>Excel</Filter>
+    </ClCompile>
+    <ClCompile Include="wordevents.cpp">
+      <Filter>Word</Filter>
+    </ClCompile>
+    <ClCompile Include="powerpointevents.cpp">
+      <Filter>PowerPoint</Filter>
+    </ClCompile>
+    <ClCompile Include="Monitor.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>SysMisc</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>SysMisc</Filter>
+    </ClCompile>
+    <ClCompile Include="rmx_class_misc.cpp">
+      <Filter>SysMisc</Filter>
+    </ClCompile>
+    <ClCompile Include="AntiAutoSaveRecoeryHandler.cpp">
+      <Filter>GenericHandler</Filter>
+    </ClCompile>
+    <ClCompile Include="SafePrintHandler.cpp">
+      <Filter>GenericHandler</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="nxrmaddin.h" />
+    <ClInclude Include="nxrmext2.h" />
+    <ClInclude Include="CommonFunction.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="Log.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="SkyDrmSDKMgr.h">
+      <Filter>NXL</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreIDropTarget.h">
+      <Filter>Hook</Filter>
+    </ClInclude>
+    <ClInclude Include="CriticalSectionLock.h">
+      <Filter>Hook</Filter>
+    </ClInclude>
+    <ClInclude Include="HookManager.h">
+      <Filter>Hook</Filter>
+    </ClInclude>
+    <ClInclude Include="excelevents.h">
+      <Filter>Excel</Filter>
+    </ClInclude>
+    <ClInclude Include="wordevents.h">
+      <Filter>Word</Filter>
+    </ClInclude>
+    <ClInclude Include="powerpointevents.h">
+      <Filter>PowerPoint</Filter>
+    </ClInclude>
+    <ClInclude Include="Monitor.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>SysMisc</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>SysMisc</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>SysMisc</Filter>
+    </ClInclude>
+    <ClInclude Include="AntiAutoSaveRecoeryHandler.h">
+      <Filter>GenericHandler</Filter>
+    </ClInclude>
+    <ClInclude Include="SafePrintHandler.h">
+      <Filter>GenericHandler</Filter>
+    </ClInclude>
+    <ClInclude Include="rightsdef.h">
+      <Filter>CommonHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="IEventBase.h">
+      <Filter>CommonHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="officelayout.h">
+      <Filter>CommonHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="ribbonrights.h">
+      <Filter>CommonHeader</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="import\excel2016.tlh">
+      <Filter>SysMisc\OfficeCOMTLH</Filter>
+    </None>
+    <None Include="import\msaddndr.tlh">
+      <Filter>SysMisc\OfficeCOMTLH</Filter>
+    </None>
+    <None Include="import\mso2016.tlh">
+      <Filter>SysMisc\OfficeCOMTLH</Filter>
+    </None>
+    <None Include="import\msppt2016.tlh">
+      <Filter>SysMisc\OfficeCOMTLH</Filter>
+    </None>
+    <None Include="import\msword2016.tlh">
+      <Filter>SysMisc\OfficeCOMTLH</Filter>
+    </None>
+    <None Include="nxrmaddin.def">
+      <Filter>SysMisc</Filter>
+    </None>
+    <None Include="thirdpart\Detours\src\Makefile">
+      <Filter>Hook</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="NXL">
+      <UniqueIdentifier>{9366d5f5-0675-4735-9331-c7a98cc089bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Helper">
+      <UniqueIdentifier>{5eb43c25-71e1-4766-b47b-d01f678517c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hook">
+      <UniqueIdentifier>{9dbe2a4c-a70d-4c64-82b4-f2407f6cdf91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Excel">
+      <UniqueIdentifier>{febaf045-633a-4449-aac3-f8ac868df74b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Word">
+      <UniqueIdentifier>{ff851f0e-c8bd-4d2d-93c9-1d3212ae0d54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PowerPoint">
+      <UniqueIdentifier>{cfbecfc0-12eb-452c-a927-dd2055938dea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SysMisc">
+      <UniqueIdentifier>{5bbb741d-59e3-4a45-8f12-049d7783837e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GenericHandler">
+      <UniqueIdentifier>{611b983e-c91c-4c72-820e-20b9d6fc4c1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SysMisc\OfficeCOMTLH">
+      <UniqueIdentifier>{19ca0af7-8bfa-4a00-82c8-bc4c73d50ba7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CommonHeader">
+      <UniqueIdentifier>{547c70ed-c242-4290-948d-4dc3170288c8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="nxrmaddin.rc">
+      <Filter>SysMisc</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

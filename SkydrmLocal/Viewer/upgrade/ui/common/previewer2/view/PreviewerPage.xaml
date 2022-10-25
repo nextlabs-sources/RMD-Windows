@@ -1,0 +1,21 @@
+﻿<Page x:Class="Viewer.upgrade.ui.common.previewer2.view.PreviewerPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:wfi ="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
+      xmlns:local="clr-namespace:Viewer.upgrade.ui.common.previewer2.view"
+      xmlns:viewModel="clr-namespace:Viewer.upgrade.ui.common.previewer2.viewModel"
+      xmlns:loadingBar="clr-namespace:Viewer.upgrade.ui.common.loadingBar"
+      mc:Ignorable="d" 
+      Loaded="Page_Loaded"
+      Unloaded="Page_Unloaded"
+      Title="PreviewerPage">
+
+    <Grid>
+        <wfi:WindowsFormsHost>
+            <viewModel:PreviewHandlerHost x:Name="PreviewHandlerHost" />
+        </wfi:WindowsFormsHost>
+
+    </Grid>
+</Page>

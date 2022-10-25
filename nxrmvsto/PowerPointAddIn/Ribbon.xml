@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="Ribbon_Load" loadImage="GetImage">
+  <commands>
+    <command idMso="FileSave" onAction="FileSave_Action"/>
+  </commands>
+  <ribbon>
+    <tabs>
+      <tab id="tbNextLabs" label="NextLabs">
+        <group id="tbNt_group" label="Rights Management">
+
+          <!--<button id="bt_Classify" label="Classify" image="Icon_classify" onAction="Btn_Action" 
+                  size="large" screentip="Classify" supertip="Classify this file"/>-->
+
+          <button id="bt_Protect" label="Protect" image="Icon_protect" onAction="Btn_Action"
+                  size="large" screentip="Ptotect" supertip="Ptotect this file" getEnabled="Btn_GetEnable"/>
+
+          <!--<button id="bt_Modify" label="Modify rights" image="Icon_modify" onAction="Btn_Action"
+                  size="large" screentip="Modify rights" supertip="Modify this file rights" enabled="true"/>-->
+
+          <button id="bt_Permission" label="Permissions" image="Icon_permission" onAction="Btn_Action"
+                  size="large" screentip="Permissions" supertip="This file permissions" getEnabled="Btn_GetEnable"/>
+        </group>
+      </tab>
+    </tabs>
+  </ribbon>
+</customUI>
+

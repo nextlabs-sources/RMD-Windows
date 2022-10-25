@@ -1,0 +1,45 @@
+﻿<Page x:Class="SkydrmLocal.rmc.ui.pages.PagePreferenceDocument"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SkydrmLocal.rmc.ui.pages"
+      xmlns:UserControl="clr-namespace:SkydrmLocal.rmc.ui.components"
+      xmlns:local_component="clr-namespace:SkydrmLocal.rmc.ui.components.ValiditySpecify"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="800"
+      Title="PagePreferenceDocument">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="{DynamicResource PageDocument_Document_Title}" Margin="10,0,0,0" FontSize="18" FontFamily="Segoe UI" LineHeight="38" HorizontalAlignment="Left"></TextBlock>
+        <StackPanel Grid.Row="1" Orientation="Vertical">
+            <TextBlock Text="{DynamicResource PageDocument_Defult_WaterMark}" Margin="10,0,0,0" FontSize="16" FontFamily="Segoe UI" LineHeight="21" HorizontalAlignment="Left"></TextBlock>
+            <UserControl:EditWatermarkComponent x:Name="editWaterMark" Margin="10,5,10,0" InvalidInputEvent="Edit_InvalidInputEvent"></UserControl:EditWatermarkComponent>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="vertical">
+            <TextBlock Text="{DynamicResource PageDocument_Expire_Text}" Margin="10,0,0,0" FontSize="16" FontFamily="Segoe UI" LineHeight="16" HorizontalAlignment="Left"></TextBlock>
+            <ComboBox Margin="10,5,0,0" Width="200" HorizontalAlignment="Left" IsEditable="True" IsReadOnly="True" Visibility="Collapsed">
+                <ComboBoxItem Selector.IsSelected="True">Never Expire</ComboBoxItem>
+                <ComboBoxItem>Relative</ComboBoxItem>
+                <ComboBoxItem>Absolute Date</ComboBoxItem>
+                <ComboBoxItem>Data Range</ComboBoxItem>
+            </ComboBox>
+            
+            <local_component:ValiditySpecify x:Name="ValidityComponent" Margin="10,5,0,0" DateChangedEvent="Validity_DateChanged"></local_component:ValiditySpecify>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Orientation="vertical">
+        </StackPanel>
+        <StackPanel Grid.Row="4"  Orientation="Horizontal" HorizontalAlignment="Left" Height="54" Margin="0,10,0,5">
+            <Button x:Name="BtnSave" Style="{StaticResource UnifiedBtnStyle_Positive}" Width="120" Margin="10,0,0,10" VerticalAlignment="Center" Click="Save_Button_Click" Content="{DynamicResource PageDocument_Btn_Save}"></Button>
+            <Button x:Name="BtnApply"  Style="{StaticResource UnifiedBtnStyle_Positive}" Width="120" Margin="10,0,0,10" VerticalAlignment="Center" Click="Apply_Button_Click" Content="{DynamicResource PageDocument_Btn_Apply}"></Button>
+            <Button x:Name="BtnCancel" Style="{StaticResource UnifiedBtnStyle_Negtive}" Width="120" Margin="15,0,0,10"  VerticalAlignment="Center"  Click="Cancel_Button_Click" Content="{DynamicResource PageDocument_Btn_Cancle}"></Button>
+        </StackPanel>
+    </Grid>
+</Page>

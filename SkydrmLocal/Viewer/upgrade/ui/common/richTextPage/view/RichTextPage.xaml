@@ -1,0 +1,32 @@
+﻿<Page x:Class="Viewer.upgrade.ui.common.richTextPage.view.RichTextPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Viewer.upgrade.ui.common.richTextPage.view"
+      xmlns:wfi ="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
+      xmlns:viewModel="clr-namespace:Viewer.upgrade.ui.common.richTextPage.viewModel"
+      mc:Ignorable="d" 
+      Loaded="Page_Loaded"
+      >
+
+    <Grid Name="Host_Grid">
+        <ScrollViewer x:Name="Scroll" VerticalScrollBarVisibility="Auto">
+            <Grid>
+                <wfi:WindowsFormsHost Name="WfHost" Visibility="Hidden">
+                    <viewModel:RichTextBoxPrintCtrl x:Name="RtbPrint"/>
+                </wfi:WindowsFormsHost>
+
+                <RichTextBox x:Name="RichTextBox"
+                             IsReadOnly="True"
+                             >
+                    <RichTextBox.CommandBindings>
+                        <CommandBinding Command="ApplicationCommands.Paste" CanExecute="CommandBinding_CanExecute"></CommandBinding>
+                        <CommandBinding Command="ApplicationCommands.Cut" CanExecute="CommandBinding_CanExecute"></CommandBinding>
+                        <CommandBinding Command="ApplicationCommands.Copy" CanExecute="CommandBinding_CanExecute"></CommandBinding>
+                    </RichTextBox.CommandBindings>
+                </RichTextBox>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Page>

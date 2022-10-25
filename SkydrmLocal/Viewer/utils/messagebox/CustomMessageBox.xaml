@@ -1,0 +1,164 @@
+﻿<Window x:Class="Viewer.utils.messagebox.CustomMessageBoxWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Viewer.utils.messagebox"
+        xmlns:con="clr-namespace:Viewer.utils"
+        mc:Ignorable="d"
+        Height="200" Width="420"  WindowStartupLocation="CenterOwner"  Closed="Window_Closed" 
+        Title="{Binding MessageBoxTitle}" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <con:UriToBitmapImageConverter x:Key="uri2Image"></con:UriToBitmapImageConverter>
+
+        <!--Unified style for Positive button-->
+        <Style x:Key="UnifiedBtnStyle_Positive" TargetType="{x:Type Button}">
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#0079D8"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Name="Border" BorderBrush="Gray" BorderThickness="0"
+                                    Background="{TemplateBinding Background}"
+                                  
+                                    Width="{TemplateBinding Width}"
+                                    Height="{TemplateBinding Height}"
+                                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalAlignment}">
+
+                            <TextBlock Foreground="{TemplateBinding Foreground}" 
+                                           Background="{TemplateBinding Background}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           FontSize="{TemplateBinding FontSize}"
+                                           FontFamily="{TemplateBinding FontFamily}"
+                                           Text="{TemplateBinding Content}"/>
+                        </Border>
+
+                        <!--Trigger-->
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="BorderThickness" Value="2"/>
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#004E8C"/>
+                            </Trigger>
+
+                            <!--Change the bg & fg when disable it.-->
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" Value="#DBD9D8"/>
+                                <Setter Property="Foreground" Value="#818181"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+
+        <!--Unified style for Negtive button-->
+        <Style x:Key="UnifiedBtnStyle_Negtive" TargetType="{x:Type Button}">
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="#CCCCCC"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Name="Border" BorderBrush="Gray" BorderThickness="0"
+                                    Background="{TemplateBinding Background}"
+                                  
+                                    Width="{TemplateBinding Width}"
+                                    Height="{TemplateBinding Height}"
+                                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalAlignment}">
+
+                            <TextBlock Foreground="{TemplateBinding Foreground}" 
+                                           Background="{TemplateBinding Background}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           FontSize="{TemplateBinding FontSize}"
+                                           FontFamily="{TemplateBinding FontFamily}"
+                                           Text="{TemplateBinding Content}"/>
+                        </Border>
+
+
+                        <!--Trigger-->
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="BorderThickness" Value="2"/>
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#9A9A9A"/>
+                            </Trigger>
+
+                            <!--Change the bg & fg when disable it.-->
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" Value="#DBD9D8"/>
+                                <Setter Property="Foreground" Value="#818181"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+
+    </Window.Resources>
+
+    <Grid Margin="20">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <!--Icon and Message subject info-->
+        <StackPanel Grid.Row="0"  Orientation="Horizontal">
+            <Image Name="Icon" Source="{Binding ImagePath, Converter={StaticResource uri2Image}}" Margin="0,0,10,0"></Image>
+            <TextBlock Text="{Binding MessageSubjectText}" TextWrapping="Wrap" MaxWidth="400"
+                           FontWeight="Bold" Foreground="Black"></TextBlock>
+        </StackPanel>
+
+        <!--Details info-->
+        <TextBlock Grid.Row="1" Margin="0,10,0,0" Text="{Binding MessageBoxText}"
+                       LineHeight="20" Foreground="Gray"></TextBlock>
+
+        <Grid Grid.Row="3" >
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+                <!-- Positive button: default value is "OK"-->
+                <Button Name="Positive_Btn" Click="Positive_Btn_Click" Width="100" Height="30"
+                        Style="{StaticResource UnifiedBtnStyle_Positive}" 
+                        Visibility ="Collapsed">OK</Button>
+
+                <!--Neutral button: default value is "Neutral"-->
+                <Button Name="Neutral_Btn" Click="Neutral_Btn_Click" Width="100" Height="30" Margin="10,0,0,0"
+                        Visibility="Collapsed">Neutral</Button>
+
+                <!--Cancel button: default value is "Cancel"-->
+                <Button Name="Negative_Btn" Click="Negative_Btn_Click" Width="100" Height="30" Margin="10,0,0,0"
+                        Style="{StaticResource UnifiedBtnStyle_Negtive}"
+                        Visibility="Collapsed">Cancel</Button>
+
+            </StackPanel>
+
+        </Grid>
+
+    </Grid>
+
+</Window>

@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{1F2AD316-6CB7-46F3-9A1F-70716F3161EE}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>nxrmaddin</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)bin_SancDir\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>bin_SancDir\$(Platform)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <EnableManagedIncrementalBuild>true</EnableManagedIncrementalBuild>
+    <IntDir>bin_SancDir\$(Platform)\$(Configuration)\</IntDir>
+    <OutDir>$(ProjectDir)bin_SancDir\$(Platform)\$(Configuration)\</OutDir>
+    <TargetName>$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)bin_SancDir\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>bin_SancDir\$(Platform)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)bin_SancDir\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>bin_SancDir\$(Platform)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;NXRMADDIN_EXPORTS;NEXTLABS_FEATURE_SKYDRM_SANCTUARY_DIR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(NLDOOMDIR)\doom_sdk\sources\include;%(AdditionalIncludeDirectories);$(VcpkgRoot)include</AdditionalIncludeDirectories>
+	   <ExceptionHandling>false</ExceptionHandling>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ModuleDefinitionFile>nxrmaddin.def</ModuleDefinitionFile>
+      <AdditionalLibraryDirectories>$(NLDOOMDIR)\doom_sdk\build\build.msvc_SancDir\$(PlatformName)_$(ConfigurationName);$(NLDOOMDIR)\openssl\$(PlatformName)_$(ConfigurationName);$(NLGITEXTERNALDIR)\boost\$(PlatformName)_$(ConfigurationName);%(AdditionalLibraryDirectories);$(VcpkgRoot)debug\lib;$(VcpkgRoot)debug\lib\manual-link</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Version.lib;Iphlpapi.lib;Urlmon.lib;Secur32.lib;Mpr.lib;Winhttp.lib;Shlwapi.lib;Ws2_32.lib;Wtsapi32.lib;Bcrypt.lib;Crypt32.lib;libeay32.lib;SDWRmcLib_SancDir.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;NXRMADDIN_EXPORTS;NEXTLABS_FEATURE_SKYDRM_SANCTUARY_DIR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>D:\OyeProject\rmcsdk\rmdsdk\sources\include;$(OSMOND_EXTERNAL)\boost_1_67_0\;%(AdditionalIncludeDirectories);$(VcpkgRoot)include;$(NLDOOMDIR)\doom_sdk\sources\include</AdditionalIncludeDirectories>
+      <SupportJustMyCode>false</SupportJustMyCode>
+	  <ExceptionHandling>false</ExceptionHandling>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ModuleDefinitionFile>nxrmaddin.def</ModuleDefinitionFile>
+      <OutputFile>$(OutDir)$(TargetName)64$(TargetExt)</OutputFile>
+      <AdditionalLibraryDirectories>D:\OyeProject\External\boost_1_67_0\stage\lib;D:\OyeProject\rmcsdk\rmdsdk\build\build.msvc\x64_Debug;$(NLDOOMDIR)\doom_sdk\build\build.msvc_SancDir\$(PlatformName)_$(ConfigurationName);$(NLGITEXTERNALDIR)\boost\$(PlatformName)_$(ConfigurationName);$(NLDOOMDIR)\openssl\$(PlatformName)_$(ConfigurationName);$(NLDOOMDIR)\doom_core\build\build.msvc\$(PlatformName)_$(ConfigurationName);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDWRmcLib_SancDir.lib;Version.lib;Iphlpapi.lib;Urlmon.lib;Secur32.lib;Mpr.lib;Winhttp.lib;Shlwapi.lib;Ws2_32.lib;Wtsapi32.lib;Bcrypt.lib;Crypt32.lib;libeay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;NXRMADDIN_EXPORTS;_CRT_SECURE_NO_WARNINGS;NEXTLABS_FEATURE_SKYDRM_SANCTUARY_DIR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(NLDOOMDIR)\doom_sdk\sources\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+	  <ExceptionHandling>false</ExceptionHandling>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ModuleDefinitionFile>nxrmaddin.def</ModuleDefinitionFile>
+      <AdditionalLibraryDirectories>$(NLDOOMDIR)\doom_sdk\build\build.msvc_SancDir\$(PlatformName)_$(ConfigurationName);$(NLGITEXTERNALDIR)\boost\$(PlatformName)_$(ConfigurationName);$(NLDOOMDIR)\doom_core\build\build.msvc\$(PlatformName)_$(ConfigurationName);$(NLDOOMDIR)\openssl\$(PlatformName)_$(ConfigurationName);%(AdditionalLibraryDirectories);$(VcpkgRoot)lib;$(VcpkgRoot)lib\manual-link</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Version.lib;Iphlpapi.lib;Urlmon.lib;Secur32.lib;Mpr.lib;Winhttp.lib;Shlwapi.lib;SDWRmcLib_SancDir.lib;Ws2_32.lib;Wtsapi32.lib;Bcrypt.lib;Crypt32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;libeay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;NXRMADDIN_EXPORTS;_CRT_SECURE_NO_WARNINGS;NEXTLABS_FEATURE_SKYDRM_SANCTUARY_DIR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(NLGITEXTERNALDIR)\boost\boost_1_65_1;$(NLDOOMDIR)\doom_sdk\sources\include;%(AdditionalIncludeDirectories);$(VcpkgRoot)include</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+	  <ExceptionHandling>false</ExceptionHandling>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ModuleDefinitionFile>nxrmaddin.def</ModuleDefinitionFile>
+      <AdditionalDependencies>Version.lib;Iphlpapi.lib;Urlmon.lib;Secur32.lib;Mpr.lib;Winhttp.lib;Shlwapi.lib;SDWRmcLib_SancDir.lib;Ws2_32.lib;Wtsapi32.lib;Bcrypt.lib;Crypt32.lib;libeay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(NLDOOMDIR)\doom_sdk\build\build.msvc_SancDir\$(PlatformName)_$(ConfigurationName);$(NLGITEXTERNALDIR)\boost\$(PlatformName)_$(ConfigurationName);$(NLDOOMDIR)\doom_core\build\build.msvc\$(PlatformName)_$(ConfigurationName);$(NLDOOMDIR)\openssl\$(PlatformName)_$(ConfigurationName);%(AdditionalLibraryDirectories);$(VcpkgRoot)lib;$(VcpkgRoot)lib\manual-link</AdditionalLibraryDirectories>
+      <OutputFile>$(OutDir)$(TargetName)64$(TargetExt)</OutputFile>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="AntiAutoSaveRecoeryHandler.h" />
+    <ClInclude Include="CommonFunction.h" />
+    <ClInclude Include="CoreIDropTarget.h" />
+    <ClInclude Include="CriticalSectionLock.h" />
+    <ClInclude Include="excelevents.h" />
+    <ClInclude Include="HookManager.h" />
+    <ClInclude Include="IEventBase.h" />
+    <ClInclude Include="Log.h" />
+    <ClInclude Include="Monitor.h" />
+    <ClInclude Include="nxrmaddin.h" />
+    <ClInclude Include="nxrmext2.h" />
+    <ClInclude Include="officelayout.h" />
+    <ClInclude Include="powerpointevents.h" />
+    <ClInclude Include="SafePrintHandler.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="ribbonrights.h" />
+    <ClInclude Include="rightsdef.h" />
+    <ClInclude Include="SkyDrmSDKMgr.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="wordevents.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AntiAutoSaveRecoeryHandler.cpp" />
+    <ClCompile Include="CommonFunction.cpp" />
+    <ClCompile Include="CoreIDropTarget.cpp" />
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="excelevents.cpp" />
+    <ClCompile Include="HookManager.cpp" />
+    <ClCompile Include="Log.cpp" />
+    <ClCompile Include="Monitor.cpp" />
+    <ClCompile Include="nxrmaddin.cpp" />
+    <ClCompile Include="nxrmext2.cpp" />
+    <ClCompile Include="powerpointevents.cpp" />
+    <ClCompile Include="rmx_class_misc.cpp" />
+    <ClCompile Include="SafePrintHandler.cpp" />
+    <ClCompile Include="SkyDrmSDKMgr.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="wordevents.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="import\excel2016.tlh" />
+    <None Include="import\msaddndr.tlh" />
+    <None Include="import\mso2016.tlh" />
+    <None Include="import\msppt2016.tlh" />
+    <None Include="import\msword2016.tlh" />
+    <None Include="nxrmaddin.def" />
+    <None Include="thirdpart\Detours\src\Makefile" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="nxrmaddin.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

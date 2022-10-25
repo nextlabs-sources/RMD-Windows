@@ -1,0 +1,100 @@
+﻿<Page x:Class="SkydrmDesktop.rmc.ui.windows.fileOperationWindow.view.FailedPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SkydrmDesktop.rmc.ui.windows.fileOperationWindow.view"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      FontFamily="/nxrmdapp;component/resources/font/#Lato"
+      Title="FailedPage">
+    <Page.Resources>
+        <local:ListFile2IconConverterEx x:Key="FileIconConvert"/>
+
+        <Style x:Key="FileNameListBoxItemStyle" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Margin" Value="10,0,10,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <Border Name="border" Padding="0,3,0,0" CornerRadius="2">
+                            <StackPanel Orientation="Horizontal">
+                                <ContentPresenter></ContentPresenter>
+                            </StackPanel>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="true">
+                                <Setter TargetName="border" Property="Background" Value="Transparent"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="border" Property="Background" Value="Transparent"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <DataTemplate x:Key="FileNameTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Margin="0,2,0,2" Grid.Column="0" Width="30" Height="30" Source="{Binding FileName, Converter={StaticResource FileIconConvert}}"/>
+
+                <TextBlock Margin="10,0,0,0" Grid.Column="1" Width="420" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" 
+                           FontSize="16" Text="{Binding FileName}" ToolTip="{Binding FileName}"/>
+
+                <Image Margin="20,2,20,2" Grid.Column="2" Width="20" Height="20" HorizontalAlignment="Right" Source="/rmc/resources/icons/file_upload_failure.png">
+                    <Image.ToolTip>
+                        <ToolTip Background="#F2F3F5" HasDropShadow="True">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Margin="10,2,10,2" Width="20" Height="20" Source="/rmc/resources/icons/file_upload_failure.png"/>
+                                <TextBlock FontSize="16" Foreground="Black" Text="{Binding ErrorMsg}" MaxWidth="400" TextWrapping="Wrap"/>
+                            </StackPanel>
+                        </ToolTip>
+                    </Image.ToolTip>
+                </Image>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <TextBlock Grid.Row="0" Margin="0,12,0,0" HorizontalAlignment="Center" FontSize="22" Text="{Binding Title}"/>
+
+        <ListBox Grid.Row="1" Margin="0,34,0,0" Name="LstFile" Height="auto" MinHeight="40" MaxHeight="80" Width="540" Background="#FEE9EA"
+                 HorizontalAlignment="Center" 
+                 SelectionMode="Single" ItemsSource="{Binding FailedFileList}"
+                 BorderThickness="1" BorderBrush="#ABADB3"
+                 ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                 ScrollViewer.VerticalScrollBarVisibility="Auto"
+                 ItemTemplate="{StaticResource FileNameTemplate}"
+                 ItemContainerStyle="{StaticResource FileNameListBoxItemStyle}"/>
+
+        <TextBlock Grid.Row="2" Margin="0,4,0,0" Width="540" HorizontalAlignment="Center" TextWrapping="Wrap" FontSize="14">
+            <Run Foreground="#EB5757" Text="{Binding FailedDesc}"/>
+            <Run Foreground="Black" FontWeight="Medium" Text="{Binding FailedDest}"/>
+        </TextBlock>
+
+        <TextBlock Grid.Row="3" Margin="0,4,0,0" Width="540" HorizontalAlignment="Center" TextWrapping="Wrap" FontSize="14">
+            <Run Foreground="#868686" Text="{Binding SuccessDesc1}"/>
+            <Run Foreground="#45B649"  Text="{Binding SuccessDesc2}"/>
+            <Run Foreground="#868686" Text="{Binding SuccessDesc3}"/>
+            <Run Foreground="Black" FontWeight="Bold" Text="{Binding SuccessDest}"/>
+        </TextBlock>
+
+        <Button Grid.Row="4" Margin="0,32,0,32" Width="215" Height="46" HorizontalAlignment="Center" Content="{DynamicResource Windows_Btn_Close}" 
+                Command="local:FailedP_DataCommands.Close" Style="{StaticResource UnifiedBtnStyle_Negtive}"/>
+    </Grid>
+</Page>

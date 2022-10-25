@@ -1,0 +1,290 @@
+////////////////////////////////////////////////////////////////////////////////
+//                                                                            
+//  This template script provides the code necessary to build an entry-point 
+//  function to be called in an InstallScript custom action. 
+//                                                                            
+//                                                                            
+//    File Name:  Setup.rul                                                   
+//                                                                            
+//  Description:  InstallShield script                                        
+//
+////////////////////////////////////////////////////////////////////////////////
+
+// Include Ifx.h for built-in InstallScript function prototypes, for Windows 
+// Installer API function prototypes and constants, and to declare code for 
+// the OnBegin and OnEnd events.
+#include "ifx.h"
+
+// The keyword export identifies MyFunction() as an entry-point function.
+// The argument it accepts must be a handle to the Installer database.
+export prototype DeleteFiles(HWND);
+
+export prototype UnregisterKey(HWND);
+
+export prototype GetCurrentUserName(HWND);
+
+export prototype LaunchSkyDRM(HWND);
+
+export prototype ModifyRegistryDuringInstall(HWND);
+
+export prototype RestoreRegistryDuringUninstall(HWND);
+
+export prototype DisableShareTable(HWND);
+export prototype EnableShareTable(HWND);
+
+export prototype Waring_Message_HaveTo_RebootMachine(HWND);
+
+// To Do:  Create a custom action for this entry-point function:
+// 1.  Right-click on "Custom Actions" in the Sequences/Actions view.
+// 2.  Select "Custom Action Wizard" from the context menu.
+// 3.  Proceed through the wizard and give the custom action a unique name.
+// 4.  Select "Run InstallScript code" for the custom action type, and in
+//     the next panel select "MyFunction" (or the new name of the entry-
+//     point function) for the source.
+// 5.  Click Next, accepting the default selections until the wizard
+//     creates the custom action.
+//
+// Once you have made a custom action, you must execute it in your setup by
+// inserting it into a sequence or making it the result of a dialog's
+// control event.
+
+///////////////////////////////////////////////////////////////////////////////
+//                                                                           
+// Function:  MyFunction
+//                                                                           
+//  Purpose:  This function will be called by the script engine when
+//            Windows(TM) Installer executes your custom action (see the "To
+//            Do," above).
+//                                                                           
+///////////////////////////////////////////////////////////////////////////////
+
+function Waring_Message_HaveTo_RebootMachine(hMSI)
+    // To Do:  Declare local variables.
+begin
+	MessageBox ("After you cancel the installation, you will need to reboot your machine to restart SkyDRM service.", WARNING);
+end;
+
+
+function DeleteFiles(hMSI)
+    // To Do:  Declare local variables.
+begin
+
+    // To Do:  Write script that will be executed when MyFunction is called.
+   // DeleteDir (LocalAppDataFolder^"\SkyDRM",ALLCONTENTS);   
+   // DeleteDir(INSTALLDIR^"\PDP",ALLCONTENTS); 
+	DeleteDir(INSTALLDIR^"\SkyDRM",ALLCONTENTS); 
+end;
+
+function LaunchSkyDRM(hMSI)
+    // To Do:  Declare local variables.
+begin
+
+    // To Do:  Write script that will be executed when MyFunction is called.
+    LaunchApp (INSTALLDIR^"\\SkyDRM\\bin\\nxrmdapp.exe", "");
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+function UnregisterKey(hMSI)
+    // To Do:  Declare local variables.
+    STRING Key1;    
+    STRING Key2;
+begin
+
+    // To Do:  Write script that will be executed when MyFunction is called.
+      RegDBSetDefaultRoot (HKEY_LOCAL_MACHINE);  
+      Key1 = "Software\\Nextlabs\\SkyDRM\\"; 
+      if(RegDBKeyExist(Key1)==1) then
+        if (RegDBDeleteKey (Key1) < 0) then 
+        //MessageBox ("Delete RegisterKey Failed!", SEVERE); 
+        endif;
+      endif;          
+    
+      RegDBSetDefaultRoot (HKEY_CURRENT_USER);  
+      Key2 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run"; 
+      if(RegDBKeyExist(Key2)==1) then
+	    if (RegDBDeleteValue (Key2,"SkydrmLocal") < 0) then 
+        //MessageBox ("Delete RegisterKey Failed!", SEVERE); 
+        endif;
+      endif;
+end;
+
+#define ENV_USER "USERNAME" 
+
+export prototype ExFn_GetEnvVar(HWND); 
+
+function GetCurrentUserName(hMSI)
+    STRING svEnvVar;
+begin
+	
+    GetEnvVar (ENV_USER, svEnvVar); 
+    MsiSetProperty(hMSI, "USERNAME", svEnvVar); 
+
+end;
+
+////////////////////////////////////////////////////////////////////
+//fix Bug 64520 - [SanctuaryDir]Files can be share via right-click menu "Share"
+function ModifyRegistryDuringInstall(hMSI)
+	STRING szKey;
+    STRING szNumName;
+    NUMBER nType;
+    STRING szNumValueOld;
+    STRING szNumValueNew;
+    NUMBER nvSize;
+    STRING svValue;
+    STRING lowValue;
+begin
+	 szKey="SOFTWARE\\Classes\\*\\shellex\\ContextMenuHandlers\\ModernSharing";
+     szNumName="";
+     nType=REGDB_STRING;
+     szNumValueOld="{e2bf9676-5f8f-435c-97eb-11607a5bedf7}";
+     szNumValueNew="--{e2bf9676-5f8f-435c-97eb-11607a5bedf7}";
+     nvSize=-1;
+     svValue="";
+     lowValue="";
+
+	RegDBSetDefaultRoot (HKEY_LOCAL_MACHINE);
+	if(RegDBGetKeyValueEx (szKey,szNumName,nType,svValue,nvSize)<0) then
+
+	else
+		StrToLower (lowValue,svValue);
+		if(StrCompare (lowValue,szNumValueOld)==0) then
+			nvSize=-1;
+			if(RegDBSetKeyValueEx (szKey,szNumName,nType,szNumValueNew,nvSize)<0) then
+			
+			endif;
+		endif;
+	endif;
+end;
+
+
+///////////////////////////////////////////////////////////////////
+//fix Bug 64520 - [SanctuaryDir]Files can be share via right-click menu "Share"
+function RestoreRegistryDuringUninstall(hMSI)
+    STRING szKey;
+    STRING szNumName;
+    NUMBER nType;
+    STRING szNumValueOld;
+    STRING szNumValueNew;
+    NUMBER nvSize;
+    STRING svValue;
+    STRING lowValue;
+begin
+	 szKey="SOFTWARE\\Classes\\*\\shellex\\ContextMenuHandlers\\ModernSharing";
+     szNumName="";
+     nType=REGDB_STRING;
+     szNumValueOld="--{e2bf9676-5f8f-435c-97eb-11607a5bedf7}";
+     szNumValueNew="{e2bf9676-5f8f-435c-97eb-11607a5bedf7}";
+     nvSize=-1;
+     svValue="";
+     lowValue="";
+
+	RegDBSetDefaultRoot (HKEY_LOCAL_MACHINE);
+	if(RegDBGetKeyValueEx (szKey,szNumName,nType,svValue,nvSize)<0) then
+		
+	else
+		StrToLower (lowValue,svValue);
+		if(StrCompare (lowValue,szNumValueOld)==0) then
+			nvSize=-1;
+			if(RegDBSetKeyValueEx (szKey,szNumName,nType,szNumValueNew,nvSize)<0) then
+			
+			endif;
+		endif;
+	endif;
+end;
+
+///////////////////////////////////////////////////////////////////
+//fix Bug 64684 - [SanctuaryDir]Data leak: file can be send via "Share", "Email" button on Explorer ribbon bar 
+function DisableShareTable(hMSI)
+begin
+  RegDBSetDefaultRoot(HKEY_LOCAL_MACHINE);
+  if (RegDBKeyExist("SOFTWARE\\Classes\\CLSID\\{e2bf9676-5f8f-435c-97eb-11607a5bedf7}") < 0) then
+	
+  else
+	// Back up the InstallShield information key.
+	// To rename a key, copy it and then delete the original
+	if(RegDBCopyKeys(
+		"SOFTWARE\\Classes\\CLSID\\{e2bf9676-5f8f-435c-97eb-11607a5bedf7}",
+		"SOFTWARE\\Classes\\CLSID\\--{e2bf9676-5f8f-435c-97eb-11607a5bedf7}",
+		HKEY_LOCAL_MACHINE,
+		HKEY_LOCAL_MACHINE)<ISERR_SUCCESS) then
+		
+	else
+		if (RegDBDeleteKey("SOFTWARE\\Classes\\CLSID\\{e2bf9676-5f8f-435c-97eb-11607a5bedf7}") < 0) then
+			
+		else
+      
+        endif;
+	endif;
+  endif;
+  
+  if (RegDBKeyExist("SOFTWARE\\Classes\\WOW6432Node\\CLSID\\{e2bf9676-5f8f-435c-97eb-11607a5bedf7}") < 0) then
+	
+  else
+	// Back up the InstallShield information key.
+	// To rename a key, copy it and then delete the original
+	if(RegDBCopyKeys(
+		"SOFTWARE\\Classes\\WOW6432Node\\CLSID\\{e2bf9676-5f8f-435c-97eb-11607a5bedf7}",
+		"SOFTWARE\\Classes\\WOW6432Node\\CLSID\\--{e2bf9676-5f8f-435c-97eb-11607a5bedf7}",
+		HKEY_LOCAL_MACHINE,
+		HKEY_LOCAL_MACHINE)<ISERR_SUCCESS) then
+		
+	else
+		if (RegDBDeleteKey("SOFTWARE\\Classes\\WOW6432Node\\CLSID\\{e2bf9676-5f8f-435c-97eb-11607a5bedf7}") < 0) then
+			
+		else
+      
+        endif;
+	endif;
+  endif;
+  
+end;
+
+///////////////////////////////////////////////////////////////////
+//fix Bug 64684 - [SanctuaryDir]Data leak: file can be send via "Share", "Email" button on Explorer ribbon bar 
+function EnableShareTable(hMSI)
+begin
+  RegDBSetDefaultRoot(HKEY_LOCAL_MACHINE);
+  if (RegDBKeyExist("SOFTWARE\\Classes\\CLSID\\--{e2bf9676-5f8f-435c-97eb-11607a5bedf7}") < 0) then
+	
+  else
+	// Back up the InstallShield information key.
+	// To rename a key, copy it and then delete the original
+	if(RegDBCopyKeys(
+		"SOFTWARE\\Classes\\CLSID\\--{e2bf9676-5f8f-435c-97eb-11607a5bedf7}",
+		"SOFTWARE\\Classes\\CLSID\\{e2bf9676-5f8f-435c-97eb-11607a5bedf7}",
+		HKEY_LOCAL_MACHINE,
+		HKEY_LOCAL_MACHINE)<ISERR_SUCCESS) then
+		
+	else
+		if (RegDBDeleteKey("SOFTWARE\\Classes\\CLSID\\--{e2bf9676-5f8f-435c-97eb-11607a5bedf7}") < 0) then
+			
+		else
+      
+        endif;
+	endif;
+  endif;
+  
+  if (RegDBKeyExist("SOFTWARE\\Classes\\WOW6432Node\\CLSID\\--{e2bf9676-5f8f-435c-97eb-11607a5bedf7}") < 0) then
+	
+  else
+	// Back up the InstallShield information key.
+	// To rename a key, copy it and then delete the original
+	if(RegDBCopyKeys(
+		"SOFTWARE\\Classes\\WOW6432Node\\CLSID\\--{e2bf9676-5f8f-435c-97eb-11607a5bedf7}",
+		"SOFTWARE\\Classes\\WOW6432Node\\CLSID\\{e2bf9676-5f8f-435c-97eb-11607a5bedf7}",
+		HKEY_LOCAL_MACHINE,
+		HKEY_LOCAL_MACHINE)<ISERR_SUCCESS) then
+		
+	else
+		if (RegDBDeleteKey("SOFTWARE\\Classes\\WOW6432Node\\CLSID\\--{e2bf9676-5f8f-435c-97eb-11607a5bedf7}") < 0) then
+			
+		else
+      
+        endif;
+	endif;
+  endif;
+  
+end;
+
+
+

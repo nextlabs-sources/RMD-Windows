@@ -1,0 +1,33 @@
+RMS Log:
+-------------------------------------------
+View
+	- Allow
+		- Local record 
+	- Deny
+		- Local Record
+
+Offline (DownlaodForOffline)
+	- Allow
+		- Server record
+	-
+
+Export/SaveAs (Downlaod)
+	- Allow
+		- Server record
+
+Edit 
+	- Allow
+		- Local record
+
+Print
+	- Allow
+		- Local record
+
+Protect
+	- Allow 
+		- Local SDK record
+
+---------------------
+# online view will record View log, no Download Log(requrie rms support)
+# need to design a Enum to discern Offline against Export
+

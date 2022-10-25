@@ -1,0 +1,16 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Viewer">
+
+    <ResourceDictionary.MergedDictionaries>
+
+        <!--The common button style when mouse over it-->
+        <ResourceDictionary Source="/resources/style/MouseOverButtonStyle.xaml"/>
+        <ResourceDictionary Source="/resources/style/UnifiedButtonStyle.xaml"/>
+        <ResourceDictionary Source="/resources/languages/StringResource.xaml"/>
+        
+    </ResourceDictionary.MergedDictionaries>
+
+
+</ResourceDictionary>

@@ -1,0 +1,450 @@
+﻿<Window x:Class="SkydrmLocal.ServiceManager"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SkydrmLocal"   
+        mc:Ignorable="d"
+        xmlns:local_model="clr-namespace:SkydrmLocal.rmc.ui.windows.serviceManagerWindow.helper"
+        Title="ShortcutWindow"  AllowsTransparency="True" 
+        WindowStyle="None" Height="450" Width="400" 
+        WindowStartupLocation="Manual" 
+        KeyUp="Window_KeyUp"
+        SnapsToDevicePixels="True" ShowInTaskbar="False">
+
+    <Window.Resources>
+        <!--left status icon -->
+        <local_model:Status2ImageConverter x:Key="cv_uplodingStatus"/>
+        <!--<local_model:LocalFileFormat2ImageConverter x:Key="cv_fileFormat"></local_model:LocalFileFormat2ImageConverter>-->
+        
+        <local_model:LocalUploadStatus2ImageUploadArrowVisibilityConverter x:Key="cv_arrow_visibility"></local_model:LocalUploadStatus2ImageUploadArrowVisibilityConverter>
+        
+        <local_model:LocalUploadStatus2TextConverter x:Key="cv_upload_status_text_message"></local_model:LocalUploadStatus2TextConverter>
+        
+        <!--can't connect-->
+        <local_model:Status2ExceptionTextVisibilityConverter x:Key="cv_exception_text_visibility"></local_model:Status2ExceptionTextVisibilityConverter>
+        
+        <local_model:LocalUploadStatus2ImageRedOrBlueCirclrConverter x:Key="cv_red_blue_circle"></local_model:LocalUploadStatus2ImageRedOrBlueCirclrConverter>
+        
+        <local_model:LocalFileUploadStatus2ProgressBarForegroundConverter x:Key="cv_progressbar_foreground"></local_model:LocalFileUploadStatus2ProgressBarForegroundConverter>
+        
+        <local_model:NetworkStatusBool2ShortLineImageConverter x:Key="sl"></local_model:NetworkStatusBool2ShortLineImageConverter>
+        
+        <local_model:NetworkStatusBool2LongLineImageConverter x:Key="ll"></local_model:NetworkStatusBool2LongLineImageConverter>
+        
+        <local_model:NetworkStatusBool2StringInfo x:Key="ns"></local_model:NetworkStatusBool2StringInfo>
+        
+        <local_model:Collection2GuideVisibl x:Key="cg"></local_model:Collection2GuideVisibl>
+        <local_model:NetworkStatusBool2StringForeground x:Key="nf"></local_model:NetworkStatusBool2StringForeground>
+        <local_model:NetStatusBool2LineColor x:Key="nsb2lc"/>
+        <local_model:LocalFileStatus2ImageConverter x:Key="fti"/>
+        <local_model:LocalFileStatus2ImageOfArrowHeadConverter x:Key="fta"/>
+
+        <Style x:Key="MsListStyle" TargetType="{x:Type ListBox}">
+            <Setter Property="ItemContainerStyle">
+
+                <Setter.Value>
+                    <Style TargetType="{x:Type ListBoxItem}" >
+
+                        <Setter Property="Margin" Value="0,2,0,2"></Setter>
+
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+
+                                    <Border Background="{TemplateBinding Background}" Padding="0,10,0,10">
+
+                                        <Grid  RenderTransformOrigin="0.5,0.5">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition></RowDefinition>
+                                                <RowDefinition></RowDefinition>
+                                            </Grid.RowDefinitions>
+
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                <ColumnDefinition Width="4*"></ColumnDefinition>
+                                                                                          
+                                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Image Grid.Column="0" Grid.RowSpan="2" Stretch="UniformToFill" 
+                                                   HorizontalAlignment="Center"
+                                                   VerticalAlignment="Center"
+                                                   >
+                                                <Image.Source>
+                                                    <MultiBinding Converter="{StaticResource fti}">
+                                                        <Binding Path="FileName" />
+                                                        <Binding Path="Status" />
+                                                    </MultiBinding>
+                                                </Image.Source>
+                                            </Image>
+
+                                            <TextBlock Margin="6,0,0,0"  Grid.Column="1" Grid.Row="0" Text="{Binding FileName}" VerticalAlignment="Center" 
+                                                       HorizontalAlignment="Left" 
+                                                       SnapsToDevicePixels="True" 
+                                                       TextWrapping="NoWrap" TextAlignment="Left" TextTrimming="CharacterEllipsis"
+                                                       />
+                                                                                      
+                                            <Grid Margin="6,0,0,0" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Stretch">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+
+                                                <Image Grid.Column="0" Width="10" Height="10" Visibility="{Binding Path=Status,Converter={StaticResource cv_arrow_visibility}}"                                                        
+                                                       Source="{Binding Path=Status,Converter={StaticResource fta}}"
+                                                       Stretch="Fill" 
+                                                       Margin="0,0,5,0"                                              
+                                                       >
+                                          
+                                                </Image>
+
+                                                <TextBlock Grid.Column="1" Foreground="Gray"   
+                                                           FontSize="11" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                                    <TextBlock.Text>
+                                                        <MultiBinding Converter="{StaticResource cv_upload_status_text_message}">
+                                                            <Binding Path="Status" />
+                                                            <Binding Path="DateTime"/>
+                                                        </MultiBinding>
+                                                    </TextBlock.Text>
+                                                    
+                                                </TextBlock>
+                                            </Grid>
+
+                                            <TextBlock Grid.Column="2" 
+                                                       Grid.RowSpan="2" 
+                                                       Foreground="Gray"
+                                                       FontSize="11" 
+                                                       VerticalAlignment="Center"
+                                                       HorizontalAlignment="Center"
+                                                       Text="Can't Connect"
+                                                       Visibility="{Binding Path=Status, Converter={StaticResource cv_exception_text_visibility}}"
+                                                       ></TextBlock>
+
+
+                                            <Image Grid.Column="3" Grid.RowSpan="2" 
+                                               Source="{Binding Path=Status,Converter={StaticResource cv_uplodingStatus}}"
+                                               HorizontalAlignment="Right" VerticalAlignment="Center"  
+                                               Margin="5"
+                                               Stretch="None" RenderTransformOrigin="0.5,0.5">
+                                                                                      
+                                                <Image.RenderTransform>
+                                                    <TransformGroup>
+                                                        <ScaleTransform ScaleX="0.8" ScaleY="0.8"/>
+                                                        <SkewTransform/>
+                                                        <RotateTransform/>
+                                                        <TranslateTransform/>
+                                                    </TransformGroup>
+                                                </Image.RenderTransform>
+                                              
+                                            </Image>
+
+                                        </Grid>
+
+                                    </Border>
+                                </ControlTemplate>
+
+                            </Setter.Value>
+                        </Setter>
+
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="true">
+                                <Setter Property="Background" Value="#E1E1E1"/>
+                              
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" Value="#E1E1E1"/>
+
+                            </Trigger>
+                        </Style.Triggers>
+
+                    </Style>
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+
+        <Style x:Key="smProgressBar" TargetType="{x:Type ProgressBar}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ProgressBar}">
+                        <Grid>
+                            <Border   
+                                Name="PART_Track"                                                              
+                                Background="{TemplateBinding Background}" />
+
+                            <Border x:Name="PART_Indicator"                                             
+                                 HorizontalAlignment="Left"
+                                 Background="{TemplateBinding Foreground}"
+                                 >
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+
+    <Border VerticalAlignment="Stretch" HorizontalAlignment="Stretch" BorderBrush="LightSlateGray"  BorderThickness="1,1,1,1"  >
+
+        <DockPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" LastChildFill="True"  >
+
+            <StackPanel DockPanel.Dock="Top" Orientation="Vertical" UseLayoutRounding="True" >
+
+                <Grid Height="60"   UseLayoutRounding="True" Background="#eee" >
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="6*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <!--<ColumnDefinition Width="*"></ColumnDefinition>--> <!--for Preferences button-->
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Ellipse Margin="3" Grid.Column="0" Grid.RowSpan="2" Height="30" Width="30" 
+                             Stroke="{Binding AvatarBackground}" 
+                             Fill="{Binding AvatarBackground}">
+                                      
+                    </Ellipse>
+
+                    <TextBlock Margin="3" Grid.Column="0" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center"
+                               TextAlignment="Center" Text="{Binding AvatarText}" Foreground="{Binding AvatarTextColor}">
+                    </TextBlock>
+
+                    <TextBlock x:Name="user_name" Grid.Column="1" FontSize="13"  Margin="8,0,8,0" 
+                               Text="{Binding UserName}" 
+                               SnapsToDevicePixels="True" 
+                               TextWrapping="NoWrap" TextAlignment="Left" TextTrimming="CharacterEllipsis"
+                               VerticalAlignment="Bottom" HorizontalAlignment="Left" 
+                               FontWeight="Bold" ></TextBlock>
+
+                    <TextBlock x:Name="user_storage_space" Foreground="Gray" FontSize="11" Grid.Column="1" Margin="8,0,8,0" Grid.Row="1" Text="{Binding UserStorageSpace}" VerticalAlignment="Top" HorizontalAlignment="Left" TextWrapping="WrapWithOverflow"></TextBlock>
+
+                    <Button Name="menuToMain" Grid.Column="2" Grid.RowSpan="2"  Style="{StaticResource ResourceKey=YellowButton}"  Content="/rmc/resources/icons/to_main_menu.png" 
+                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="MenuToMain_Click"  Margin="0,8,0,8" ToolTip="Launch SkyDRM DESKTOP" >
+                    </Button>
+
+                    <Button Grid.Column="3" Grid.RowSpan="2"  Content="/rmc/resources/icons/browse_web.png"  
+                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Margin="0,8,0,8" Style="{StaticResource ResourceKey=YellowButton}" 
+                     Click="WebPage_Click" ToolTip="{DynamicResource Open_Skydrm_Web}"
+                   >
+                    </Button>
+
+
+                    <Button Grid.Column="4" Grid.RowSpan="2"  Content="/rmc/resources/icons/preference_menu.png"  Style="{StaticResource ResourceKey=YellowButton}" 
+                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  
+                      Click="PreferencesWindow_Click" Margin="0,8,0,8" ToolTip="Preferences " Visibility="Collapsed"
+                  >
+
+                    </Button>
+
+                    <Button Name="btnMenu" Grid.Column="5" Grid.RowSpan="2"  VerticalAlignment="Stretch"  HorizontalAlignment="Stretch"                          
+                            Click="BtnMenu_Click" Margin="0,8,0,8" ToolTip="Menu Options">
+                        <Button.Template>
+                            <ControlTemplate>
+                                <Grid>
+                                    <Border Name="Border" BorderBrush="#F5D350" BorderThickness="1" CornerRadius="3" Visibility="Hidden">
+                                        <Border.Background>
+                                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                                <GradientStop Color="#FDEEB3" Offset="0"/>
+                                                <GradientStop Color="#FDE690" Offset="0.3"/>
+                                                <GradientStop Color="#FDEEAE" Offset="0.56"/>
+                                                <GradientStop Color="#FFFFFF" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+
+                                    </Border>
+
+                                    <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                        <Rectangle.Fill>
+                                            <ImageBrush Stretch="None" ImageSource="/rmc/resources/icons/expander_menu.png" >
+                                                <ImageBrush.RelativeTransform>
+                                                    <TransformGroup>
+                                                        <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.8" ScaleY="0.8"/>
+
+                                                    </TransformGroup>
+                                                </ImageBrush.RelativeTransform>
+                                                <ImageBrush.Transform>
+                                                    <TransformGroup>
+                                                        <ScaleTransform />
+                                                        <SkewTransform/>
+                                                        <RotateTransform/>
+                                                        <TranslateTransform/>
+                                                    </TransformGroup>
+                                                </ImageBrush.Transform>
+                                            </ImageBrush>
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+                                </Grid>
+
+                                <ControlTemplate.Triggers>
+
+                                    <Trigger Property="Button.IsMouseOver" Value="true">
+                                        <Setter TargetName="Border" Property="Visibility" Value="Visible"></Setter>
+                                    </Trigger>
+
+                                    <Trigger Property="Button.IsPressed" Value="true">
+                                        <Setter TargetName="Border" Property="Visibility" Value="Visible"></Setter>
+                                    </Trigger>
+
+                                </ControlTemplate.Triggers>
+
+                            </ControlTemplate>
+                        </Button.Template>
+                        <Button.ContextMenu >
+                            <ContextMenu Name="contextMenu">
+                                <MenuItem Name="munu_about" Header="About" Click="munu_about_Click">
+                                </MenuItem>
+                                <MenuItem Name="munu_help" Header="Help" Click="munu_help_Click">
+                                </MenuItem>
+                                <MenuItem Name="munu_feend_feedback" Header="Feedback" Click="munu_feedback_Click" Visibility="Collapsed">
+                                </MenuItem>
+                                <MenuItem Name="munu_preferences" Header="Preferences" Click="munu_preferences_Click">
+                                </MenuItem>
+                                <MenuItem Name="munu_logout" Header="Log out" Click="munu_logout_Click">
+                                </MenuItem>
+                            </ContextMenu>
+
+                        </Button.ContextMenu>
+
+                    </Button>
+
+                </Grid>
+
+                <Border Height="5"></Border>
+
+                <Grid  UseLayoutRounding="True" VerticalAlignment="Center"  >
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                        <ColumnDefinition Width="10*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                 <Image Grid.Column="0" Source="{Binding IsNetworkAvailable, Converter={StaticResource sl}}" 
+                 HorizontalAlignment="Stretch" VerticalAlignment="Center"  
+                 Margin="5"
+                 Stretch="UniformToFill" 
+                 />
+
+                    <TextBlock  Grid.Column="1" FontSize="10" Text="{Binding IsNetworkAvailable, Converter= {StaticResource ns}}"
+                                VerticalAlignment="Center" HorizontalAlignment="Center"                          
+                                Foreground="{Binding IsNetworkAvailable, Converter= {StaticResource nf}}"></TextBlock>
+
+                    <Image Grid.Column="2"  Source="{Binding IsNetworkAvailable, Converter={StaticResource ll}}" 
+                HorizontalAlignment="Center" VerticalAlignment="Center"  
+                Margin="5"
+                 Stretch="UniformToFill" 
+              />
+
+                </Grid>
+
+                <Border Height="5"></Border>
+                
+            </StackPanel>
+
+            <DockPanel DockPanel.Dock="Top"  Background="LightGray"  Visibility="{Binding NxlFileList.Count, Converter={StaticResource cg}}">
+
+                <Grid Margin="10,10,10,10" Background="White">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,10">
+                        <Image Source="/rmc/resources/icons/icon_company_logo.png"  Stretch="None"></Image>
+                        <TextBlock Text="Protect and Share your files" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="14" Foreground="Black" FontWeight="Bold"></TextBlock>
+
+                    </StackPanel>
+
+                    <TextBlock Grid.Row="1"  Text="Protect files in your computer and share them with your friends in SkyDRM" 
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               TextWrapping="Wrap"
+                               Margin="10,0,10,0"
+                               FontSize="13" FontWeight="Bold"
+                               ></TextBlock>
+
+                    <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center"  >
+                        <Button Content="NOT NOW" Style="{StaticResource UnifiedBtnStyle_Positive}" Width="100" Foreground="Green" Background="White" Margin="0,10,0,10" Height="30" Visibility="Collapsed"></Button>
+
+                        <Button Content="Open SkyDRM DESKTOP" Click="OpenSkyDrmLoacl_Click" Style="{StaticResource UnifiedBtnStyle_Positive}" Margin="10,10,10,10" Height="30"></Button>
+                    </StackPanel>
+                </Grid>
+                
+            </DockPanel>
+
+            <Grid  TextBlock.FontSize="12">
+  
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                                          
+                <ListBox  Grid.Row="0" HorizontalContentAlignment="Stretch"
+                          Name="smList"
+                          ItemsSource="{Binding NxlFileList,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"             
+                          BorderThickness="0"
+                          Style="{StaticResource MsListStyle}"                                        
+                          ScrollViewer.VerticalScrollBarVisibility="Visible" 
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                          SelectionChanged="smList_SelectionChanged"                              
+                          >
+
+                </ListBox>
+
+                <Grid Name="uploading_info" 
+                      Grid.Row="1" Height="40" Background="#EEEEEE"
+                      DataContext="{Binding ElementName=smList, Path=SelectedItem}"             
+                       Visibility="Collapsed"
+                      >
+                    
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*" ></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <ProgressBar   
+                                  Foreground="{Binding Path=Status,Converter={StaticResource ResourceKey=cv_progressbar_foreground}}"
+                                  Background="#B2C4E5"
+                                  Style="{StaticResource smProgressBar}"
+                                  Grid.Column="0" Height="8" 
+                                  Maximum="100" Value="50" 
+                                  Margin="6,0,6,0">
+           
+                   
+                    </ProgressBar>
+
+                    <TextBlock Grid.Column="1" FontSize="10" Text="Uploading 203 of 2018" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+
+                    <Image  Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                            Source="{Binding Path=Status ,Converter={StaticResource ResourceKey=cv_red_blue_circle}}" Stretch="None" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="0.8" ScaleY="0.8"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+
+                </Grid>
+
+     
+            </Grid>
+
+        </DockPanel>
+    </Border>
+</Window>

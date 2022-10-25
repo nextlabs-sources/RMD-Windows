@@ -1,0 +1,81 @@
+﻿<Page x:Class="Viewer.upgrade.ui.common.vdsPage.view.VdsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Viewer.upgrade.ui.common.vdsPage.view"
+      mc:Ignorable="d" 
+      xmlns:DVLStepsControl="clr-namespace:DVLStepsControl;assembly=DVLStepsControl"
+      xmlns:DVLSceneTreeControl="clr-namespace:DVLSceneTreeControl;assembly=DVLSceneTreeControl"
+      xmlns:DVLSettingsControl="clr-namespace:DVLSettingsControl;assembly=DVLSettingsControl"
+      xmlns:DVLStepNameControl="clr-namespace:DVLStepNameControl;assembly=DVLStepNameControl"
+      xmlns:DVLNodeMetaControl="clr-namespace:DVLNodeMetaControl;assembly=DVLNodeMetaControl"    
+      Title="SapThreeDViewer"
+      VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+      Loaded="Page_Loaded" 
+      Unloaded="Page_Unloaded"
+      >
+        <Page.Resources>
+            <Style TargetType="{x:Type Button}">
+                <Setter Property="Background" Value="#373737" />
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="SnapsToDevicePixels" Value="True" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border CornerRadius="0" Background="{TemplateBinding Background}">
+                                <Grid>
+                                    <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
+                                </Grid>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" Value="Orange" />
+                                    <Setter Property="Foreground" Value="White" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Page.Resources>
+
+    <Grid x:Name="grid1" Margin="0,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="TopBar" VerticalAlignment="Top" Height="40" Margin="310,0,0,0" Background="Black" Grid.Row="0" HorizontalAlignment="Stretch">
+            <Button x:Name="btnSceneTree"  Panel.ZIndex="10" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Height="36" Click="ButtonTree_Click" Margin="4,2,0,0" Visibility="Hidden" >
+                <Image Source="/resources/icons/sap_scene_tree.png" />
+            </Button>
+            <ComboBox x:Name="lstProcedures" HorizontalAlignment="Right" Margin="0,2,176,0" VerticalAlignment="Top" Width="240" Height="36" FontSize="16px" VerticalContentAlignment="Center" Visibility="Hidden"/>
+            <Button x:Name="btnPlay" HorizontalAlignment="Right" VerticalAlignment="Top" Width="38" Height="36" Click="ButtonPlay_Click" Margin="0,2,90,0" Visibility="Hidden">
+                <Image Source="/resources/icons/sap_play.png" />
+            </Button>
+            <Button x:Name="btnPause" HorizontalAlignment="Right" VerticalAlignment="Top" Width="38" Height="36" Click="ButtonPause_Click" Margin="0,2,90,0" Visibility="Hidden">
+                <Image Source="/resources/icons/sap_pause.png" />
+            </Button>
+            <Button x:Name="btnHome" HorizontalAlignment="Right" VerticalAlignment="Top" Width="38" Height="36" Click="ButtonHome_Click" Margin="0,2,47,0" Visibility="Hidden">
+                <Image Source="/resources/icons/sap_home.png" />
+            </Button>
+            <Button x:Name="btnShowStepName" HorizontalAlignment="Right" VerticalAlignment="Top" FontWeight="Bold" Width="38" Height="36" Click="ButtonStepName_Click" Margin="0,2,133,0" Visibility="Hidden">
+                <Image Source="/resources/icons/sap_text.png" />
+            </Button>
+            <Button x:Name="btnSettings" HorizontalAlignment="Right" VerticalAlignment="Top" Width="38" Height="36" Click="ButtonSettings_Click" Margin="0,2,4,0">
+                <Image Source="/resources/icons/sap_settings.png" />
+            </Button>
+            <Button x:Name="btnHotspot" HorizontalAlignment="Right" VerticalAlignment="Top" Width="38" Height="36" Click="HotspotSettings_Click" Margin="0,2,4,0" Visibility="Hidden">
+                <Image Source="/resources/icons/sap_hotspot.png" />
+            </Button>
+            <Label x:Name="lblFileName" Content="" Panel.ZIndex="-1" HorizontalAlignment="Stretch" Margin="47,0,421,0" VerticalAlignment="Top" Foreground="Gray" FontSize="20" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+
+        </Grid>
+        <DVLSceneTreeControl:DVLSceneTreeControl x:Name="DVLSceneTree" HorizontalAlignment="Left" Width="310" Grid.Row="0"/>
+        <Grid x:Name="veviewer" Margin="310,40,0,0" Grid.Row="0" />
+        <DVLSettingsControl:DVLSettingsControl x:Name="DVLSettings" Width="310" HorizontalAlignment="Left" Visibility="Hidden" Grid.Row="0"/>
+        <DVLStepsControl:DVLStepsControl x:Name="DVLSteps" VerticalAlignment="Bottom" Height="70" Grid.Row="1"/>
+
+    </Grid>
+</Page>

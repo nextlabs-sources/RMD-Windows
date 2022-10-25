@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordAddIn", "WordAddIn\WordAddIn.csproj", "{E3F9EAD1-014D-4224-A657-2B628B231F4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelAddIn", "ExcelAddIn\ExcelAddIn.csproj", "{0F8B7637-38F5-493D-84EE-F972A06188B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerPointAddIn", "PowerPointAddIn\PowerPointAddIn.csproj", "{B4B8F144-3353-445C-A81F-8DA15D6E1AE2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E3F9EAD1-014D-4224-A657-2B628B231F4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3F9EAD1-014D-4224-A657-2B628B231F4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3F9EAD1-014D-4224-A657-2B628B231F4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3F9EAD1-014D-4224-A657-2B628B231F4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F8B7637-38F5-493D-84EE-F972A06188B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F8B7637-38F5-493D-84EE-F972A06188B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F8B7637-38F5-493D-84EE-F972A06188B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F8B7637-38F5-493D-84EE-F972A06188B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4B8F144-3353-445C-A81F-8DA15D6E1AE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4B8F144-3353-445C-A81F-8DA15D6E1AE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4B8F144-3353-445C-A81F-8DA15D6E1AE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4B8F144-3353-445C-A81F-8DA15D6E1AE2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9D3446CF-4C9A-42CA-940C-0C456F631C91}
+	EndGlobalSection
+EndGlobal

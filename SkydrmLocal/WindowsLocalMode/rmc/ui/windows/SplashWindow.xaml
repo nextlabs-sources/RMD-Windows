@@ -1,0 +1,45 @@
+﻿<Window x:Class="SkydrmLocal.SplashWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SkydrmLocal"
+        mc:Ignorable="d"        
+        Title="SkyDRM DESKTOP" Height="600" Width="1000" 
+                    MinWidth="1000" 
+                    MinHeight="600"
+                    BorderBrush="White"     
+     
+        WindowStartupLocation="CenterScreen">
+
+    <!--<Window.Resources>
+        --><!--设置TextBlock的样式:  参考:wpf中之Style文件的引用 “https://www.cnblogs.com/xinaixia/p/5512535.html”--><!--
+        <Style TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="FontSize" Value="24"/>
+                <Setter Property="TextDecorations" Value="Underline"/>
+                <Setter Property="FontStyle" Value="Italic"/>
+            </Style.Setters>
+        </Style>
+
+
+    </Window.Resources>
+    
+
+
+    --><!--布局--><!--
+    <StackPanel Margin="5">
+        <TextBlock Text="hello WPF"/>
+        <TextBlock Text="This is a sample for wpf"/>
+        <TextBlock Text="By allen" Style="{x:Null}"/>
+
+        <Image Source="rmc/rmc/resources/icons/bb.png"/>
+    </StackPanel>-->
+
+    <Frame Name="main_frame"  NavigationUIVisibility="Hidden"/>
+
+    <!--<Grid x:Name="grid">
+        
+    </Grid>-->
+    
+</Window>
